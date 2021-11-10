@@ -1,0 +1,22 @@
+file: intro
+sections:
+- file: part_one
+  sections:
+  - file: running
+  - file: hello_world
+- file: part_two
+  sections:
+  - file: datatypes
+  - file: control
+  - file: functions
+- file: part_three
+  sections:
+  - file: pointers
+  - file: structs 
+- file: appendices
+  sections:
+  - file: header_files
+  - file: keywords
+- file: further_reading
+
+
