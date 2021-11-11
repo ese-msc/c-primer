@@ -4,19 +4,25 @@ sections:
   sections:
   - file: running
   - file: hello_world
+  - file: exercises_one
 - file: part_two
   sections:
   - file: datatypes
+  - file: operators
   - file: control
   - file: functions
+  - file: exercises_two
 - file: part_three
   sections:
   - file: pointers
   - file: structs 
+  - file: header_files
+  - file: exercises_three
 - file: appendices
   sections:
-  - file: header_files
   - file: keywords
+- title: "Index"
+  file: genindex
 - file: further_reading
 
 

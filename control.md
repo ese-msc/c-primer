@@ -3,17 +3,27 @@
 Control structures are what differentiate a computer program from a calculator, and allow us to repeat or avoid sections of code depending on the logical operation of the program. Many of the 
 
 ## Loops
+```{index} Loops
+```
 
 ### For loops
+```{index} For loops
+```
 
 
 ### While loops
+```{index} While loops
+```
 
 
 ### Do while
+```{index} Do while loops
+```
 
 
 ### Break and continue
+```{index} break, continue
+```
 
 
 ## Conditionals
@@ -25,7 +35,7 @@ As with Python, C-like languages use if statements to conditionally process bloc
 
 Where a PEP8 compliant Python conditional might look like
 
-    ```python
+```python
     my_age = 70
     your_age = input()
 
@@ -35,9 +45,9 @@ Where a PEP8 compliant Python conditional might look like
         print("Ha! I'm older than you!")
     else:
         print("Ha! We're the same age!")
-    ```
+```
 a C++ equivalent main program might look like
-   ```c++
+```c++
    #include <iostream>
 
    int main() {
@@ -51,7 +61,7 @@ a C++ equivalent main program might look like
         print("Ha! We're the same age!")
     }
 
-   ```
+```
 
 The key differences are:
   - The `()` brackets are required around the expression being tested.
