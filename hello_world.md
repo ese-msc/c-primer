@@ -62,3 +62,7 @@ Once you can run the programs, try changing the message:
 - What happens if you leave out the `\n` instruction in the C example?
 - Can you add a second line?
 
+
+## Summary
+
+In this section we've seen an example of one of the shortest possible C++ programs, and run it to produce output. In the next section we'll apply C++ to some numerical problems.

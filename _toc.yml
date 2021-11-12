@@ -4,6 +4,8 @@ sections:
   sections:
   - file: running
   - file: hello_world
+  - file: simple_math
+  - file: troubleshooting
   - file: exercises_one
 - file: part_two
   sections:
@@ -21,6 +23,7 @@ sections:
 - file: appendices
   sections:
   - file: keywords
+  - file: c-preprocessor
 - title: "Index"
   file: genindex
 - file: further_reading
