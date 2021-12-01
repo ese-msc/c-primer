@@ -1,6 +1,6 @@
 # C/C++ Control Structures
 
-Control structures are what differentiate a computer program from a calculator, and allow us to repeat or avoid sections of code depending on the logical operation of the program. Many of the 
+Control structures are what differentiate a computer program from a calculator, and allow us to repeat or avoid sections of code depending on the logical operation of the program. Many of the fundamental details are very similar to Python, and generally sections will translate fairly easily, although not perfectly, between the two languages.
 
 ## Loops
 ```{index} Loops
@@ -84,6 +84,8 @@ switch (my_label) {
   case 1:
     
 } 
+```
 
+## Summary
 
-## Exercise
+## Exercises

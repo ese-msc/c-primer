@@ -1,1 +1,1 @@
-# Further Details: Exercises
+# Further Exercises
