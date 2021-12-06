@@ -16,9 +16,20 @@ Like Python, C-like languages support the core mathematical operations on numeri
 |   *    | Multiplication|
 |   /    | Division   |
 
+Unlike Python there is no exponentiation operator (i.e. no `**`), which requires a function call instead.
+
 ## Logical Operators
 ```{index} operators: logical
 ```
+
+Again, as with Python, all the binary logical operators below work in C/C++
+
+|Operator| Operation |
+|:------:|:---------:|
+|   ==   |  equality test |
+|   >    | greater than|
+|   <    | less than|
+|       | Division   |
 
 ## Other Useful Operators
 ```{index} operators: other

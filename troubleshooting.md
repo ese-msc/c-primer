@@ -127,12 +127,7 @@ This code will compile (in the absence of additonal compiler options) and run wi
 
 Other common errors which might still compile include basic coding failings in logic, mathematics as well as mistakes like using a bare array name instead of accessing an element. Ulttimately, these are the programmer's responsiblity to test for and catch while writing the code.
 
-## Other common errors
-
-
-
 
 ## Summary
 
-
-## Exercises
+We've now seen some of the more common error messages our compiler might throw at us, as well as some tips on how to deal with them. In the next section we'll have some more exercises to try to practice writing basic programs, before we move on to a more in-depth look at the workings of a C++ program.

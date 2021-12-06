@@ -1,4 +1,4 @@
-# Numerical Examples
+# Some Numerical Examples
 
 Now that we've seen a C++ program at its most basic, let's look at some more useful examples. Again we're going to start from code you've already seen working in Python and convert it into C++
 
@@ -8,6 +8,7 @@ Let's start off with some Python code to list the prime numbers less than 1000.
 
 _primes.py_
 ```python
+    # A simple primes calculator
     for i in range(2, 1000):
         j = 2
         flag = True
@@ -24,6 +25,7 @@ Now let's convert it into a C++ version
 
 _primes.cpp_
 ```c++
+    // A simple primes calculator
     #include <iostream>
 
     int main() {
@@ -48,6 +50,19 @@ _primes.cpp_
 
 Once again we need to include the `iostream` header (to be able to write to the screen) and to place our code inside a `main` function so that it runs when our program is started. The other big difference is that our variables need to be declared to have particular datatypes (e.g. `int j`) at or before their first point of use. This is important, and the code will not compile without it, since the C++ compiler uses the type information to work out which versions of functions to call and to make sure that users have not made mistakes.
 
+Note that we've also included a comment in our code. In C/C++ one-line comments start with `//`. We can also write an entire comment block:
+
+``` c++ 
+/* This text will be ignored by a compiler.
+And so will this!
+To end the comment we need a */
+
+int main(){
+    a = 1;
+    a--;
+    return a;
+}
+```
 
 ## Programs with input
 
@@ -71,11 +86,10 @@ int main(){
 ```
 
 ```{note} 
-To run this using Docker plus VS code, you will need to run the compile command in full in the terminal
-
-```
-g++ hello2.cpp -o hello2
-```
+To run this using Docker plus VS code, you will need to run the compile command in full in the terminal:
+    ```
+    g++ hello2.cpp -o hello2
+    ```
 ```
 
 The `>>` operator will automatically convert the input into an appropriate form for the datatype (as long as it's one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let's have an example, for example a program to calculate the mean of a sequence of floating point numbers.
@@ -129,9 +143,73 @@ int main(int argc, char* argv[]){
 
 ### Taking input from files
 
-The last useful way we'll talk about to pass information in to a program is via a file. As with input/output the standard methods differ somewhat between C & C++.
+The last useful way we'll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don't be too worried if you don't follow all the details.
 
+As with input/output the standard methods differ somewhat between C & C++. In C we use a collection of functions from `stdio.h`. For example to write a file:
+
+```c
+#include <stdio.h>
+
+int main()
+{
+   FILE *fptr;
+
+   fptr = fopen("example.txt","w"); // A lot like the Python open function
+
+   if(fptr == NULL) // We have to do our own error checks
+   {
+      printf("Error!");   
+      exit(1);             
+   }
+
+   fprintf(fptr,"%d",  1000); // Write a number
+   fclose(fptr);
+
+   return 0;
+}
+
+```
+to read a file we'd use
+```c
+   int num;
+   fptr = fopen("example.txt","r"); 
+   fscanf(fptr,"%d", &num);
+```
+instead. We'll explain the use of `*` and `&` in the code above in Part III.
+
+For C++ we can treat files like we do the screen by treating them as _streams_ and reading or writing with the `<<` and `>>` operators. So to read
+
+```c++
+#include <fstream>
+
+int main () {
+
+  std::fstream fs;
+  fs.open ("example.txt", std::fstream::out);
+  
+  fs << 1000;
+  fs.close();
+
+  return 0;
+}
+```
+
+or
+```
+  int num;
+  fs.open ("example.txt", std::fstream::out);
+  fs >> num;
+  fs.close();
+```
+to write output instead.
 
 ## Exercises
 
+1. Try to modify the C++ primes code to calulate the first 100 prime numbers instead. 
+2. Next, add the code to take input from the keyboard on how many numbers to calculate.
+3. Next, write a version which takes the number of primes to calculate as input from the command line (you may need the `std::atoi` function).
+4. Finally, update your code to write the prime numbers to a file, taking the name of the file as input.
+
 ## Summary
+
+We've now seen C++ used to solve some simple numerical problems of the sort which you're already used to solving with Python. In the next section we'll look in detail at some of the things that can go wrong while trying to compile C/C++ code, how to understand the error messages which are presented, and what we can do to attempt to fix the problems.
