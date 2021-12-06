@@ -41,6 +41,6 @@ $$ f(x, m, s) = \frac{1}{s\sqrt{2\pi}}\exp\left(\left(-\frac{1}{2}\frac{x-m}{s}\
 
 You will probably want to use `#include <cmath>` at the top of your file to get the `exp` and `sqrt` functions. You might also want the `pow` function to implement the square (`pow(x, 3)` returns $x^3$). 
 
-Your function can use fixed inputs, or read them in in any of the ways you now know.
+Your function can use fixed inputs, or read them in any of the ways you now know.
 
 

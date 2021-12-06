@@ -17,7 +17,7 @@ There are a variety of platforms which will allow you to run small one file C & 
 
 On each of these platforms you can cut & paste code from the examples in this primer, and then run the code to generate output, usually with a single click of the mouse on the button labelled `Run`. Note that not all platforms will let you interact with your code while it runs (Replit will, as well as linking to your GitHub account if you'd like to save your work).
 
-## Visual Stuid Code & Devcontainers
+## Visual Studio Code & Devcontainers
 ```{index} compiling: via docker
 ```
 
@@ -94,7 +94,7 @@ cc --version
 Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can't hope to cover all of them, but for some of the more popular ones:
 
 - On Ubuntu/Debian, use `sudo apt install `
-- On Arch Linux 
+- On Arch Linux, use `sudo pacman -S`
 - On Red Hat/Fedora
  
 Once installed,  you can confirm that things work by running the following command in a terminal:

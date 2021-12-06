@@ -125,7 +125,7 @@ int main(){
 
 This code will compile (in the absence of additonal compiler options) and run without question, however, after printing the 5 integers in `a` it will then print the next few bytes it finds in the program memory, as if they were an integer.
 
-Other common errors which might still compile include basic coding failings in logic, mathematics as well as mistakes like using a bare array name instead of accessing an element. Ulttimately, these are the programmer's responsiblity to test for and catch while writing the code.
+Other common errors which might still compile include basic coding failings in logic, mathematics as well as mistakes like using a bare array name instead of accessing an element. Ultimately, these are the programmer's responsiblity to test for and catch while writing the code.
 
 
 ## Summary
