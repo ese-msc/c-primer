@@ -131,6 +131,87 @@ This makes code somewhat easier to maintain, understand and extend than generati
 
 These keywords allow programmers to combine basic data types (and in C++, functions) together into unified constucts which are accessible under a single name. We will cover them in more detail in the final part of the primer.
 
+## Arrays
+
+As well as scalar variables, C (& thus C++) supports _arrays_ of variables, which are collections of data all of the same data type, which can each be accessed element by element using a syntax somewhat similar to Python collections.
+
+```c++
+int a[10];  // this declares a to be a ten value array of ints
+
+float b[3][3] = {{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}};
+
+for (int i=0; i<10; i++) {
+  std::cout <<a[i] <<", "; // Access (in this case print) an element
+}
+std::cout  <<"\n";
+for (int i=0; i<3; i++) {
+  for (int j=0; j<3; j++) {
+  std::cout << b[i][j]<<", ";
+  }
+  std::cout << "\n";
+} 
+
+```
+
+Unlike Python, there are no slice operators and arrays need to be dealt with one by one, and we can't quickly print a whole array just by its name (you'll learn why when we talk about pointers.)
+
+To pass a one dimensional array into a function we must declare it specially
+
+```c++
+float mean(float a[], int length){
+    float sum = 0;
+    for (int i=0; i<length; i++) {
+        sum += a[i];
+    }
+    return sum/length
+}
+```
+
+Note that in our example we've passed in the length of the C-style array explicitly. It's often hard to calculate this in a program, so this is a common (but annoying) technique. To pass a multidimensional array to a function, we replace the `[]` (other than the last one) with a `*` (which means that we are actually passing in pointers).
+
+```c++
+float det_2d(float a*[]){
+    return a[0][0]*a[1][1]-a[0][1]*a[1][0] //the 2x2 determinant.
+}
+```
+
+## The C++ standard library
+
+Since C-style arrays are so limited, C++ introduces additional data types, some of which are near equivalents to those in Python. It also introduces additional frameworks to build new ones from existing types. A simple example is the `vector` type, which behaves something like a Python list (i.e. it is a container which autmomatically expands to fit its input)
+
+```c++
+#include <iostream>
+#include <vector> // library types need an include
+
+int main() {
+
+std::vector<int> vec ={1,2,3}; //use {} to initialise
+
+std::cout << "How many elements?";
+int n;
+std::cin >> n;
+
+for (int i=3; i<n; i++) {
+    vec.push_back(i*i);// Add a new entry, like Python list.append()
+}
+
+for (int i=0; i<n; i++) {
+    std::cout << vec[i]<< "\n";; // access is still through []
+}
+```
+
+A basic comparison table:
+
+|Python |C++|
+|:-----:|:-:|
+| `str` | `std::string`|
+| `list`| `std::vector` |
+| `dict`| `std::map` |
+| `array`| `std::array` (1d )|
+
+
 ## Summary
+
+We've now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the advanced programming course. In the next section we will cover the key operations which can be performed on these variables.
 
 ## Exercises
