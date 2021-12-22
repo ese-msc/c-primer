@@ -24,6 +24,7 @@ sections:
   sections:
   - file: keywords
   - file: c-preprocessor
+- file: changelog
 - title: "Index"
   file: genindex
 - file: further_reading
