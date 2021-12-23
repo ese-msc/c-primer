@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Debugging &amp; Troubleshooting &#8212; C/C++ Primer</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_input div.highlight"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Further Exercises" href="exercises_one.html" />
+    <link rel="prev" title="Some Numerical Examples" href="simple_math.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ESE-MSC-2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="part_one.html">
+   Part I: Getting Started
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="running.html">
+     Compiling &amp; Running
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hello_world.html">
+     Hello World!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="simple_math.html">
+     Some Numerical Examples
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Debugging &amp; Troubleshooting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_one.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_two.html">
+   Part II: C/C++ fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datatypes.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="operators.html">
+     C/C++ Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="control.html">
+     C/C++ Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_two.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_three.html">
+   Part III: Beyond the Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pointers.html">
+     Pointers - a window to variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="structs.html">
+     Structures &amp; Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="header_files.html">
+     Header files and libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_three.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendices.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keywords.html">
+     Keywords
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="c-preprocessor.html">
+     The C preprocessor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="further_reading.html">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/troubleshooting.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/ese-msc-confidential/c-primer/issues/new?title=Issue%20on%20page%20%2Ftroubleshooting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiler-error-messages">
+   Compiler error messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-compiler-errors">
+   Common compiler errors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-punctuation">
+     Missing punctuation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#undeclared-variables">
+     Undeclared variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#incompatible-data-types">
+     Incompatible data types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiler-non-errors">
+   Compiler non-errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="debugging-troubleshooting">
+<h1>Debugging &amp; Troubleshooting<a class="headerlink" href="#debugging-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compiler-error-messages">
+<h2>Compiler error messages<a class="headerlink" href="#compiler-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>Just as with Python, C gives you some useful messages when it can’t work out what to do with your code. However, since we are using a compiled language, they appear at compile time rather than when we attempt to run the program. Let’s get ourselves a simple example. Suppose we forget to include the <code class="docutils literal notranslate"><span class="pre">iostream</span></code> header in our Hello World example:</p>
+<p><em>bad_hello.cpp</em>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>GCC gives us the following error messages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bad_hello.cpp: In function &#39;int main()&#39;:
+bad_hello.cpp:2:14: error: &#39;cout&#39; is not a member of &#39;std&#39;
+    2 |         std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+      |              ^~~~
+bad_hello.cpp:1:1: note: &#39;std::cout&#39; is defined in header &#39;&lt;iostream&gt;&#39;; did you forget to &#39;#include &lt;iostream&gt;&#39;?
+  +++ |+#include &lt;iostream&gt;
+    1 |     int main() {
+bad_hello.cpp:2:45: error: &#39;endl&#39; is not a member of &#39;std&#39;
+    2 |         std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+      |                                             ^~~~
+bad_hello.cpp:1:1: note: &#39;std::endl&#39; is defined in header &#39;&lt;ostream&gt;&#39;; did you forget to &#39;#include &lt;ostream&gt;&#39;?
+  +++ |+#include &lt;ostream&gt;
+    1 |     int main() {
+</pre></div>
+</div>
+<p>For C++ compilers error messages should typically be read from top to bottom, since it’s possible that later errors are caused by the first one. In this case, the error message not only identifies the problem, but the solution too! This isn’t the common case, in which the compiler will tell you what it doesn’t understand, but will be unable to help you. For the record, the Visual Studio Windows compiler gives an example of this sort of less useful message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">&gt;</span><span class="n">ConsoleApplication3</span><span class="o">.</span><span class="n">cpp</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span><span class="o">.</span><span class="n">cpp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span> <span class="n">error</span> <span class="n">C2039</span><span class="p">:</span> <span class="s1">&#39;cout&#39;</span><span class="p">:</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">member</span> <span class="n">of</span> <span class="s1">&#39;std&#39;</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">predefined</span> <span class="n">C</span><span class="o">++</span> <span class="n">types</span> <span class="p">(</span><span class="n">compiler</span> <span class="n">internal</span><span class="p">)(</span><span class="mi">367</span><span class="p">):</span> <span class="n">message</span> <span class="p">:</span> <span class="n">see</span> <span class="n">declaration</span> <span class="n">of</span> <span class="s1">&#39;std&#39;</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span><span class="o">.</span><span class="n">cpp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">15</span><span class="p">):</span> <span class="n">error</span> <span class="n">C2065</span><span class="p">:</span> <span class="s1">&#39;cout&#39;</span><span class="p">:</span> <span class="n">undeclared</span> <span class="n">identifier</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span><span class="o">.</span><span class="n">cpp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">41</span><span class="p">):</span> <span class="n">error</span> <span class="n">C2039</span><span class="p">:</span> <span class="s1">&#39;endl&#39;</span><span class="p">:</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">member</span> <span class="n">of</span> <span class="s1">&#39;std&#39;</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">predefined</span> <span class="n">C</span><span class="o">++</span> <span class="n">types</span> <span class="p">(</span><span class="n">compiler</span> <span class="n">internal</span><span class="p">)(</span><span class="mi">367</span><span class="p">):</span> <span class="n">message</span> <span class="p">:</span> <span class="n">see</span> <span class="n">declaration</span> <span class="n">of</span> <span class="s1">&#39;std&#39;</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">origi</span>\<span class="n">source</span>\<span class="n">repos</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span>\<span class="n">ConsoleApplication3</span><span class="o">.</span><span class="n">cpp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">45</span><span class="p">):</span> <span class="n">error</span> <span class="n">C2065</span><span class="p">:</span> <span class="s1">&#39;endl&#39;</span><span class="p">:</span> <span class="n">undeclared</span> <span class="n">identifier</span>
+<span class="mi">1</span><span class="o">&gt;</span><span class="n">Done</span> <span class="n">building</span> <span class="n">project</span> <span class="s2">&quot;ConsoleApplication3.vcxproj&quot;</span> <span class="o">--</span> <span class="n">FAILED</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-compiler-errors">
+<h2>Common compiler errors<a class="headerlink" href="#common-compiler-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="missing-punctuation">
+<h3>Missing punctuation<a class="headerlink" href="#missing-punctuation" title="Permalink to this headline">¶</a></h3>
+<p>Probably the most common error for beginners in C/C++ is to</p>
+</div>
+<div class="section" id="undeclared-variables">
+<h3>Undeclared variables<a class="headerlink" href="#undeclared-variables" title="Permalink to this headline">¶</a></h3>
+<p>Another very common C/C++ error is to attempt to use a variable name which hasn’t been declared to have a specific data type. This can be because you forgot, because you’ve changed the order of pieces of the code (e.g. ), or because you made a typing error (no pun intended) while entering the name. As a trivial example, consider the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On GCC we see this error message</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">no_declaration</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span> <span class="n">In</span> <span class="n">function</span> <span class="s1">&#39;int main()&#39;</span><span class="p">:</span>
+<span class="n">no_declaration</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">declared</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">scope</span>
+    <span class="mi">3</span> <span class="o">|</span>     <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This time, the compiler can’t tell us what to do, but we either need to declare the datatype of the variable (in this case, we can change the third line to <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">b=4;</span></code> <em>or</em>, less likely, <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">b=4;</span></code> as appropriate.) or fix our typing error.</p>
+</div>
+<div class="section" id="incompatible-data-types">
+<h3>Incompatible data types<a class="headerlink" href="#incompatible-data-types" title="Permalink to this headline">¶</a></h3>
+<p>As strongly typed languages, C/C++ only allows inputs to functions if the input datatype is compatible with the function declaration. As an example, consider the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;iostream&gt;</span>
+
+<span class="n">void</span> <span class="n">print_with_endline</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">string</span><span class="p">){</span>
+    <span class="n">std</span><span class="p">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">string</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">print_with_endline</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here we’ve declared (and defined) a new function, <code class="docutils literal notranslate"><span class="pre">print_with_endline</span></code> which accepts a string (strictly, a pointer to a character which starts a character array, you’ll learn more in Part III), but called the function with an integer. This isn’t a conversion which is declared by default, since it’s ambiguous whether you’re likely to want to view the integer as one byte, as a sequence of bytes, or as the string which represents the integer value. The error message from GCC is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bad_datatype</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span> <span class="n">In</span> <span class="n">function</span> <span class="s1">&#39;int main()&#39;</span><span class="p">:</span>
+<span class="n">bad_datatype</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">conversion</span> <span class="kn">from</span> <span class="s1">&#39;int&#39;</span> <span class="n">to</span> <span class="s1">&#39;char*&#39;</span> <span class="p">[</span><span class="o">-</span><span class="n">fpermissive</span><span class="p">]</span>
+    <span class="mi">9</span> <span class="o">|</span>     <span class="n">print_with_endline</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+      <span class="o">|</span>                        <span class="o">^</span>
+      <span class="o">|</span>                        <span class="o">|</span>
+      <span class="o">|</span>                        <span class="nb">int</span>
+<span class="n">bad_datatype</span><span class="o">.</span><span class="n">cpp</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span> <span class="n">note</span><span class="p">:</span>   <span class="n">initializing</span> <span class="n">argument</span> <span class="mi">1</span> <span class="n">of</span> <span class="s1">&#39;void print_with_endline(char*)&#39;</span>
+    <span class="mi">3</span> <span class="o">|</span> <span class="n">void</span> <span class="n">print_with_endline</span><span class="p">(</span><span class="n">char</span><span class="o">*</span> <span class="n">string</span><span class="p">){</span>
+      <span class="o">|</span>                         <span class="o">~~~~~~^~~~~~</span>
+</pre></div>
+</div>
+<p>Again this doesn’t tell us what to do, it’s up to the programmer to sort out what they intended (e.g. to call another function, to convert the integer to bytes, or to convert it into a string using another function first).</p>
+</div>
+</div>
+<div class="section" id="compiler-non-errors">
+<h2>Compiler non-errors<a class="headerlink" href="#compiler-non-errors" title="Permalink to this headline">¶</a></h2>
+<p>Although the compiler flags many code mistakes that it can’t compile, there are also many mistakes that it won’t catch, at least by default. One of the most famous, though not necessarily the most frequent is the class of off-by-one errors when working with arrays and similar containers. As an example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span><span class="c1">// Test should be i&lt;5!</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This code will compile (in the absence of additonal compiler options) and run without question, however, after printing the 5 integers in <code class="docutils literal notranslate"><span class="pre">a</span></code> it will then print the next few bytes it finds in the program memory, as if they were an integer.</p>
+<p>Other common errors which might still compile include basic coding failings in logic, mathematics as well as mistakes like using a bare array name instead of accessing an element. Ultimately, these are the programmer’s responsiblity to test for and catch while writing the code.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We’ve now seen some of the more common error messages our compiler might throw at us, as well as some tips on how to deal with them. In the next section we’ll have some more exercises to try to practice writing basic programs, before we move on to a more in-depth look at the workings of a C++ program.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ese-msc/c-primer",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="simple_math.html" title="previous page">Some Numerical Examples</a>
+    <a class='right-next' id="next-link" href="exercises_one.html" title="next page">Further Exercises</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Imperial College London<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

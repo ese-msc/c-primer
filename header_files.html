@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Header files and libraries &#8212; C/C++ Primer</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_input div.highlight"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Further Exercises" href="exercises_three.html" />
+    <link rel="prev" title="Structures &amp; Classes" href="structs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ESE-MSC-2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_one.html">
+   Part I: Getting Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="running.html">
+     Compiling &amp; Running
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hello_world.html">
+     Hello World!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="simple_math.html">
+     Some Numerical Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="troubleshooting.html">
+     Debugging &amp; Troubleshooting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_one.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_two.html">
+   Part II: C/C++ fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datatypes.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="operators.html">
+     C/C++ Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="control.html">
+     C/C++ Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_two.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="part_three.html">
+   Part III: Beyond the Basics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pointers.html">
+     Pointers - a window to variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="structs.html">
+     Structures &amp; Classes
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Header files and libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_three.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendices.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keywords.html">
+     Keywords
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="c-preprocessor.html">
+     The C preprocessor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="further_reading.html">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/header_files.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/ese-msc-confidential/c-primer/issues/new?title=Issue%20on%20page%20%2Fheader_files.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-multiple-files">
+   Working with multiple files
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-layout">
+     Standard layout
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries">
+   Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="header-files-and-libraries">
+<h1>Header files and libraries<a class="headerlink" href="#header-files-and-libraries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="working-with-multiple-files">
+<span id="index-0"></span><h2>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this headline">¶</a></h2>
+<p>So far, we’ve always been writing code assuming that everything is is the same “compilation unit” (i.e. in the same file, compiled at the same time). This is fine for small programs, but as the amount of code increases, and as you begin working with other people, it can become very useful to divide your source code into multiple files.</p>
+<p>If there is a clear separation between the various components, then this is easy enough to do (the Advanced Programming course will cover some more of the details). However, more usually there will be at least one file which needs to call a function from another file. To do this, the calling file needs to have declarations (i.e. information on the return type and permissible arguments), but not defintions (i.e it doesn’t need the actual function code).</p>
+<p>We could just type up the declaration afresh every time it is used, but that violates the Don’t Repeat Yourself (DRY) programming principle. In particular, if you change the original function in a way which affects the definition, you then need to search out every since file which uses it, rather than changing in one place.</p>
+<p>Instead, the standard which has developed is to use the <code class="docutils literal notranslate"><span class="pre">#include</span></code> preprocessor directive to grab one canonical file containing the proper declarations. This file is called a <em>header file</em>, using the file extension <code class="docutils literal notranslate"><span class="pre">.h</span></code>, and you have already been using them implicitly in your coding whenever you’ve used an <code class="docutils literal notranslate"><span class="pre">#include</span></code> line.</p>
+<div class="section" id="standard-layout">
+<h3>Standard layout<a class="headerlink" href="#standard-layout" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have <code class="docutils literal notranslate"><span class="pre">#include</span></code> lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice modern header files start with</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cm">/*declarations start here*/</span>
+</pre></div>
+</div>
+<p>This tells the compiler to only copy the file in once, even if it sees it multiple times. Older header files achieve the same behaviour using a trick</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef A_SPECIAL_UNIQUE_STRING</span>
+<span class="cp">#define A_SPECIAL_UNIQUE_STRING 1</span>
+
+<span class="c1">// All the declarations go here</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>where the unique string is likely to be based on the name of the file, program or package.</p>
+</div>
+</div>
+<div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<p>To share code for others to use, there are two options in C/C++:</p>
+<ol class="simple">
+<li><p>share the source files and let the user compile it together themselves</p></li>
+<li><p>Compile it for the users’ computer and then share the compiled data for the user to link to.</p></li>
+</ol>
+<p>One version of the first option is called a “headers only” library, in which all the necessary code is contained in <code class="docutils literal notranslate"><span class="pre">.h</span></code> files, which only need to be <code class="docutils literal notranslate"><span class="pre">#included</span></code> to use them. The second option is more complicated, especially for C++ code.</p>
+<p>This is because different C compiler versions (running on the same operating system and basic hardware) normally produce code which will work with all other C compilers, whereas C++ code is linked much more strongly to the compiler which produced it. This means that you need to find &amp; install a version of the library for your specific compiler version in order to be able to use it.</p>
+<p>To link in a compiled library (assuming you’ve already installed it), additional options must be set for your compiler. On the command line, this often means adding additional search paths (using the <code class="docutils literal notranslate"><span class="pre">-L</span></code> option) and library files to include. We won’t try to go into these details now, you will find out more during the course.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We’ve had a brief look at the hows and whys of header files and writing code you can share with others. This concludes the formal part of the C++ primer, beyond some more exercises. If you have further questions (or have spotted any bugs) feel free to ask on Teams. The Advanced Programming team look forward to meeting you in the new year.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ese-msc/c-primer",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="structs.html" title="previous page">Structures &amp; Classes</a>
+    <a class='right-next' id="next-link" href="exercises_three.html" title="next page">Further Exercises</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Imperial College London<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

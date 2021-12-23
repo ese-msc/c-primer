@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pointers - a window to variables &#8212; C/C++ Primer</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_input div.highlight"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Structures &amp; Classes" href="structs.html" />
+    <link rel="prev" title="Part III: Beyond the Basics" href="part_three.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ESE-MSC-2021.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_one.html">
+   Part I: Getting Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="running.html">
+     Compiling &amp; Running
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hello_world.html">
+     Hello World!
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="simple_math.html">
+     Some Numerical Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="troubleshooting.html">
+     Debugging &amp; Troubleshooting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_one.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="part_two.html">
+   Part II: C/C++ fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datatypes.html">
+     Data Types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="operators.html">
+     C/C++ Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="control.html">
+     C/C++ Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_two.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="part_three.html">
+   Part III: Beyond the Basics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pointers - a window to variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="structs.html">
+     Structures &amp; Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="header_files.html">
+     Header files and libraries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises_three.html">
+     Further Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendices.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keywords.html">
+     Keywords
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="c-preprocessor.html">
+     The C preprocessor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="further_reading.html">
+   Further Reading
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/pointers.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        <a class="issues-button"
+            href="https://github.com/ese-msc-confidential/c-primer/issues/new?title=Issue%20on%20page%20%2Fpointers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#names-objects-and-memory-addresses">
+   Names, objects and memory addresses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#syntax-and-operators">
+   Syntax and operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pointers-and-arrays">
+   Pointers and arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-pointers">
+   Why pointers?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pointers-and-dynamic-memory-allocation-in-c">
+     Pointers and dynamic memory allocation in C
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Pointers and dynamic memory allocation in C++
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-pointer-types">
+     Additional pointer types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pointers-a-window-to-variables">
+<h1>Pointers - a window to variables<a class="headerlink" href="#pointers-a-window-to-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="names-objects-and-memory-addresses">
+<span id="index-0"></span><h2>Names, objects and memory addresses<a class="headerlink" href="#names-objects-and-memory-addresses" title="Permalink to this headline">¶</a></h2>
+<p>In Python, you are probably familar that different variable names can point to the same object:</p>
+<p><em>list_example.py</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Running the above code in the Python interpretter gives the output <code class="docutils literal notranslate"><span class="pre">[1]</span></code>. This is because the names <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour usuing a concept called “pointer”s.</p>
+<p>A C style pointer holds a location (usually called an address) in you computer’s memory, along with an attached data type. This address can be looked up (“dereferenced”) to get hold of the underlying value to:</p>
+<ol class="simple">
+<li><p>use in an expression</p></li>
+<li><p>update via an assignment.</p></li>
+</ol>
+</div>
+<div class="section" id="syntax-and-operators">
+<h2>Syntax and operators<a class="headerlink" href="#syntax-and-operators" title="Permalink to this headline">¶</a></h2>
+<p>As a C/C++ variable, a pointer must be declared the first time it is used. The syntax for this is</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>int *a; \\ This is a pointer to an int
+</pre></div>
+</div>
+<p>When declared this way, <code class="docutils literal notranslate"><span class="pre">a</span></code> holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it “point” to a “target” we need the memory address of a suitable integer. The language has an operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, which will get this for us. To dereference (i.e. look up the value) <code class="docutils literal notranslate"><span class="pre">a</span></code> points to, we use the derferencing operator <code class="docutils literal notranslate"><span class="pre">*</span></code>. To assign a new value to the target, we assign it to the dereferenced object, that is <code class="docutils literal notranslate"><span class="pre">*a</span></code>. Let’s look at a short C++ program which exercises all this new behaviour</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// B is a normal int variable holding the value 7</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span> <span class="c1">// point</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;;</span> <span class="c1">// returns b&#39;s memory address.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// returns b&#39;s value  (i.e. 7).</span>
+
+<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>                     <span class="c1">// updates a&#39;s target</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// returns 10</span>
+<span class="k">return</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This embeds a lot of new concepts in one go, so feel free to run this one a few tips and check you’ve got to grips with the new behaviour.</p>
+<p>If you think back, we’ve already seen the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator a few times, and the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator at least once. In particular, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is used in C++ to indicate “pass by reference” since it’s already the C reference operator. To pass by reference in C we must declare the input arguments as pointers and pass in the <em>value</em> of a reference to the object we care about by using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator.</p>
+</div>
+<div class="section" id="pointers-and-arrays">
+<h2>Pointers and arrays<a class="headerlink" href="#pointers-and-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Another place the * operator has turned up is when passing 2D arrays into functions. This is because (implicitly) C arrays “decay” into pointers when passed to a function. So this means that both</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/* swap two elements (array version) */</span>
+<span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">swap2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">[]){</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/* swap two elements (pointer version)*/</span>
+<span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">swap2</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">){</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">;</span>
+    <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will work with (essentially) identical behaviour. Related to this, that means the <code class="docutils literal notranslate"><span class="pre">a[n]</span></code> operator works with all pointer variables, and should be interpretted to mean “a dereference of the <code class="docutils literal notranslate"><span class="pre">n</span></code>th block of memory of the size pointed to by <code class="docutils literal notranslate"><span class="pre">a</span></code>).</p>
+</div>
+<div class="section" id="why-pointers">
+<h2>Why pointers?<a class="headerlink" href="#why-pointers" title="Permalink to this headline">¶</a></h2>
+<p>In C pointers are used of necessity to achieve techniques like pass-by-reference, dynamic memory allocation etc, as well as to avoid copying large objects.</p>
+<div class="section" id="pointers-and-dynamic-memory-allocation-in-c">
+<h3>Pointers and dynamic memory allocation in C<a class="headerlink" href="#pointers-and-dynamic-memory-allocation-in-c" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">stdlib</span></code> library C introduced functions <code class="docutils literal notranslate"><span class="pre">malloc</span></code> (which allocates a block of memory and returns a pointer to it, without updating any values in the memory) and <code class="docutils literal notranslate"><span class="pre">calloc</span></code> (which allocates and <em>zeros</em> a block of memory and returns a pointer to it) These are roughly equivalent to the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> <code class="docutils literal notranslate"><span class="pre">empty</span></code> and <code class="docutils literal notranslate"><span class="pre">zeros</span></code> functions in Python. Finally the <code class="docutils literal notranslate"><span class="pre">free</span></code> function deallocates the memory to clean up. It’s bad practice not to free allocated memory somewhere, but it’s up to the programmer to decide where.</p>
+<p>Let’s write some C code</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
+
+   <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="o">*</span><span class="n">vals</span><span class="p">;</span>
+
+   <span class="n">printf</span><span class="p">(</span> <span class="s">&quot;Enter a number of squares :&quot;</span><span class="p">);</span>
+   <span class="c1">// Now you know we pass the address of n into scanf</span>
+   <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+   <span class="n">printf</span><span class="p">(</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">You entered: %d</span><span class="se">\n</span><span class="s"> &quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+   <span class="cm">/* we have to _cast_ the void pointer from malloc</span>
+<span class="cm">      to the relevant type. */</span>
+
+   <span class="n">vals</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">))</span> <span class="p">;</span>
+
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="c1">// We&#39;ll just print the values for now</span>
+
+   <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+   <span class="p">}</span>
+
+   <span class="c1">// clean up</span>
+   <span class="n">free</span><span class="p">(</span><span class="n">vals</span><span class="p">);</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Pointers and dynamic memory allocation in C++<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>This interface isn’t particularly clear or understandable. C++ introduces an alternative method using the keywords <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code>. Where <code class="docutils literal notranslate"><span class="pre">malloc</span></code> etc take a number indicating the number of bytes, <code class="docutils literal notranslate"><span class="pre">new</span></code> takes a data type and works out the rest for itself. To allocate an array we use a syntax of the form <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">int[10]</span></code>, which <em>must</em> then be deallocated with <code class="docutils literal notranslate"><span class="pre">delete[]</span></code>.</p>
+<p>Let’s use the C++ approach for our code above:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
+
+   <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+   <span class="kt">int</span> <span class="o">*</span><span class="n">vals</span><span class="p">;</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Enter a number of squares :&quot;</span><span class="p">;</span>
+   <span class="c1">// Now you know we pass the address of n into scanf</span>
+   <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">You entered:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+   <span class="cm">/* we have to _cast_ the void pointer from malloc</span>
+<span class="cm">      to the relevant type. */</span>
+
+   <span class="n">vals</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="p">;</span>
+
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+   <span class="p">}</span>
+
+   <span class="c1">// We&#39;ll just print the values for now</span>
+
+   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="c1">//cleanup</span>
+
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">vals</span><span class="p">;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We didn’t need any extra libraries this time, since <code class="docutils literal notranslate"><span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">delete</span></code> are baked into the language.</p>
+</div>
+<div class="section" id="additional-pointer-types">
+<h3>Additional pointer types<a class="headerlink" href="#additional-pointer-types" title="Permalink to this headline">¶</a></h3>
+<p>In C++, traditional pointers are now considered less useful and alternative constructs such as “smart pointers” (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the course.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We’ve now had a brief introduction to the concept of pointers, their use and why a programmer might choose to use them in the first place. On the next page we will look at an introduction to creating our own data structures using <code class="docutils literal notranslate"><span class="pre">struct</span></code>s and <code class="docutils literal notranslate"><span class="pre">class</span></code>es.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ese-msc/c-primer",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="part_three.html" title="previous page">Part III: Beyond the Basics</a>
+    <a class='right-next' id="next-link" href="structs.html" title="next page">Structures &amp; Classes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Imperial College London<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
