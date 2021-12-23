@@ -146,5 +146,3 @@ In the apove example the code will choose which functions to call depending on i
 ## Summary
 
 We've now had a brief look at many of the ways you can control the logical flow of a C++ program, and seen that many of them are similar to the patterns you know from Python. In the next section we will take a deeper look at functions specifically, including their syntax, how to call them and ways they are used.
-
-## Exercises

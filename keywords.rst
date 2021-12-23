@@ -106,7 +106,7 @@ You also shouldn't use names starting with a double underscore (e.g. `__bad_name
 
 
 C++ Keywords
-##########
+############
 
 C++ has a much longer list of keywords which cannot be used, which includes the C keywords as a subset. See a source such as [C++ reference](https://en.cppreference.com/w/cpp/keyword) for a definitive list. We will just pick out some highlights.
 

@@ -77,10 +77,103 @@ will work with (essentially) identical behaviour. Related to this, that means th
 
 ## Why pointers?
 
+In C pointers are used of necessity to achieve techniques like pass-by-reference, dynamic memory allocation etc, as well as to avoid copying large objects.
+
+### Pointers and dynamic memory allocation in C
+
+In the `stdlib` library C introduced functions `malloc` (which allocates a block of memory and returns a pointer to it, without updating any values in the memory) and `calloc` (which allocates and _zeros_ a block of memory and returns a pointer to it) These are roughly equivalent to the `numpy` `empty` and `zeros` functions in Python. Finally the `free` function deallocates the memory to clean up. It's bad practice not to free allocated memory somewhere, but it's up to the programmer to decide where.
+
+Let's write some C code
+
+```c++
+
+#include <stdio.h>
+#include <stdlib.h>
+int main( ) {
+
+   int n, i;
+   int *vals;
+
+   printf( "Enter a number of squares :");
+   // Now you know we pass the address of n into scanf
+   scanf("%d", &n);
+
+   printf( "\nYou entered: %d\n ", n);
+
+   /* we have to _cast_ the void pointer from malloc
+      to the relevant type. */
+
+   vals = (int*) malloc(n * sizeof(int)) ;
+
+   for (i=0; i<n; i++) {
+       vals[i] = (i+1)*(i+1);
+   }
+
+   // We'll just print the values for now
+
+   for (i=0; i<n; i++) {
+       printf("%d\n", vals[i]);
+   }
+
+   // clean up
+   free(vals);
+
+   return 0;
+}
+```
+
+### Pointers and dynamic memory allocation in C++
+
+This interface isn't particularly clear or understandable. C++ introduces an alternative method using the keywords `new` and `delete`. Where `malloc` etc take a number indicating the number of bytes, `new` takes a data type and works out the rest for itself. To allocate an array we use a syntax of the form `new int[10]`, which *must* then be deallocated with `delete[]`.
+
+Let's use the C++ approach for our code above:
+
+```c++
+#include <iostream>
+
+int main( ) {
+
+   int n;
+   int *vals;
+
+   std::cout << "Enter a number of squares :";
+   // Now you know we pass the address of n into scanf
+   std::cin >> n;
+
+   std::cout << "\nYou entered:" << n <<"\n";
+
+   /* we have to _cast_ the void pointer from malloc
+      to the relevant type. */
+
+   vals = new int[n] ;
+
+   for (int i=0; i<n; i++) {
+       vals[i] = (i+1)*(i+1);
+   }
+
+   // We'll just print the values for now
+
+   for (int i=0; i<n; i++) {
+       std::cout << vals[i] <<"\n";
+   }
+
+   //cleanup
+
+    delete[] vals;
+
+   return 0;
+}
+```
+
+We didn't need any extra libraries this time, since `new` and `delete` are baked into the language.
+
+
+### Additional pointer types
+
+ In C++, traditional pointers are now considered less useful and alternative constructs such as "smart pointers" (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the course.
+
+
+
 ## Summary
 
-
-
-
-## Exercises
-
+We've now had a brief introduction to the concept of pointers, their use and why a programmer might choose to use them in the first place. On the next page we will look at an introduction to creating our own data structures using `struct`s and `class`es.

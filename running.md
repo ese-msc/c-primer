@@ -25,7 +25,7 @@ A more local option is to take advantage of the combined power of Docker and Vis
 
 ![](images/vscode.png)
 
-To begin, fork the accompanying [examples repository]() and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
+To begin, fork the accompanying [examples repository](https://ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
 
 For simple non-interactive C++ files, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp`in the current directory) a command like
 
@@ -42,7 +42,7 @@ Here `g++` is the name of the linux GNU C++ compiler, the `-o` option specifies 
 ```{index} compiling:windows
 ```
 
-For Windows users only, you can obtain the Microsoft C/C++ compiler by downloading the Visual Studio community package [here](). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in. The Visual Studio Community Edition can be downloaded for free [here]()
+For Windows users only, you can obtain the Microsoft C/C++ compiler by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
 
 To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
 
@@ -54,9 +54,9 @@ Mac users have a number of routes to set up their system for C++. We recommend t
 
 #### gcc, homebrew and VS code
 
-The open source third-party mac package manager [Homebrew]() provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.
+The open source third-party mac package manager [Homebrew](https://brew.sh/) provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.
 
-The Homebrew application itself can be downloaded and installed using the script & instructions found [here](). Once this is complete, running the command 
+The Homebrew application itself can be downloaded and installed using the script & instructions from the Homebrew homepage. Additional (and alternative) instructions can be found [here](https://docs.brew.sh/Installation). Once this installation is complete, running the command 
 
 ```
 brew install gcc
@@ -65,23 +65,29 @@ brew install gcc
 will install a recent version of `gcc` as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
-gcc --version
+gcc-11 --version
 ```
 
 You should see a response something like
 
+```
+gcc-11 (Homebrew GCC 11.2.0_3) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
 ```
-g++ -o hello hello.cpp
+g++-11 -o hello hello.cpp
 ./hello
 ```
 
-Here `g++` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+Here `g++-11` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
 
 #### Xcode
 
-An alternative is to install the [Xcode command line tools]() by following the instructions on the linked page (if you haven't already). This gives you access to the Apple version of the clang compiler. 
+An alternative is to install the [Xcode command line tools](https://mac.install.guide/commandlinetools/4.html) by following the instructions on the linked page (if you haven't already). This gives you access to the Apple version of the clang compiler. 
 
 you can confirm that things work by running the following command in a terminal
 
@@ -89,13 +95,33 @@ you can confirm that things work by running the following command in a terminal
 cc --version
 ```
 
+You should see a response something like
+
+```
+Apple clang version 12.0.5 (clang-1205.0.22.11)
+Target: arm64-apple-darwin20.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+```
+althought the precise values may be a little different.
+
+To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
+
+```
+c++ -o hello hello.cpp
+./hello
+```
+
+Here `c++` is the name of your C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+
+
 ### Linux
 
 Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can't hope to cover all of them, but for some of the more popular ones:
 
 - On Ubuntu/Debian, use `sudo apt install `
 - On Arch Linux, use `sudo pacman -S`
-- On Red Hat/Fedora
+- On Red Hat/Fedora use `sudo yum install devtoolset-8`
  
 Once installed,  you can confirm that things work by running the following command in a terminal:
 

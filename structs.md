@@ -27,6 +27,22 @@ person_t initialize_person(char* name, int age, float heigh){
     person.height = height;
     return person
 }
+
+int compare_height(person_t &person1, person_t &person2){
+    /* Compare heights of two person_t data structures.
+    
+    Some people don't like having functions
+    with multiple return statements. This could also
+    use a variable */
+    if (person1.height > person2.height){
+        return 1;
+    } else if (person1.height == person2.height) {
+        return 0;
+    } else {
+        return -1;
+    }
+}
+
 ```
 
 We can then pass our `Person` datatypes around like any other variable.
@@ -77,4 +93,4 @@ Don't worry too much about the details of classes for now, since you will learn 
 
 ## Summary
 
-## Exercises
+We've now seen the basics of creating our own data structures with `struct` to wrap together related data, making it simpler to pass around. We've also seen that C++ classes allow data and functions acting on that data to be encapsulated together. In the next (and last) page we'll talk a little bit about header files, which are the things that `#include` statements work with.

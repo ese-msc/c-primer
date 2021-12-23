@@ -213,5 +213,3 @@ A basic comparison table:
 ## Summary
 
 We've now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the advanced programming course. In the next section we will cover the key operations which can be performed on these variables.
-
-## Exercises
