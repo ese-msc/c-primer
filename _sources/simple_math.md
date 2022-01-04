@@ -33,7 +33,7 @@ _primes.cpp_
             int j = 2;
             bool flag = true;
             while (j*j<i) {
-                if (i%j) {
+                if (i%j==0) {
                     flag = false;
                     break;
                 }
