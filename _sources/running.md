@@ -25,7 +25,7 @@ A more local option is to take advantage of the combined power of Docker and Vis
 
 ![](images/vscode.png)
 
-To begin, fork the accompanying [examples repository](https://ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
+To begin, fork the accompanying [examples repository](https://github.com/ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
 
 For simple non-interactive C++ files, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp`in the current directory) a command like
 
