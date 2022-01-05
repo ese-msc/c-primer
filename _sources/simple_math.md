@@ -32,7 +32,7 @@ _primes.cpp_
         for (int i=2; i<1000; i++) {
             int j = 2;
             bool flag = true;
-            while (j*j<i) {
+            while (j*j<=i) {
                 if (i%j==0) {
                     flag = false;
                     break;
@@ -177,7 +177,7 @@ to read a file we'd use
 ```
 instead. We'll explain the use of `*` and `&` in the code above in Part III.
 
-For C++ we can treat files like we do the screen by treating them as _streams_ and reading or writing with the `<<` and `>>` operators. So to read
+For C++ we can treat files like we do the screen by treating them as _streams_ and reading or writing with the `<<` and `>>` operators. So to write ouput
 
 ```c++
 #include <fstream>
@@ -187,7 +187,7 @@ int main () {
   std::fstream fs;
   fs.open ("example.txt", std::fstream::out);
   
-  fs << 1000;
+  fs << 1000; // write 1000 to example.txt
   fs.close();
 
   return 0;
@@ -195,13 +195,16 @@ int main () {
 ```
 
 or
-```
+```c++
   int num;
-  fs.open ("example.txt", std::fstream::out);
-  fs >> num;
+  fs.open ("example.txt", std::fstream::in);
+  /* read an int from example.txt (which is assumed)
+  to exist already. Unlike Python, we need to write 
+  additional code if that might not be true.*/
+  fs >> num; 
   fs.close();
 ```
-to write output instead.
+to read from the file instead.
 
 ## Exercises
 
