@@ -47,12 +47,20 @@ _hello.cpp_:
     #include <iostream>
 
     int main() {
-        std::cout << "Hello World!" << std::endl;
+        std::cout << "Hello World!" << std::endl; 
         return 0;
     }
 ```
 
 You'll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only thing that looks different is that rather than using a function like `printf` we are using the special `<<` operator (i.e. a token which works a bit like `+` or `-`) to send our message to `std::cout`, an "output stream" which in this case represents the screen.
+
+## Key differences from Python
+
+1. Whitespace doesn't matter (although it still makes things easier to read when nicely formatted).
+2. Statements *must* end with a `;`.
+3. The code starts in the `main` function.
+4. Functions and variables have a fixed data type.
+
 
 ## Exercise: Run the Hello World programs
 

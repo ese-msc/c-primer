@@ -47,7 +47,14 @@ For C++ compilers error messages should typically be read from top to bottom, si
 
 ### Missing punctuation
 
-Probably the most common error for beginners in C/C++ is to 
+Probably the most common error for beginners in C/C++ (especially those coming from Python) is to fail to include the `;` symbol to indicate the end of a statement. This means that the compiler will attempt to interpret two lines as if they were one and can produce a surprisingly wide variety of error messages. One of the more typical looks something like
+
+```
+In function 'int main()':
+Line 5: error: expected ',' or ';' before 'std'
+```
+
+which has the advantage of pointing out the fix.
 
 ### Undeclared variables
 

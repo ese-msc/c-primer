@@ -2,7 +2,7 @@
 ```{index} compiling
 ```
 
-Whereas Python is extremely simple to get working with straight away, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other libraries) to produce a separate executable file, before that file can be run. In this section we present a number of ways of approaching this, listed in order of ease of use.
+Whereas Python is mostly fairly simple to get working with straight away, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other libraries) to produce a separate executable file, before that file can be run. In this section we present a number of ways of approaching this, listed in order of ease of use.
 
 ## Web based solutions
 ```{index} compiling:web-based 
@@ -56,7 +56,7 @@ Mac users have a number of routes to set up their system for C++. We recommend t
 
 The open source third-party mac package manager [Homebrew](https://brew.sh/) provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.
 
-The Homebrew application itself can be downloaded and installed using the script & instructions from the Homebrew homepage. Additional (and alternative) instructions can be found [here](https://docs.brew.sh/Installation). Once this installation is complete, running the command 
+Most Mac users on th course will already have Homebrew installed, but for those that don't application itself can be downloaded using the script & instructions from the Homebrew homepage. Additional (and alternative) instructions can be found [here](https://docs.brew.sh/Installation). Once this installation is complete, running the command 
 
 ```
 brew install gcc
@@ -65,25 +65,25 @@ brew install gcc
 will install a recent version of `gcc` as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
-gcc-11 --version
+gcc-12 --version
 ```
 
 You should see a response something like
 
 ```
-gcc-11 (Homebrew GCC 11.2.0_3) 11.2.0
-Copyright (C) 2021 Free Software Foundation, Inc.
+gcc-12 (Homebrew GCC 12.2.0_1) 12.2.0
+Copyright (C) 2022 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
 ```
-g++-11 -o hello hello.cpp
+g++-12 -o hello hello.cpp
 ./hello
 ```
 
-Here `g++-11` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+Here `g++-12` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
 
 #### Xcode
 
@@ -119,8 +119,8 @@ Here `c++` is the name of your C++ compiler, the `-o` option specifies the name 
 
 Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can't hope to cover all of them, but for some of the more popular ones:
 
-- On Ubuntu/Debian, use `sudo apt install `
-- On Arch Linux, use `sudo pacman -S`
+- On Ubuntu/Debian (including WSL), use `sudo apt install build-essential`
+- On Arch Linux, use `sudo pacman -S gcc`
 - On Red Hat/Fedora use `sudo yum install devtoolset-8`
  
 Once installed,  you can confirm that things work by running the following command in a terminal:
