@@ -71,7 +71,7 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-      <img src="_static/ESE-MSC-2021.png" class="logo" alt="logo">
+      <img src="_static/ESE-MSC-2022.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
@@ -338,6 +338,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-differences-from-python">
+   Key differences from Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-run-the-hello-world-programs">
    Exercise: Run the Hello World programs
   </a>
@@ -398,12 +403,21 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>    <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
     <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> 
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
 </pre></div>
 </div>
 <p>You’ll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only thing that looks different is that rather than using a function like <code class="docutils literal notranslate"><span class="pre">printf</span></code> we are using the special <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator (i.e. a token which works a bit like <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>) to send our message to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, an “output stream” which in this case represents the screen.</p>
+</div>
+<div class="section" id="key-differences-from-python">
+<h2>Key differences from Python<a class="headerlink" href="#key-differences-from-python" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Whitespace doesn’t matter (although it still makes things easier to read when nicely formatted).</p></li>
+<li><p>Statements <em>must</em> end with a <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p></li>
+<li><p>The code starts in the <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p></li>
+<li><p>Functions and variables have a fixed data type.</p></li>
+</ol>
 </div>
 <div class="section" id="exercise-run-the-hello-world-programs">
 <h2>Exercise: Run the Hello World programs<a class="headerlink" href="#exercise-run-the-hello-world-programs" title="Permalink to this headline">¶</a></h2>

@@ -71,7 +71,7 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-      <img src="_static/ESE-MSC-2021.png" class="logo" alt="logo">
+      <img src="_static/ESE-MSC-2022.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
@@ -409,7 +409,12 @@ bad_hello.cpp:1:1: note: &#39;std::endl&#39; is defined in header &#39;&lt;ostre
 <h2>Common compiler errors<a class="headerlink" href="#common-compiler-errors" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="missing-punctuation">
 <h3>Missing punctuation<a class="headerlink" href="#missing-punctuation" title="Permalink to this headline">¶</a></h3>
-<p>Probably the most common error for beginners in C/C++ is to</p>
+<p>Probably the most common error for beginners in C/C++ (especially those coming from Python) is to fail to include the <code class="docutils literal notranslate"><span class="pre">;</span></code> symbol to indicate the end of a statement. This means that the compiler will attempt to interpret two lines as if they were one and can produce a surprisingly wide variety of error messages. One of the more typical looks something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">function</span> <span class="s1">&#39;int main()&#39;</span><span class="p">:</span>
+<span class="n">Line</span> <span class="mi">5</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="n">expected</span> <span class="s1">&#39;,&#39;</span> <span class="ow">or</span> <span class="s1">&#39;;&#39;</span> <span class="n">before</span> <span class="s1">&#39;std&#39;</span>
+</pre></div>
+</div>
+<p>which has the advantage of pointing out the fix.</p>
 </div>
 <div class="section" id="undeclared-variables">
 <h3>Undeclared variables<a class="headerlink" href="#undeclared-variables" title="Permalink to this headline">¶</a></h3>
