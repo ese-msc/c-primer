@@ -30,7 +30,7 @@ bad_hello.cpp:1:1: note: 'std::endl' is defined in header '<ostream>'; did you f
     1 |     int main() {
 ```
 
-For C++ compilers error messages should typically be read from top to bottom, since it's possible that later errors are caused by the first one. In this case, the error message not only identifies the problem, but the solution too! This isn't the common case, in which the compiler will tell you what it doesn't understand, but will be unable to help you. For the record, the Visual Studio Windows compiler gives an example of this sort of less useful message:
+For C++ compilers, error messages should typically be read from top to bottom, since it's possible that later errors are caused by the first one. In this case, the error message not only identifies the problem, but the solution too! This isn't the common case, in which the compiler will tell you what it doesn't understand, but will be unable to help you. For the record, the Visual Studio Windows compiler gives an example of this sort of less useful message:
 
 ```
 1>ConsoleApplication3.cpp
@@ -47,7 +47,7 @@ For C++ compilers error messages should typically be read from top to bottom, si
 
 ### Missing punctuation
 
-Probably the most common error for beginners in C/C++ (especially those coming from Python) is to fail to include the `;` symbol to indicate the end of a statement. This means that the compiler will attempt to interpret two lines as if they were one and can produce a surprisingly wide variety of error messages. One of the more typical looks something like
+Probably the most common error for beginners in C/C++ (especially those coming from Python) is to fail to include the `;` symbol to indicate the end of a statement. This means that the compiler will attempt to interpret two lines as if they were one and can produce a surprisingly wide variety of different error messages. One of the more typical looks something like
 
 ```
 In function 'int main()':

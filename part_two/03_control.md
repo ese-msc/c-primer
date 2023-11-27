@@ -123,7 +123,7 @@ However, the version with brackets is more explicit and makes it harder to get c
 
 ### The switch statement
 
-A form of condition which Python doesn't have an equivalent for is the `switch` statement. These start with `switch (`_expression_`)` and then have a block in following the form
+A form of condition which was only recently introduced in Python  is the `switch` statement, which corresponds to the Python `match`statement. In C++ these start with `switch (`_expression_`)` and then have a block in following the form
 ```c++
 switch (my_label) {
   case 1:
@@ -141,7 +141,7 @@ switch (my_label) {
 } 
 ```
 
-In the apove example the code will choose which functions to call depending on if `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this case would mean `my_cool_function_one` and `my_cool_function_two` being called twice.
+In the apove example the code will choose which functions to call depending on if `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this example would mean `my_cool_function_one` and `my_cool_function_two` being called twice. This is slightly different to the Python `match` statement, which will only execute the first matching case.
 
 ## Summary
 

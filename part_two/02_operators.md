@@ -33,14 +33,21 @@ Again, as with Python, all the binary logical operators below work in C/C++
 |  `a <= b` | less than or equal to  |
 !  `!a`     | not |
 | `a !=  b` | not equal |
-| `and` b/ `a & b` | and |
-| or  / `a | b`  | or |
+|  `a && b` | and |
+| `a || b`  | or |
 
-In C++ these functions return a `bool` data type which can be equal to `true` or `false`. However, thanks to an implicit type conversion rule, _all_ positive integeres evaluate to true and zero evaluates to false. 
+In C++ these functions return a `bool` data type which can be equal to `true` or `false` (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, _all_ positive integeres evaluate to true and the value zero evaluates to false. 
 
 ## Other Useful Operators
 ```{index} operators: other
 ```
+
+|Operator| Operation |
+| `a++`  | increment |
+| `a--`  | decrement |
+| `a % b`  | remainder |
+| `a << 2`  | bitwise left shift |
+| `a >> 2`  | bitwise right shift |
 
 ## Operators For Completionists
 ```{index} operators: advanced
@@ -49,6 +56,18 @@ In C++ these functions return a `bool` data type which can be equal to `true` or
 ## The Order of Evaluation
 ```{index} evaluation order
 ```
+
+There is a well defined default order of evaluation for operators in C/C++ which is worth knowing. The order of evaluation for commonly used operations is:
+
+1. `()` parentheses
+2. `++` and `--` increment and decrement
+3. `*` and `/` multiplication and division
+4. `+` and `-` addition and subtraction
+5. `<<` and `>>` bitwise left and right shift
+6. `==`, `!=`, `>`, `<`, `>=`, `<=` comparison
+7. `!` not
+8. `&&` and `||` logical and and or
+9. `=`, `+=`, etc. (i.e assignment)
 
 ## Summary
 
