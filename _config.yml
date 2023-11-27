@@ -7,8 +7,8 @@
 # Book settings
 title                       : C/C++ Primer  # The title of the book. Will be placed in the left navbar.
 author                      : Imperial College London  # The author of the book
-copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : "images/ESE-MSC-2022.png" # A path to the book logo
+copyright                   : "2021-23"  # Copyright year to be placed in the footer
+logo                        : "images/ESE-MSC-2023.png" # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
@@ -41,7 +41,7 @@ launch_buttons:
   thebelab                  : false  # Add a thebelab button to pages (requires the repository to run on Binder)
 
 repository:
-  url                       : https://github.com/ese-msc-confidential/c-primer  # The URL to your book's repository
+  url                       : https://github.com/ese-msc/c-primer  # The URL to your book's repository
   path_to_book              : "."  # A path to your book's folder, relative to the repository root.
   branch                    : main  # Which branch of the repository should be used when creating links
 

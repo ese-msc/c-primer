@@ -1,29 +1,29 @@
 file: intro
 sections:
-- file: part_one
+- file: part_one/intro
   sections:
-  - file: running
-  - file: hello_world
-  - file: simple_math
-  - file: troubleshooting
-  - file: exercises_one
-- file: part_two
+  - file: part_one/01_running
+  - file: part_one/02_hello_world
+  - file: part_one/03_simple_math
+  - file: part_one/04_troubleshooting
+  - file: part_one/exercises_one
+- file: part_two/intro
   sections:
-  - file: datatypes
-  - file: operators
-  - file: control
-  - file: functions
-  - file: exercises_two
-- file: part_three
+  - file: part_two/01_datatypes
+  - file: part_two/02_operators
+  - file: part_two/03_control
+  - file: part_two/04_functions
+  - file: part_two/exercises_two
+- file: part_three/intro
   sections:
-  - file: pointers
-  - file: structs 
-  - file: header_files
-  - file: exercises_three
-- file: appendices
+  - file: part_three/01_pointers
+  - file: part_three/02_structs 
+  - file: part_three/03_header_files
+  - file: part_three/exercises_three
+- file: appendices/intro
   sections:
-  - file: keywords
-  - file: c-preprocessor
+  - file: appendices/keywords
+  - file: appendices/c-preprocessor
 - file: changelog 
 - title: "Index"
   file: genindex
