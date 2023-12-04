@@ -1,497 +1,513 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Keywords &#8212; C/C++ Primer</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".cell"
-        const thebe_selector_input = ".cell_input div.highlight"
-        const thebe_selector_output = ".cell_input div.highlight"
-    </script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".cell"
+const thebe_selector_input = ".cell_input div.highlight"
+const thebe_selector_output = ".cell_input div.highlight"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'appendices/keywords';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The C preprocessor" href="c-preprocessor.html" />
     <link rel="prev" title="Appendices" href="intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/ESE-MSC-2023.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">C/C++ Primer</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Introduction
-  </a>
- </li>
+    
+    
+    <img src="../_static/ESE-MSC-2023.png" class="logo__image only-light" alt="C/C++ Primer - Home"/>
+    <script>document.write(`<img src="../_static/ESE-MSC-2023.png" class="logo__image only-dark" alt="C/C++ Primer - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part_one/intro.html">Part I: Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part_one/intro.html">
-   Part I: Getting Started
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_one/01_running.html">
-     Compiling &amp; Running
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_one/02_hello_world.html">
-     Hello World!
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_one/03_simple_math.html">
-     Some Numerical Examples
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_one/04_troubleshooting.html">
-     Debugging &amp; Troubleshooting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_one/exercises_one.html">
-     Further Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part_two/intro.html">
-   Part II: C/C++ fundamentals
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_two/01_datatypes.html">
-     Data Types
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_two/02_operators.html">
-     C/C++ Operators
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_two/03_control.html">
-     C/C++ Control Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_two/04_functions.html">
-     Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_two/exercises_two.html">
-     Further Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../part_three/intro.html">
-   Part III: Beyond the Basics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_three/01_pointers.html">
-     Pointers - a window to variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_three/02_structs.html">
-     Structures &amp; Classes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_three/03_header_files.html">
-     Header files and libraries
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../part_three/exercises_three.html">
-     Further Exercises
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
-   Appendices
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Keywords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="c-preprocessor.html">
-     The C preprocessor
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../changelog.html">
-   Changes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../genindex.html">
-   Index
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../further_reading.html">
-   Further Reading
-  </a>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part_two/intro.html">Part II: C/C++ fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part_two/01_datatypes.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_two/02_operators.html">C/C++ Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_two/03_control.html">C/C++ Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_two/04_functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_two/exercises_two.html">Further Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../part_three/intro.html">Part III: Beyond the Basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Appendices</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c-preprocessor.html">The C preprocessor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changes</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_reading.html">Further Reading</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/appendices/keywords.rst"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
-        <a class="issues-button"
-            href="https://github.com/ese-msc/c-primer/issues/new?title=Issue%20on%20page%20%2Fappendices/keywords.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ese-msc/c-primer/issues/new?title=Issue%20on%20page%20%2Fappendices/keywords.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/appendices/keywords.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Keywords</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#c-keywords">
-   C Keywords
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#storage-keywords">
-     Storage keywords
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#datatype-keywords">
-     Datatype keywords
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#control-keywords">
-     Control keywords
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operator-keywords">
-     Operator keywords
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-patterns">
-     Other patterns
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   C++ Keywords
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#important-keywords">
-     Important keywords
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-keywords">C Keywords</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-keywords">Storage keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatype-keywords">Datatype keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-keywords">Control keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-keywords">Operator keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-patterns">Other patterns</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">C++ Keywords</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-keywords">Important keywords</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="keywords">
-<h1>Keywords<a class="headerlink" href="#keywords" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="c-keywords">
-<h2>C Keywords<a class="headerlink" href="#c-keywords" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="storage-keywords">
-<h3>Storage keywords<a class="headerlink" href="#storage-keywords" title="Permalink to this headline">¶</a></h3>
-<dl class="glossary simple">
-<dt id="term-auto">auto</dt><dd><p>Declare variable which is automatically cleaned up when coming out of scope and is stored locally (i.e. exactly the default behaviour). <em>C++ behaviour is different</em></p>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="keywords">
+<h1>Keywords<a class="headerlink" href="#keywords" title="Permalink to this heading">#</a></h1>
+<section id="c-keywords">
+<h2>C Keywords<a class="headerlink" href="#c-keywords" title="Permalink to this heading">#</a></h2>
+<section id="storage-keywords">
+<h3>Storage keywords<a class="headerlink" href="#storage-keywords" title="Permalink to this heading">#</a></h3>
+<dl class="simple glossary">
+<dt id="term-auto">auto<a class="headerlink" href="#term-auto" title="Permalink to this term">#</a></dt><dd><p>Declare variable which is automatically cleaned up when coming out of scope and is stored locally (i.e. exactly the default behaviour). <em>C++ behaviour is different</em></p>
 </dd>
-<dt id="term-register">register</dt><dd><p><em>Suggests</em> to the compiler that the variable should be stored in a register rather than RAM. This allows fast access, but limits behaviour (e.g. it cannot be used with <cite>&amp;</cite>).</p>
+<dt id="term-register">register<a class="headerlink" href="#term-register" title="Permalink to this term">#</a></dt><dd><p><em>Suggests</em> to the compiler that the variable should be stored in a register rather than RAM. This allows fast access, but limits behaviour (e.g. it cannot be used with <cite>&amp;</cite>).</p>
 </dd>
-<dt id="term-static">static</dt><dd><p>Declare a variable which exists for the lifetime of the program.</p>
+<dt id="term-static">static<a class="headerlink" href="#term-static" title="Permalink to this term">#</a></dt><dd><p>Declare a variable which exists for the lifetime of the program.</p>
 </dd>
-<dt id="term-extern">extern</dt><dd><p>Declare a variable name which has memory storage assigned elsewhere.</p>
-</dd>
-</dl>
-</div>
-<div class="section" id="datatype-keywords">
-<h3>Datatype keywords<a class="headerlink" href="#datatype-keywords" title="Permalink to this headline">¶</a></h3>
-<dl class="glossary simple">
-<dt id="term-char">char</dt><dd><p>One byte data type, often used to store text with ASCII encoding.</p>
-</dd>
-<dt id="term-const">const</dt><dd><p>Qualifier indicating a variable will not change its value while it is in scope.</p>
-</dd>
-<dt id="term-double">double</dt><dd><p>A double precision (i.e. usually 64 bit, 8 byte) floating point number. Directly equivalent to the Python <cite>float</cite> or <cite>numpy</cite> <cite>float64</cite>.</p>
-</dd>
-<dt id="term-enum">enum</dt><dd><p>Declare a list of names which are mapped to integer values (automatically, if manual values aren’t given).</p>
-</dd>
-<dt id="term-float">float</dt><dd><p>A single precision (i.e. usually 32 bit, 4 byte) floating point number. Equivalent to the <cite>numpy</cite> <cite>float32</cite>.</p>
-</dd>
-<dt id="term-int">int</dt><dd><p>An integer (usually 4 bytes on modern systems). Equivalent to <cite>numpy</cite> <cite>int32</cite>.</p>
-</dd>
-<dt id="term-long">long</dt><dd><p>By itself declares a long integer (usually 8 bytes on modern systems). Equivalent to <cite>numpy</cite> <cite>int64</cite>. Can also be used as a qualifier with <cite>double</cite> for 10 byte floating point number.</p>
-</dd>
-<dt id="term-restrict">restrict</dt><dt id="term-short">short</dt><dd><p>A 2 byte integer. Equivalent to <cite>numpy</cite> <cite>int16</cite>.</p>
-</dd>
-<dt id="term-signed">signed</dt><dd><p>Qualifiers which declares integers to be signed (i.e take both positive and negative numbers). Default behaviour.</p>
-</dd>
-<dt id="term-struct">struct</dt><dd><p>Declares a combined data structure containing other datatypes as separate members.</p>
-</dd>
-<dt id="term-typedef">typedef</dt><dd><p>Declare an alias for a (possibly qualified) datatype.</p>
-</dd>
-<dt id="term-union">union</dt><dd><p>Declares a combined data type containing other data types all sharing the same memory.</p>
-</dd>
-<dt id="term-unsigned">unsigned</dt><dd><p>Qualifier which declares integers to be unsigned (i.e. positive, ranging from 0 to the largest number which fits in the memory space).</p>
-</dd>
-<dt id="term-void">void</dt><dd><p>Data type representing no specific sort of value.</p>
-</dd>
-<dt id="term-volatile">volatile</dt><dd><p>Qualifier indicating that a value is liable to change at any time. Ensures the compiler will execute commands using the variable in the order they are written.</p>
+<dt id="term-extern">extern<a class="headerlink" href="#term-extern" title="Permalink to this term">#</a></dt><dd><p>Declare a variable name which has memory storage assigned elsewhere.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="control-keywords">
-<h3>Control keywords<a class="headerlink" href="#control-keywords" title="Permalink to this headline">¶</a></h3>
-<dl class="glossary simple">
-<dt id="term-break">break</dt><dd><p>Exit the innermost loop (in the current scope) currently executing.</p>
+</section>
+<section id="datatype-keywords">
+<h3>Datatype keywords<a class="headerlink" href="#datatype-keywords" title="Permalink to this heading">#</a></h3>
+<dl class="simple glossary">
+<dt id="term-char">char<a class="headerlink" href="#term-char" title="Permalink to this term">#</a></dt><dd><p>One byte data type, often used to store text with ASCII encoding.</p>
 </dd>
-<dt id="term-case">case</dt><dd><p>Declare one option in a <cite>switch</cite> statement.</p>
+<dt id="term-const">const<a class="headerlink" href="#term-const" title="Permalink to this term">#</a></dt><dd><p>Qualifier indicating a variable will not change its value while it is in scope.</p>
 </dd>
-<dt id="term-continue">continue</dt><dd><p>Skip to the next iteration of a loop.</p>
+<dt id="term-double">double<a class="headerlink" href="#term-double" title="Permalink to this term">#</a></dt><dd><p>A double precision (i.e. usually 64 bit, 8 byte) floating point number. Directly equivalent to the Python <cite>float</cite> or <cite>numpy</cite> <cite>float64</cite>.</p>
 </dd>
-<dt id="term-default">default</dt><dd><p>Declare a default option for a <cite>switch</cite> statement.</p>
+<dt id="term-enum">enum<a class="headerlink" href="#term-enum" title="Permalink to this term">#</a></dt><dd><p>Declare a list of names which are mapped to integer values (automatically, if manual values aren’t given).</p>
 </dd>
-<dt id="term-do">do</dt><dd><p>Start a <cite>do … while</cite> loop block.</p>
+<dt id="term-float">float<a class="headerlink" href="#term-float" title="Permalink to this term">#</a></dt><dd><p>A single precision (i.e. usually 32 bit, 4 byte) floating point number. Equivalent to the <cite>numpy</cite> <cite>float32</cite>.</p>
 </dd>
-<dt id="term-else">else</dt><dd><p>Declare alternative behaviour for an <cite>if</cite> block, executed when the <cite>if</cite> statement is not true.</p>
+<dt id="term-int">int<a class="headerlink" href="#term-int" title="Permalink to this term">#</a></dt><dd><p>An integer (usually 4 bytes on modern systems). Equivalent to <cite>numpy</cite> <cite>int32</cite>.</p>
 </dd>
-<dt id="term-for">for</dt><dd><p>Declare a <cite>for</cite> loop.</p>
+<dt id="term-long">long<a class="headerlink" href="#term-long" title="Permalink to this term">#</a></dt><dd><p>By itself declares a long integer (usually 8 bytes on modern systems). Equivalent to <cite>numpy</cite> <cite>int64</cite>. Can also be used as a qualifier with <cite>double</cite> for 10 byte floating point number.</p>
 </dd>
-<dt id="term-goto">goto</dt><dd><p>Jump to another labelled section of code (Use with great care).</p>
+<dt id="term-restrict">restrict<a class="headerlink" href="#term-restrict" title="Permalink to this term">#</a></dt><dt id="term-short">short<a class="headerlink" href="#term-short" title="Permalink to this term">#</a></dt><dd><p>A 2 byte integer. Equivalent to <cite>numpy</cite> <cite>int16</cite>.</p>
 </dd>
-<dt id="term-if">if</dt><dd><p>Declare a conditional code block, which runs only when the test expression is true.</p>
+<dt id="term-signed">signed<a class="headerlink" href="#term-signed" title="Permalink to this term">#</a></dt><dd><p>Qualifiers which declares integers to be signed (i.e take both positive and negative numbers). Default behaviour.</p>
 </dd>
-<dt id="term-inline">inline</dt><dd><p>Function specfier which <em>suggests</em> to a compiler that it places the relevant code directly in place, avoiding the overhead of a function call.</p>
+<dt id="term-struct">struct<a class="headerlink" href="#term-struct" title="Permalink to this term">#</a></dt><dd><p>Declares a combined data structure containing other datatypes as separate members.</p>
 </dd>
-<dt id="term-return">return</dt><dd><p>Exit a function and pass any <cite>return</cite> value to the calling routine.</p>
+<dt id="term-typedef">typedef<a class="headerlink" href="#term-typedef" title="Permalink to this term">#</a></dt><dd><p>Declare an alias for a (possibly qualified) datatype.</p>
 </dd>
-<dt id="term-switch">switch</dt><dd><p>Declare a <cite>switch</cite> block with multiple cases.</p>
+<dt id="term-union">union<a class="headerlink" href="#term-union" title="Permalink to this term">#</a></dt><dd><p>Declares a combined data type containing other data types all sharing the same memory.</p>
 </dd>
-<dt id="term-while">while</dt><dd><p>Either declare a <cite>while</cite> loop, or terminate a <cite>do .. while</cite> block.</p>
+<dt id="term-unsigned">unsigned<a class="headerlink" href="#term-unsigned" title="Permalink to this term">#</a></dt><dd><p>Qualifier which declares integers to be unsigned (i.e. positive, ranging from 0 to the largest number which fits in the memory space).</p>
 </dd>
-</dl>
-</div>
-<div class="section" id="operator-keywords">
-<h3>Operator keywords<a class="headerlink" href="#operator-keywords" title="Permalink to this headline">¶</a></h3>
-<dl class="glossary simple">
-<dt id="term-sizeof">sizeof</dt><dd><p>Function-like operator which returns the size (in bytes) of the data type, variable or expression passed in to it.</p>
+<dt id="term-void">void<a class="headerlink" href="#term-void" title="Permalink to this term">#</a></dt><dd><p>Data type representing no specific sort of value.</p>
+</dd>
+<dt id="term-volatile">volatile<a class="headerlink" href="#term-volatile" title="Permalink to this term">#</a></dt><dd><p>Qualifier indicating that a value is liable to change at any time. Ensures the compiler will execute commands using the variable in the order they are written.</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="other-patterns">
-<h3>Other patterns<a class="headerlink" href="#other-patterns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="control-keywords">
+<h3>Control keywords<a class="headerlink" href="#control-keywords" title="Permalink to this heading">#</a></h3>
+<dl class="simple glossary">
+<dt id="term-break">break<a class="headerlink" href="#term-break" title="Permalink to this term">#</a></dt><dd><p>Exit the innermost loop (in the current scope) currently executing.</p>
+</dd>
+<dt id="term-case">case<a class="headerlink" href="#term-case" title="Permalink to this term">#</a></dt><dd><p>Declare one option in a <cite>switch</cite> statement.</p>
+</dd>
+<dt id="term-continue">continue<a class="headerlink" href="#term-continue" title="Permalink to this term">#</a></dt><dd><p>Skip to the next iteration of a loop.</p>
+</dd>
+<dt id="term-default">default<a class="headerlink" href="#term-default" title="Permalink to this term">#</a></dt><dd><p>Declare a default option for a <cite>switch</cite> statement.</p>
+</dd>
+<dt id="term-do">do<a class="headerlink" href="#term-do" title="Permalink to this term">#</a></dt><dd><p>Start a <cite>do … while</cite> loop block.</p>
+</dd>
+<dt id="term-else">else<a class="headerlink" href="#term-else" title="Permalink to this term">#</a></dt><dd><p>Declare alternative behaviour for an <cite>if</cite> block, executed when the <cite>if</cite> statement is not true.</p>
+</dd>
+<dt id="term-for">for<a class="headerlink" href="#term-for" title="Permalink to this term">#</a></dt><dd><p>Declare a <cite>for</cite> loop.</p>
+</dd>
+<dt id="term-goto">goto<a class="headerlink" href="#term-goto" title="Permalink to this term">#</a></dt><dd><p>Jump to another labelled section of code (Use with great care).</p>
+</dd>
+<dt id="term-if">if<a class="headerlink" href="#term-if" title="Permalink to this term">#</a></dt><dd><p>Declare a conditional code block, which runs only when the test expression is true.</p>
+</dd>
+<dt id="term-inline">inline<a class="headerlink" href="#term-inline" title="Permalink to this term">#</a></dt><dd><p>Function specfier which <em>suggests</em> to a compiler that it places the relevant code directly in place, avoiding the overhead of a function call.</p>
+</dd>
+<dt id="term-return">return<a class="headerlink" href="#term-return" title="Permalink to this term">#</a></dt><dd><p>Exit a function and pass any <cite>return</cite> value to the calling routine.</p>
+</dd>
+<dt id="term-switch">switch<a class="headerlink" href="#term-switch" title="Permalink to this term">#</a></dt><dd><p>Declare a <cite>switch</cite> block with multiple cases.</p>
+</dd>
+<dt id="term-while">while<a class="headerlink" href="#term-while" title="Permalink to this term">#</a></dt><dd><p>Either declare a <cite>while</cite> loop, or terminate a <cite>do .. while</cite> block.</p>
+</dd>
+</dl>
+</section>
+<section id="operator-keywords">
+<h3>Operator keywords<a class="headerlink" href="#operator-keywords" title="Permalink to this heading">#</a></h3>
+<dl class="simple glossary">
+<dt id="term-sizeof">sizeof<a class="headerlink" href="#term-sizeof" title="Permalink to this term">#</a></dt><dd><p>Function-like operator which returns the size (in bytes) of the data type, variable or expression passed in to it.</p>
+</dd>
+</dl>
+</section>
+<section id="other-patterns">
+<h3>Other patterns<a class="headerlink" href="#other-patterns" title="Permalink to this heading">#</a></h3>
 <p>You also shouldn’t use names starting with a double underscore (e.g. <cite>__bad_name</cite>) or a single underscore and a capital letter (e.g. <cite>_Bad_name</cite>).</p>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>C++ Keywords<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id1">
+<h2>C++ Keywords<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>C++ has a much longer list of keywords which cannot be used, which includes the C keywords as a subset. See a source such as [C++ reference](<a class="reference external" href="https://en.cppreference.com/w/cpp/keyword">https://en.cppreference.com/w/cpp/keyword</a>) for a definitive list. We will just pick out some highlights.</p>
-<div class="section" id="important-keywords">
-<h3>Important keywords<a class="headerlink" href="#important-keywords" title="Permalink to this headline">¶</a></h3>
-<dl class="glossary simple">
-<dt id="term-0">auto</dt><dd><p>Declare a variable which automatically identifies its data type based on the context in which it is used. <em>Different from C behaviour</em>.</p>
+<section id="important-keywords">
+<h3>Important keywords<a class="headerlink" href="#important-keywords" title="Permalink to this heading">#</a></h3>
+<dl class="simple glossary">
+<dt id="term-0">auto<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>Declare a variable which automatically identifies its data type based on the context in which it is used. <em>Different from C behaviour</em>.</p>
 </dd>
-<dt id="term-bool">bool</dt><dd><p>Boolean datatype.</p>
+<dt id="term-bool">bool<a class="headerlink" href="#term-bool" title="Permalink to this term">#</a></dt><dd><p>Boolean datatype.</p>
 </dd>
-<dt id="term-catch">catch</dt><dd><p>Associate exception handlers with a <cite>try</cite> statement block, somewhat similar to Python.</p>
+<dt id="term-catch">catch<a class="headerlink" href="#term-catch" title="Permalink to this term">#</a></dt><dd><p>Associate exception handlers with a <cite>try</cite> statement block, somewhat similar to Python.</p>
 </dd>
-<dt id="term-class">class</dt><dd><p>Object oriented combined structure holding both data and functions, which usually act upon that data.</p>
+<dt id="term-class">class<a class="headerlink" href="#term-class" title="Permalink to this term">#</a></dt><dd><p>Object oriented combined structure holding both data and functions, which usually act upon that data.</p>
 </dd>
-<dt id="term-delete">delete</dt><dt id="term-false">false</dt><dd><p>Boolean data indicating a false value.</p>
+<dt id="term-delete">delete<a class="headerlink" href="#term-delete" title="Permalink to this term">#</a></dt><dt id="term-false">false<a class="headerlink" href="#term-false" title="Permalink to this term">#</a></dt><dd><p>Boolean data indicating a false value.</p>
 </dd>
-<dt id="term-friend">friend</dt><dd><p>Specifier indicating a function/class can access private or protected data stored in the declaring class.</p>
+<dt id="term-friend">friend<a class="headerlink" href="#term-friend" title="Permalink to this term">#</a></dt><dd><p>Specifier indicating a function/class can access private or protected data stored in the declaring class.</p>
 </dd>
-<dt id="term-operator">operator</dt><dd><p>Declares an overloading of an operator for a user declared data type (i.e. lets the programmer use it with standard C++ operators such as <cite>+</cite> or <cite>&lt;&lt;</cite>).</p>
+<dt id="term-operator">operator<a class="headerlink" href="#term-operator" title="Permalink to this term">#</a></dt><dd><p>Declares an overloading of an operator for a user declared data type (i.e. lets the programmer use it with standard C++ operators such as <cite>+</cite> or <cite>&lt;&lt;</cite>).</p>
 </dd>
-<dt id="term-namespace">namespace</dt><dt id="term-new">new</dt><dt id="term-private">private</dt><dt id="term-public">public</dt><dt id="term-this">this</dt><dt id="term-throw">throw</dt><dt id="term-true">true</dt><dt id="term-virtual">virtual</dt><dd></dd>
+<dt id="term-namespace">namespace<a class="headerlink" href="#term-namespace" title="Permalink to this term">#</a></dt><dt id="term-new">new<a class="headerlink" href="#term-new" title="Permalink to this term">#</a></dt><dt id="term-private">private<a class="headerlink" href="#term-private" title="Permalink to this term">#</a></dt><dt id="term-public">public<a class="headerlink" href="#term-public" title="Permalink to this term">#</a></dt><dt id="term-this">this<a class="headerlink" href="#term-this" title="Permalink to this term">#</a></dt><dt id="term-throw">throw<a class="headerlink" href="#term-throw" title="Permalink to this term">#</a></dt><dt id="term-true">true<a class="headerlink" href="#term-true" title="Permalink to this term">#</a></dt><dt id="term-virtual">virtual<a class="headerlink" href="#term-virtual" title="Permalink to this term">#</a></dt><dd></dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -505,7 +521,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./appendices"
         },
         predefinedOutput: true
@@ -513,36 +529,113 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Appendices</a>
-    <a class='right-next' id="next-link" href="c-preprocessor.html" title="next page">The C preprocessor</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Imperial College London<br/>
-        
-            &copy; Copyright 2021-23.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Appendices</p>
       </div>
-    </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="c-preprocessor.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The C preprocessor</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-keywords">C Keywords</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-keywords">Storage keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatype-keywords">Datatype keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#control-keywords">Control keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operator-keywords">Operator keywords</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-patterns">Other patterns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">C++ Keywords</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-keywords">Important keywords</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Imperial College London
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-23.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

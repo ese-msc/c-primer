@@ -1,6 +1,6 @@
 # Some Numerical Examples
 
-Now that we've seen a C++ program at its most basic, let's look at some more useful examples. Again we're going to start from code you've already seen working in Python and convert it into C++
+Now that we've seen a C++ program at its most basic, let's look at some more useful examples. Again we're going to start from code you've probably already seen working in Python and convert it into C++ instead.
 
 ## A prime calculator
 

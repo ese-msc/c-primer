@@ -77,7 +77,9 @@ will work with (essentially) identical behaviour. Related to this, that means th
 
 ## Why pointers?
 
-In C pointers are used of necessity to achieve techniques like pass-by-reference, dynamic memory allocation etc, as well as to avoid copying large objects.
+In C, pointers are used of necessity to achieve many techniques like pass-by-reference (i.e. giving values to a function in a way that they can be modified), dynamic memory allocation etc, as well as to avoid copying large objects, both when passing them to functions, and when renaming them.
+
+In C++, pointers are still needed for dynamic memory and form the basis of codes which don't waste time copying memory back and forth, however, the ability to pass references make them less important when interacting with functions.
 
 ### Pointers and dynamic memory allocation in C
 
@@ -172,8 +174,6 @@ We didn't need any extra libraries this time, since `new` and `delete` are baked
 
  In C++, traditional pointers are now considered less useful and alternative constructs such as "smart pointers" (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the course.
 
-
-
 ## Summary
 
-We've now had a brief introduction to the concept of pointers, their use and why a programmer might choose to use them in the first place. On the next page we will look at an introduction to creating our own data structures using `struct`s and `class`es.
+We've now had a brief introduction to the concept of pointers, their use and why a programmer might choose to use them in the first place. In the next lesson, we will look at an introduction to creating our own data structures using `struct`s and `class`es.
