@@ -1,4 +1,5 @@
-file: intro
+format: jb-article
+root: intro
 sections:
 - file: part_one/intro
   sections:
@@ -17,16 +18,14 @@ sections:
 - file: part_three/intro
   sections:
   - file: part_three/01_pointers
-  - file: part_three/02_structs 
+  - file: part_three/02_structs
   - file: part_three/03_header_files
   - file: part_three/exercises_three
 - file: appendices/intro
   sections:
   - file: appendices/keywords
   - file: appendices/c-preprocessor
-- file: changelog 
-- title: "Index"
-  file: genindex
+- file: changelog
+- file: genindex
+  title: Index
 - file: further_reading
-
-
