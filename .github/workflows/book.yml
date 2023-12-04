@@ -22,17 +22,15 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install texlive-latex-recommended  texlive-latex-extra texlive-fonts-extra
+        sudo apt install latexmk texlive-latex-recommended  texlive-latex-extra texlive-fonts-extra texlive-xetex xindy
         pip install -r requirements.txt
 
     # Build the book
     - name: Build the book
       run: |
         jupyter book build .
-        jupyter book build . --builder latex
+        jupyter book build . --builder pdflatex
         cd _build/latex
-        pdflatex python.tex
-        pdflatex python.tex
         mv python.pdf primer.pdf
 
     # Push the book's HTML to github-pages
