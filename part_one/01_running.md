@@ -2,7 +2,7 @@
 ```{index} compiling
 ```
 
-Whereas Python is mostly fairly simple to get working with straight away, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other libraries) to produce a separate executable file, before that file can be run. In this section we present a number of ways of approaching this, listed in order of ease of use.
+Whereas Python is mostly fairly simple to get working with straight away, especially in interactive mode, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file, before that file can be run to solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.
 
 ## Web based solutions
 ```{index} compiling:web-based 

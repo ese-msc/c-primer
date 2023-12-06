@@ -6,7 +6,7 @@ sections:
   - file: part_one/01_running
   - file: part_one/02_hello_world
   - file: part_one/03_simple_math
-  - file: part_one/04_input-output.md
+  - file: part_one/04_input-output
   - file: part_one/05_troubleshooting
   - file: part_one/exercises_one
 - file: part_two/intro
@@ -22,7 +22,7 @@ sections:
   - file: part_three/02_structs
   - file: part_three/03_header_files
   - file: part_three/04_build_systems
-  - file: part_three/05_combining_with_python.md
+  - file: part_three/05_combining_with_python
   - file: part_three/exercises_three
 - file: appendices/intro
   sections:
