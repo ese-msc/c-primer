@@ -18,5 +18,9 @@ Python is what is known as an interpreted language. To run code, you point a sin
 
 Python is also a garbage-collected language. It cleans up (eventually) all the memory you use to hold variables in your programs, once it realises you're no longer interested in them. C-like languages give you, as a programmer, more power & control on where in your computer memory things live, and how long they stay around for. In return, it is often the programmer's job to clean up once you have finished
 
-## Next Section - Getting Started
+## Summary
+
+In this section we have introduced the C & C++ programming languages, and given a brief motivation for why we might want to use them in preference to another language such as Python.
+
+In the next section we will look at how to compile and run C & C++ code on your own computer.
 

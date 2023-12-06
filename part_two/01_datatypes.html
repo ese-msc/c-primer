@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -394,36 +394,38 @@ document.write(`
 <span id="index-0"></span><h2>The basic data types<a class="headerlink" href="#the-basic-data-types" title="Permalink to this heading">#</a></h2>
 <p>Just as in <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, C-like languages have data types for variables containing different sorts of data. The standard data types available “out-of-the-box” are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code> for ASCII characters/single bytes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> (and friends <code class="docutils literal notranslate"><span class="pre">short</span></code> and <code class="docutils literal notranslate"><span class="pre">long</span></code>) for integers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code> for ASCII characters/single bytes (think <code class="docutils literal notranslate"><span class="pre">'a'</span></code>, <code class="docutils literal notranslate"><span class="pre">'&#64;'</span></code> or even <code class="docutils literal notranslate"><span class="pre">'7'</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> (and friends <code class="docutils literal notranslate"><span class="pre">short</span></code> and <code class="docutils literal notranslate"><span class="pre">long</span></code>) for actual integers (1, 24 -99 etc.).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> for lower precision floating point numbers</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> for higher precision floating point numbers</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">void</span></code> for “nothing in particular” data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> for higher precision floating point numbers (the equivalent of Python’s <code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span></code> for “nothing in particular” data (which might be used to indicate a function which doesn’t return anything, or a pointer to a memory location which doesn’t currently have a specific type).</p></li>
 </ul>
 </section>
 <section id="modifiers-qualifiers-specifiers">
 <h2>Modifiers, qualifiers specifiers<a class="headerlink" href="#modifiers-qualifiers-specifiers" title="Permalink to this heading">#</a></h2>
 <p>By prepending additional keywords, the behaviour of data types can be changed in various ways to represent additional data.</p>
-<p>The core modifiers are:
-- <code class="docutils literal notranslate"><span class="pre">signed</span></code> indicates integral (i.e <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code> and friends) data types are signed, i.e. take both positive and negative values. This is the default behaviour.
-- <code class="docutils literal notranslate"><span class="pre">unsigned</span></code>indicates integral (i.e <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code> and friends) data types are unsigned, i.e. zero or positive only. Can be useful for counters in big problems.
-- <code class="docutils literal notranslate"><span class="pre">short</span></code> used to indicate a “small” integer value (normally 16 bit). Can be used as <code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">int</span> <span class="pre">a=4;</span></code> or just <code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">a=4;</span></code>
-- <code class="docutils literal notranslate"><span class="pre">long</span></code> used to indicate a “large” value, (normally 64 bit for ints or 80 bit floating point). Can be used as <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">int</span> <span class="pre">a=12345678901234;</span></code>, just <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">a=12345678901234;</span></code>, or as <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span> <span class="pre">a=1.0e400</span></code> (the last isn’t used so often).
-- <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> used to indicate a “very large” integer value.</p>
+<p>The core modifiers are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">signed</span></code> indicates integral (i.e <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code> and friends) data types are signed, i.e. take both positive and negative values. This is the default behaviour.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code>indicates integral (i.e <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">char</span></code> and friends) data types are unsigned, i.e. zero or positive only. Can be useful for counters in big problems.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">short</span></code> used to indicate a “small” integer value (normally 16 bit). Can be used as <code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">int</span> <span class="pre">a=4;</span></code> or just <code class="docutils literal notranslate"><span class="pre">short</span> <span class="pre">a=4;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span></code> used to indicate a “large” value, (normally 64 bit for ints or 80 bit floating point). Can be used as <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">int</span> <span class="pre">a=12345678901234;</span></code>, just <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">a=12345678901234;</span></code>, or as <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span> <span class="pre">a=1.0e400</span></code> (the last isn’t used so often).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> used to indicate a “very large” integer value.</p></li>
+</ul>
 <p>The core qualifiers are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code> to declare that the underlying data will not change during its lifetime. Used together with a datatype (which might have a modifier attached).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">volatile</span></code> to declare that the underlying data might change at very short notice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code> to declare that the underlying data will not change during its lifetime. Used together with a datatype such as <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">char</span></code>(which might have a modifier attached).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volatile</span></code> to declare that the underlying data might change at very short notice (this isn’t likely to be useful on regular computers, but can be very important on embeded systems).</p></li>
 </ul>
 <p>The core specifiers are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">register</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">register</span></code> to declare that the variable should be stored in a register (i.e. a very fast memory location) rather than in RAM. This is only a suggestion to the compiler, and is likely to be ignored in modern systems.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extern</span></code> to declare that the variable is defined elsewhere in the code (e.g. in another file). This can be used to allow global-like variables to be shared between different parts of a program.</p></li>
 </ul>
 </section>
 <section id="scope-declarations-definitions-initialization">
 <h2>Scope, declarations, definitions &amp; initialization<a class="headerlink" href="#scope-declarations-definitions-initialization" title="Permalink to this heading">#</a></h2>
-<p>Where Python lets its objects switch between types, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its “scope”, and is frequently defined as the narrowest <code class="docutils literal notranslate"><span class="pre">{</span>&#160; <span class="pre">}</span></code> block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like</p>
+<p>Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its “scope”, and is frequently defined as the narrowest <code class="docutils literal notranslate"><span class="pre">{</span>&#160; <span class="pre">}</span></code> block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">short</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0</span><span class="p">;</span>

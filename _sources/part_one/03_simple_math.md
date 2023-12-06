@@ -64,155 +64,167 @@ int main(){
 }
 ```
 
-## Programs with input
+## The forward Euler method
 
-### Taking input from the keyboard
+Let's now look at a more complicated example, the forward Euler method for solving a simple ODE. We'll start with the Python code:
 
-The counterpart to `std::cout` is `std::cin`. It's usage is similar but "in the other direction". For example:
+_forward_euler.py_
+```python
+    # A simple forward Euler solver for the ODE dy/dt = -y
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    def f(y):
+        return -y
+
+    y0 = 1
+    t0 = 0
+    t1 = 10
+    h = 0.1
+
+    t = np.arange(t0, t1+h, h)
+    y = np.zeros_like(t)
+    y[0] = y0
+
+    for i in range(1, len(t)):
+        y[i] = y[i-1] + h*f(y[i-1])
+
+    plt.plot(t, y)
+    plt.show()
+```
+
+Now let's convert it into a C++ version
 
 ```c++
+
 #include <iostream>
 
-int main(){
-
-    char name[256];
-
-    std::cout << "What's your name?\n";
-    std::cin >> name;
-    std::cout << "Hello " << name << "!\n";
-
-    return 0;
+double f(double y) {
+    return -y;
 }
-```
 
-```{note} 
-To run this using Docker plus VS code, you will need to run the compile command in full in the terminal:
-    ```
-    g++ hello2.cpp -o hello2
-    ```
-```
+int main(void){
 
-The `>>` operator will automatically convert the input into an appropriate form for the datatype (as long as it's one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let's have an example, for example a program to calculate the mean of a sequence of floating point numbers.
+    const int nsteps = 100;
+    double y0 = 1;
+    double t0 = 0;
+    double t1 = 10;
+    double h = t1/nsteps;
 
-```c++
-#include <iostream>
+    double t[nsteps+1];
+    double y[nsteps+1];
 
-int main(){
-    int n;
-    double a, sum=0;
+    t[0] = t0;
+    y[0] = y0;
 
-    std::cout << "How many numbers would you like to enter?\n";
-    std::cin >> n;
+    for (int i=1; i<=nsteps; i++) {
+        t[i] = t[i-1] + h;
+        y[i] = y[i-1] + h*f(y[i-1]);
+    }
 
     for (int i=0; i<n; i++) {
-        std::cout << "Enter number " << i+1 << std::endl ;
-        std::cin >> a;
-        sum += a;    
+        std::cout << t[i] << " " << y[i] << std::endl;
     }
 
-    std::cout << "Mean is " << sum/n; 
     return 0;
 }
-```
-
-### Taking input straight from the command line
-
-As we saw with Python, another useful way to pass information into a program is on the command line. So far we have always used `main` functions with no input, but a longer form of the input signature is
 
 ```
-int main(int argc, char* argv[])
+
+Note that unlike in Python, plotting in C++ is hard work, so we're just printing the values to screen instead.
+
+### Quadrature
+
+Now we'll implement two quadrature methods, the midpoint and the trapezium rules. We'll start with the Python code (see the Computational Mathematics course for the annotated versions):
+
+```python
+
+import numpy as np
+
+def midpoint_rule(a, b, func, number_intervals=10):
+    interval_size = (b - a)/number_intervals
+
+    I_M = 0.0
+    mid = a + (interval_size/2.0)
+
+    while (mid < b):
+        I_M += interval_size * func(mid)
+        mid += interval_size
+    return I_M
+
+def trapezium_rule(a, b, func, number_intervals=10):
+
+    interval_size = (b - a)/number_intervals
+
+    I_T = 0.0
+    x = a + interval_size
+
+    while (x < b):
+        I_T += interval_size * (func(x) + func(x - interval_size))/2.0
+        x += interval_size
+    return I_T
+
+def f(x):
+    return np.sin(x)
+
+print(midpoint_rule(0, np.pi, f))
+print(trapezium_rule(0, np.pi, f))
 ```
 
-Here we have two variables which are automatically assigned by the operating system, the integer `argc`, and an array of strings, `argv`. Just like with the Python `sys.argv`, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (`argv[0]`) equal to the name used to set the program running.
+Now let's convert it into a C++ version
 
 ```c++
 #include <iostream>
+#include <cmath>
 
-int main(int argc, char* argv[]){
-    double a, sum=0;
+double midpoint_rule(double a, double b, double (*func)(double), int number_intervals=10) {
+    double interval_size = (b - a)/number_intervals;
 
-    for (int i=1; i<argc; i++) {
-        a =  std::atof(argv[i]);
-        sum += a;    
+    double I_M = 0.0;
+    double mid = a + (interval_size/2.0);
+
+    while (mid < b) {
+        I_M += interval_size * func(mid);
+        mid += interval_size;
     }
+    return I_M;
+}
 
-    std::cout << "Mean is " << sum/(argc-1) <<std::endl; 
+double trapezium_rule(double a, double b, double (*func)(double), int number_intervals=10) {
+
+    double interval_size = (b - a)/number_intervals;
+
+    double I_T = 0.0;
+    double x = a + interval_size;
+
+    while (x < b) {
+        I_T += interval_size * (func(x) + func(x - interval_size))/2.0;
+        x += interval_size;
+    }
+    return I_T;
+}
+
+double f(double x) {
+    return std::sin(x);
+}
+
+int main(void) {
+    std::cout << midpoint_rule(0, M_PI, f) << std::endl;
+    std::cout << trapezium_rule(0, M_PI, f) << std::endl;
     return 0;
 }
 ```
 
-### Taking input from files
+Note that we've had to include the `cmath` header to get access to the `sin` function. We've also had to declare the function `f` as taking a double and returning a double, and then pass it as an argument to the quadrature functions. This is because C++ doesn't have a built-in `sin` function, but instead has a `sin` function for each of the floating point types (e.g. `float`, `double`, `long double`), and the compiler needs to know which one we want to use.
 
-The last useful way we'll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don't be too worried if you don't follow all the details.
-
-As with input/output the standard methods differ somewhat between C & C++. In C we use a collection of functions from `stdio.h`. For example to write a file:
-
-```c
-#include <stdio.h>
-
-int main()
-{
-   FILE *fptr;
-
-   fptr = fopen("example.txt","w"); // A lot like the Python open function
-
-   if(fptr == NULL) // We have to do our own error checks
-   {
-      printf("Error!");   
-      exit(1);             
-   }
-
-   fprintf(fptr,"%d",  1000); // Write a number
-   fclose(fptr);
-
-   return 0;
-}
-
-```
-to read a file we'd use
-```c
-   int num;
-   fptr = fopen("example.txt","r"); 
-   fscanf(fptr,"%d", &num);
-```
-instead. We'll explain the use of `*` and `&` in the code above in Part III.
-
-For C++ we can treat files like we do the screen by treating them as _streams_ and reading or writing with the `<<` and `>>` operators. So to write ouput
-
-```c++
-#include <fstream>
-
-int main () {
-
-  std::fstream fs;
-  fs.open ("example.txt", std::fstream::out);
-  
-  fs << 1000; // write 1000 to example.txt
-  fs.close();
-
-  return 0;
-}
-```
-
-or
-```c++
-  int num;
-  fs.open ("example.txt", std::fstream::in);
-  /* read an int from example.txt (which is assumed)
-  to exist already. Unlike Python, we need to write 
-  additional code if that might not be true.*/
-  fs >> num; 
-  fs.close();
-```
-to read from the file instead.
+The declaration and use of function pointers in the C++ versions of the `midpoint_rule` and `trapezium_rule` is more complicated than the Python version, but it's not too bad once you get used to it. We'll talk more about this in a later section.
 
 ## Exercises
 
-1. Try to modify the C++ primes code to calulate the first 100 prime numbers instead. 
-2. Next, add the code to take input from the keyboard on how many numbers to calculate.
-3. Next, write a version which takes the number of primes to calculate as input from the command line (you may need the `std::atoi` function).
-4. Finally, update your code to write the prime numbers to a file, taking the name of the file as input.
+1. Try to modify the C++ primes code to calulate the first 100 prime numbers instead.
+2. Try to write a C++ version of the backwards Euler method for the same ODE.
+3. Try to write a C++ version of the Simpson's rule quadrature method, and include it in the quadrature example.
 
 ## Summary
 
-We've now seen C++ used to solve some simple numerical problems of the sort which you're already used to solving with Python. In the next section we'll look in detail at some of the things that can go wrong while trying to compile C/C++ code, how to understand the error messages which are presented, and what we can do to attempt to fix the problems.
+We've now seen C++ used to solve some simple numerical problems of the sort which you're already used to solving with Python. In the next section we'll look at some ways of modifying the behaviour of our code at runtime based on user input.

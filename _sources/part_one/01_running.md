@@ -39,7 +39,7 @@ Here `g++` is the name of the linux GNU C++ compiler, the `-o` option specifies 
 ## Compiling natively
 
 ### Windows: Visual Studio
-```{index} compiling:windows
+```{index} compiling:windows native
 ```
 
 For Windows users only, you can obtain the Microsoft C/C++ compiler by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
@@ -62,17 +62,17 @@ Most Mac users on th course will already have Homebrew installed, but for those 
 brew install gcc
 ```
 
-will install a recent version of `gcc` as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
+will install a recent version of `gcc` (version 13 as of early December 2023) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
-gcc-12 --version
+gcc-13 --version
 ```
 
 You should see a response something like
 
 ```
-gcc-12 (Homebrew GCC 12.2.0_1) 12.2.0
-Copyright (C) 2022 Free Software Foundation, Inc.
+gcc-12 (Homebrew GCC 13.2.0) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
@@ -83,7 +83,9 @@ g++-12 -o hello hello.cpp
 ./hello
 ```
 
-Here `g++-12` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+Here `g++-13` is the name of your new GNU C++ compiler (version number 13), the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable file which we have just compiled.
+
+Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.
 
 #### Xcode
 
@@ -115,7 +117,9 @@ c++ -o hello hello.cpp
 Here `c++` is the name of your C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
 
 
-### Linux
+### Linux/WSL: `gcc` or `clang`
+```{index} compiling:linux
+```
 
 Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can't hope to cover all of them, but for some of the more popular ones:
 

@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -380,16 +380,45 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-c-preprocessor">
-<h1>The C preprocessor<a class="headerlink" href="#the-c-preprocessor" title="Permalink to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">{index}</span> <span class="pre">C</span> <span class="pre">Preprocessor</span> </code></p>
+<span id="index-0"></span><h1>The C preprocessor<a class="headerlink" href="#the-c-preprocessor" title="Permalink to this heading">#</a></h1>
 <p>This page briefly describes the C preprocessor which is by default run on every file before compilation. The preprocessor modifies the text of the code which is seen by the actual compiler based on its own collection of commands, which are known as preprocessor directives. These commands can add, remove or change code in a number of ways and together act to simplify the process of making code run in multiple configurations or on multiple systems.</p>
 <section id="preprocessor-directives">
 <h2>Preprocessor directives.<a class="headerlink" href="#preprocessor-directives" title="Permalink to this heading">#</a></h2>
 <p>You have already seen some common preprocessor directives while working with :doc:<code class="docutils literal notranslate"><span class="pre">header_files</span></code>. The <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive is one of the most commonly used and most visible C preprocessor directives, which “under the hood” directs the preprocessor to copy the entire (processed) text of another file into the file being worked on. Similarly, the <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">once</span></code> or <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">ndef</span> <span class="pre">...</span></code> patterns are also directives, either explicitly commanding the preprocesser to only work on the file once, or generating the same effect using a preprocessor variable. The full(ish) list of possible standard directives is</p>
-<p>|#define |#elif|#else|#endif|
-|#error  |#if  |#ifdef|#ifndef|
-|#import |#include|#line|#pragma
-|#undef|#warning|||</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Control Structures</p></th>
+<th class="head"><p>Logging Controls</p></th>
+<th class="head"><p>Others</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>#if</p></td>
+<td><p>#error</p></td>
+<td><p>#define</p></td>
+</tr>
+<tr class="row-odd"><td><p>#elif</p></td>
+<td><p>#warning</p></td>
+<td><p>#pragma</p></td>
+</tr>
+<tr class="row-even"><td><p>#else</p></td>
+<td><p></p></td>
+<td><p>#include</p></td>
+</tr>
+<tr class="row-odd"><td><p>#ifdef</p></td>
+<td><p></p></td>
+<td><p>#undef</p></td>
+</tr>
+<tr class="row-even"><td><p>#ifndef</p></td>
+<td><p></p></td>
+<td><p>#line</p></td>
+</tr>
+<tr class="row-odd"><td><p>#endif</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="defining-preprocessor-macros">
 <h2>Defining preprocessor macros<a class="headerlink" href="#defining-preprocessor-macros" title="Permalink to this heading">#</a></h2>
@@ -398,7 +427,7 @@ document.write(`
 <h2>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this heading">#</a></h2>
 <p>Beside <code class="docutils literal notranslate"><span class="pre">#include</span></code>, which appears in many C/C++ files, the conditional directives (i.e. <code class="docutils literal notranslate"><span class="pre">#if</span></code>, <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code>, <code class="docutils literal notranslate"><span class="pre">#else</span></code>, etc.) are often visible. These blocks, terminated by an <code class="docutils literal notranslate"><span class="pre">#endif</span></code> directive, mark out text that is only included if the relevant condition is satisfied. For <code class="docutils literal notranslate"><span class="pre">#if</span></code>, this tests whether the next expression (which must consist of known values, i.e. constants and macro variables, not program variables) evaluates to a positive number. If this is correct, then the text in the block is passed to the compiler. If it isn’t, then it’s as if the block didn’t exist. The <code class="docutils literal notranslate"><span class="pre">#ifdef</span></code> and <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code> respectively test whether the given macro variable exists, or doesn’t exist.</p>
 <p>Any if-like block can optionally have an <code class="docutils literal notranslate"><span class="pre">#else</span></code> block attached to if. As with Python or C, the <code class="docutils literal notranslate"><span class="pre">#else</span></code> block matters (i.e. is passed to the compiler) if the first expression doesn’t evaluate true, in which case it is compiled. These if blocks can be nested providing every block is terminated correctly.</p>
-<p>As a concrete example, consider the code block</p>
+<p>As a concrete example, consider the following code block:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>

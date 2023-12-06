@@ -65,7 +65,7 @@ const thebe_selector_output = ".cell_input div.highlight"
     <script>DOCUMENTATION_OPTIONS.pagename = 'part_one/03_simple_math';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Debugging &amp; Troubleshooting" href="04_troubleshooting.html" />
+    <link rel="next" title="Further Exercises" href="exercises_one.html" />
     <link rel="prev" title="Hello World!" href="02_hello_world.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -366,10 +366,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prime-calculator">A prime calculator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programs-with-input">Programs with input</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -443,148 +441,161 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="programs-with-input">
-<h2>Programs with input<a class="headerlink" href="#programs-with-input" title="Permalink to this heading">#</a></h2>
-<section id="taking-input-from-the-keyboard">
-<h3>Taking input from the keyboard<a class="headerlink" href="#taking-input-from-the-keyboard" title="Permalink to this heading">#</a></h3>
-<p>The counterpart to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> is <code class="docutils literal notranslate"><span class="pre">std::cin</span></code>. It’s usage is similar but “in the other direction”. For example:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<section id="the-forward-euler-method">
+<h2>The forward Euler method<a class="headerlink" href="#the-forward-euler-method" title="Permalink to this heading">#</a></h2>
+<p>Let’s now look at a more complicated example, the forward Euler method for solving a simple ODE. We’ll start with the Python code:</p>
+<p><em>forward_euler.py</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># A simple forward Euler solver for the ODE dy/dt = -y</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">y</span>
 
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
 
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;What&#39;s your name?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To run this using Docker plus VS code, you will need to run the compile command in full in the terminal:
-<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">g++</span> <span class="pre">hello2.cpp</span> <span class="pre">-o</span> <span class="pre">hello2</span>&#160;&#160;&#160; </code></p>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator will automatically convert the input into an appropriate form for the datatype (as long as it’s one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let’s have an example, for example a program to calculate the mean of a sequence of floating point numbers.</p>
+<p>Now let’s convert it into a C++ version</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;How many numbers would you like to enter?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nsteps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="o">/</span><span class="n">nsteps</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">nsteps</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">h</span><span class="p">;</span>
+<span class="w">        </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">h</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Enter number &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="w"> </span><span class="p">;</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">    </span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mean is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="o">/</span><span class="n">n</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="taking-input-straight-from-the-command-line">
-<h3>Taking input straight from the command line<a class="headerlink" href="#taking-input-straight-from-the-command-line" title="Permalink to this heading">#</a></h3>
-<p>As we saw with Python, another useful way to pass information into a program is on the command line. So far we have always used <code class="docutils literal notranslate"><span class="pre">main</span></code> functions with no input, but a longer form of the input signature is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<p>Note that unlike in Python, plotting in C++ is hard work, so we’re just printing the values to screen instead.</p>
+<section id="quadrature">
+<h3>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h3>
+<p>Now we’ll implement two quadrature methods, the midpoint and the trapezium rules. We’ll start with the Python code (see the Computational Mathematics course for the annotated versions):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">midpoint_rule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">interval_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span>
+
+    <span class="n">I_M</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">interval_size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">mid</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">):</span>
+        <span class="n">I_M</span> <span class="o">+=</span> <span class="n">interval_size</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+        <span class="n">mid</span> <span class="o">+=</span> <span class="n">interval_size</span>
+    <span class="k">return</span> <span class="n">I_M</span>
+
+<span class="k">def</span> <span class="nf">trapezium_rule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+
+    <span class="n">interval_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span>
+
+    <span class="n">I_T</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">interval_size</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">):</span>
+        <span class="n">I_T</span> <span class="o">+=</span> <span class="n">interval_size</span> <span class="o">*</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">interval_size</span><span class="p">))</span><span class="o">/</span><span class="mf">2.0</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">interval_size</span>
+    <span class="k">return</span> <span class="n">I_T</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">midpoint_rule</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trapezium_rule</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Here we have two variables which are automatically assigned by the operating system, the integer <code class="docutils literal notranslate"><span class="pre">argc</span></code>, and an array of strings, <code class="docutils literal notranslate"><span class="pre">argv</span></code>. Just like with the Python <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (<code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>) equal to the name used to set the program running.</p>
+<p>Now let’s convert it into a C++ version</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]){</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">midpoint_rule</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">interval_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">argc</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">I_M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">interval_size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">mid</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">I_M</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">interval_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">mid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mid</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">interval_size</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">I_M</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mean is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="o">/</span><span class="p">(</span><span class="n">argc</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">trapezium_rule</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">interval_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">I_T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">interval_size</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">I_T</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">interval_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">interval_size</span><span class="p">))</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">interval_size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">I_T</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">midpoint_rule</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">M_PI</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">trapezium_rule</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">M_PI</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="taking-input-from-files">
-<h3>Taking input from files<a class="headerlink" href="#taking-input-from-files" title="Permalink to this heading">#</a></h3>
-<p>The last useful way we’ll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don’t be too worried if you don’t follow all the details.</p>
-<p>As with input/output the standard methods differ somewhat between C &amp; C++. In C we use a collection of functions from <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>. For example to write a file:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fptr</span><span class="p">;</span>
-
-<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// A lot like the Python open function</span>
-
-<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">fptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="c1">// We have to do our own error checks</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">);</span><span class="w">   </span>
-<span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">             </span>
-<span class="w">   </span><span class="p">}</span>
-
-<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w">  </span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Write a number</span>
-<span class="w">   </span><span class="n">fclose</span><span class="p">(</span><span class="n">fptr</span><span class="p">);</span>
-
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-</pre></div>
-</div>
-<p>to read a file we’d use</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span>
-<span class="w">   </span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>instead. We’ll explain the use of <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in the code above in Part III.</p>
-<p>For C++ we can treat files like we do the screen by treating them as <em>streams</em> and reading or writing with the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operators. So to write ouput</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">fs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// write 1000 to example.txt</span>
-<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>or</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
-<span class="w">  </span><span class="cm">/* read an int from example.txt (which is assumed)</span>
-<span class="cm">  to exist already. Unlike Python, we need to write </span>
-<span class="cm">  additional code if that might not be true.*/</span>
-<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span>
-<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>to read from the file instead.</p>
+<p>Note that we’ve had to include the <code class="docutils literal notranslate"><span class="pre">cmath</span></code> header to get access to the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function. We’ve also had to declare the function <code class="docutils literal notranslate"><span class="pre">f</span></code> as taking a double and returning a double, and then pass it as an argument to the quadrature functions. This is because C++ doesn’t have a built-in <code class="docutils literal notranslate"><span class="pre">sin</span></code> function, but instead has a <code class="docutils literal notranslate"><span class="pre">sin</span></code> function for each of the floating point types (e.g. <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>), and the compiler needs to know which one we want to use.</p>
+<p>The declaration and use of function pointers in the C++ versions of the <code class="docutils literal notranslate"><span class="pre">midpoint_rule</span></code> and <code class="docutils literal notranslate"><span class="pre">trapezium_rule</span></code> is more complicated than the Python version, but it’s not too bad once you get used to it. We’ll talk more about this in a later section.</p>
 </section>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Try to modify the C++ primes code to calulate the first 100 prime numbers instead.</p></li>
-<li><p>Next, add the code to take input from the keyboard on how many numbers to calculate.</p></li>
-<li><p>Next, write a version which takes the number of primes to calculate as input from the command line (you may need the <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> function).</p></li>
-<li><p>Finally, update your code to write the prime numbers to a file, taking the name of the file as input.</p></li>
+<li><p>Try to write a C++ version of the backwards Euler method for the same ODE.</p></li>
+<li><p>Try to write a C++ version of the Simpson’s rule quadrature method, and include it in the quadrature example.</p></li>
 </ol>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>We’ve now seen C++ used to solve some simple numerical problems of the sort which you’re already used to solving with Python. In the next section we’ll look in detail at some of the things that can go wrong while trying to compile C/C++ code, how to understand the error messages which are presented, and what we can do to attempt to fix the problems.</p>
+<p>We’ve now seen C++ used to solve some simple numerical problems of the sort which you’re already used to solving with Python. In the next section we’ll look at some ways of modifying the behaviour of our code at runtime based on user input.</p>
 </section>
 </section>
 
@@ -628,11 +639,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="04_troubleshooting.html"
+       href="exercises_one.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Debugging &amp; Troubleshooting</p>
+        <p class="prev-next-title">Further Exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -652,10 +663,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prime-calculator">A prime calculator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programs-with-input">Programs with input</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>

@@ -1,5 +1,7 @@
+```{index} C Preprocessor
+```
 # The C preprocessor
-```{index} C Preprocessor ```
+
 
 This page briefly describes the C preprocessor which is by default run on every file before compilation. The preprocessor modifies the text of the code which is seen by the actual compiler based on its own collection of commands, which are known as preprocessor directives. These commands can add, remove or change code in a number of ways and together act to simplify the process of making code run in multiple configurations or on multiple systems.
 
@@ -7,10 +9,17 @@ This page briefly describes the C preprocessor which is by default run on every 
 
 You have already seen some common preprocessor directives while working with :doc:`header_files`. The `#include` directive is one of the most commonly used and most visible C preprocessor directives, which "under the hood" directs the preprocessor to copy the entire (processed) text of another file into the file being worked on. Similarly, the `#pragma once` or `#if ndef ...` patterns are also directives, either explicitly commanding the preprocesser to only work on the file once, or generating the same effect using a preprocessor variable. The full(ish) list of possible standard directives is
 
-|#define |#elif|#else|#endif|
-|#error  |#if  |#ifdef|#ifndef|
-|#import |#include|#line|#pragma
-|#undef|#warning|||
+ 
+| Control Structures | Logging Controls | Others |
+|--------------------|---------|-------|
+| #if              | #error  | #define |
+| #elif| #warning |#pragma|
+| #else| | #include|
+| #ifdef | | #undef |
+| #ifndef | | #line |
+| #endif | | |
+
+
 
 ## Defining preprocessor macros
 
@@ -20,7 +29,7 @@ Beside `#include`, which appears in many C/C++ files, the conditional directives
 
 Any if-like block can optionally have an `#else` block attached to if. As with Python or C, the `#else` block matters (i.e. is passed to the compiler) if the first expression doesn't evaluate true, in which case it is compiled. These if blocks can be nested providing every block is terminated correctly.
 
-As a concrete example, consider the code block
+As a concrete example, consider the following code block:
 
 ```c++
 

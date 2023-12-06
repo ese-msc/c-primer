@@ -23,9 +23,11 @@ A C style pointer holds a location (usually called an address) in you computer's
 ## Syntax and operators
 
 As a C/C++ variable, a pointer must be declared the first time it is used. The syntax for this is
-```c++
-int *a; \\ This is a pointer to an int
+
+```c
+int *a; // This is a pointer to an int
 ```
+
 When declared this way, `a` holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it "point" to a "target" we need the memory address of a suitable integer. The language has an operator, `&`, which will get this for us. To dereference (i.e. look up the value) `a` points to, we use the derferencing operator `*`. To assign a new value to the target, we assign it to the dereferenced object, that is `*a`. Let's look at a short C++ program which exercises all this new behaviour
 
 ```c++
@@ -41,7 +43,7 @@ std::cout << *a << std::endl; // returns b's value  (i.e. 7).
 
 *a = 10;                     // updates a's target
 std::cout << b << std::endl; // returns 10
-return 1
+return 1;
 }
 ```
 

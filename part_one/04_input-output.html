@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Further Exercises &#8212; C/C++ Primer</title>
+    <title>Programs with input &#8212; C/C++ Primer</title>
   
   
   
@@ -62,13 +62,9 @@ const thebe_selector_input = ".cell_input div.highlight"
 const thebe_selector_output = ".cell_input div.highlight"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'part_one/exercises_one';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part_one/04_input-output';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Part II: C/C++ fundamentals" href="../part_two/intro.html" />
-    <link rel="prev" title="Some Numerical Examples" href="03_simple_math.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,12 +166,12 @@ const thebe_selector_output = ".cell_input div.highlight"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Further Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_two/intro.html">Part II: C/C++ fundamentals</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -247,7 +243,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/ese-msc/c-primer/issues/new?title=Issue%20on%20page%20%2Fpart_one/exercises_one.html&body=Your%20issue%20content%20here." target="_blank"
+<a href="https://github.com/ese-msc/c-primer/issues/new?title=Issue%20on%20page%20%2Fpart_one/04_input-output.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button"
    title="Open an issue"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -273,7 +269,7 @@ const thebe_selector_output = ".cell_input div.highlight"
       
       
       
-      <li><a href="../_sources/part_one/exercises_one.md" target="_blank"
+      <li><a href="../_sources/part_one/04_input-output.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +353,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Further Exercises</h1>
+    <h1>Programs with input</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,10 +363,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-unit-converter">A unit converter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-means">More means</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-gaussian">Implement a Gaussian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Programs with input</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -381,17 +383,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="further-exercises">
-<h1>Further Exercises<a class="headerlink" href="#further-exercises" title="Permalink to this heading">#</a></h1>
-<p>These additional exercises will allow you to test your new knowledge of C++ by asking you to translate more of your existing Python knowledge to your new language.</p>
-<section id="a-unit-converter">
-<h2>A unit converter<a class="headerlink" href="#a-unit-converter" title="Permalink to this heading">#</a></h2>
-<p>Write a C++ program to take in an input in metres and return the distance in feet and/or inches. Remember that one inch is 2.54 cm, and that one foot is 12 inches.</p>
-</section>
-<section id="more-means">
-<h2>More means<a class="headerlink" href="#more-means" title="Permalink to this heading">#</a></h2>
-<p>Based on the code you’ve already seen to calculate the mean of a set of floating point numbers you read from the keyboard, try to update it to take in a list of integers. Watch out, you may find the final division a little trickier than you expected.</p>
-<p>Here’s the floating point means code again</p>
+  <section id="programs-with-input">
+<h1>Programs with input<a class="headerlink" href="#programs-with-input" title="Permalink to this heading">#</a></h1>
+<p>Since C++ programmes are compiled, we don’t have the same flexibility to change the behaviour of the program at runtime as we do with Python. However, we can still take input data from the user in a number of ways.</p>
+<section id="taking-input-from-the-keyboard">
+<h2>Taking input from the keyboard<a class="headerlink" href="#taking-input-from-the-keyboard" title="Permalink to this heading">#</a></h2>
+<p>The counterpart to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> is <code class="docutils literal notranslate"><span class="pre">std::cin</span></code>. It’s usage is similar but “in the other direction”. For example:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;What&#39;s your name?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run this using Docker plus VS code, you will need to run the compile command in full in the terminal:
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">g++</span> <span class="pre">hello2.cpp</span> <span class="pre">-o</span> <span class="pre">hello2</span>&#160;&#160;&#160; </code></p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator will automatically convert the input into an appropriate form for the datatype (as long as it’s one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let’s have an example, for example a program to calculate the mean of a sequence of floating point numbers.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -413,14 +430,101 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="implement-a-gaussian">
-<h2>Implement a Gaussian<a class="headerlink" href="#implement-a-gaussian" title="Permalink to this heading">#</a></h2>
-<p>Write a C++ program to compute the Gaussian function</p>
-<div class="math notranslate nohighlight">
-\[ f(x, m, s) = \frac{1}{s\sqrt{2\pi}}\exp\left(\left(-\frac{1}{2}\frac{x-m}{s}\right)^2\right) \]</div>
-<p>You will probably want to use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;cmath&gt;</span></code> at the top of your file to get the <code class="docutils literal notranslate"><span class="pre">exp</span></code> and <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> functions. You might also want the <code class="docutils literal notranslate"><span class="pre">pow</span></code> function to implement the square (<code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">3)</span></code> returns <span class="math notranslate nohighlight">\(x^3\)</span>).</p>
-<p>Your function can use fixed inputs, or read them in any of the ways you now know.</p>
+<section id="taking-input-straight-from-the-command-line">
+<h2>Taking input straight from the command line<a class="headerlink" href="#taking-input-straight-from-the-command-line" title="Permalink to this heading">#</a></h2>
+<p>As we saw with Python, another useful way to pass information into a program is on the command line. So far we have always used <code class="docutils literal notranslate"><span class="pre">main</span></code> functions with no input, but a longer form of the input signature is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+</pre></div>
+</div>
+<p>Here we have two variables which are automatically assigned by the operating system, the integer <code class="docutils literal notranslate"><span class="pre">argc</span></code>, and an array of strings, <code class="docutils literal notranslate"><span class="pre">argv</span></code>. Just like with the Python <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (<code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>) equal to the name used to set the program running.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">argc</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Mean is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="o">/</span><span class="p">(</span><span class="n">argc</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
+<section id="taking-input-from-files">
+<h2>Taking input from files<a class="headerlink" href="#taking-input-from-files" title="Permalink to this heading">#</a></h2>
+<p>The last useful way we’ll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don’t be too worried if you don’t follow all the details.</p>
+<p>As with input/output the standard methods differ somewhat between C &amp; C++. In C we use a collection of functions from <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>. For example to write a file:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fptr</span><span class="p">;</span>
+
+<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// A lot like the Python open function</span>
+
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">fptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="c1">// We have to do our own error checks</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">);</span><span class="w">   </span>
+<span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">             </span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w">  </span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Write a number</span>
+<span class="w">   </span><span class="n">fclose</span><span class="p">(</span><span class="n">fptr</span><span class="p">);</span>
+
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>to read a file we’d use</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>instead. We’ll explain the use of <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in the code above in Part III.</p>
+<p>For C++ we can treat files like we do the screen by treating them as <em>streams</em> and reading or writing with the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operators. So to write ouput</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">fs</span><span class="p">;</span>
+<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// write 1000 to example.txt</span>
+<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
+<span class="w">  </span><span class="cm">/* read an int from example.txt (which is assumed)</span>
+<span class="cm">  to exist already. Unlike Python, we need to write </span>
+<span class="cm">  additional code if that might not be true.*/</span>
+<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>to read from the file instead.</p>
+</section>
+</section>
+<section id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Try to modify the primes code from the last section to take input from the keyboard on how many numbers to calculate.</p></li>
+<li><p>Next, write a version which takes the number of primes to calculate as input from the command line (you may need the <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> function).</p></li>
+<li><p>Finally, update your code to write the prime numbers to a file, taking the name of the file as input.</p></li>
+</ol>
+</section>
+<section id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<p>In the next section we’ll look in detail at some of the things that can go wrong while trying to compile C/C++ code, how to understand the error messages which are presented, and what we can do to attempt to fix the problems.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -453,24 +557,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="03_simple_math.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Some Numerical Examples</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../part_two/intro.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Part II: C/C++ fundamentals</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -486,10 +572,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-unit-converter">A unit converter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-means">More means</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-gaussian">Implement a Gaussian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Programs with input</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

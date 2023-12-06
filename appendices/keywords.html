@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -395,7 +395,7 @@ document.write(`
 <section id="storage-keywords">
 <h3>Storage keywords<a class="headerlink" href="#storage-keywords" title="Permalink to this heading">#</a></h3>
 <dl class="simple glossary">
-<dt id="term-auto">auto<a class="headerlink" href="#term-auto" title="Permalink to this term">#</a></dt><dd><p>Declare variable which is automatically cleaned up when coming out of scope and is stored locally (i.e. exactly the default behaviour). <em>C++ behaviour is different</em></p>
+<dt id="term-auto-C-version">auto (C version)<a class="headerlink" href="#term-auto-C-version" title="Permalink to this term">#</a></dt><dd><p>Declare variable which is automatically cleaned up when coming out of scope and is stored locally (i.e. exactly the default behaviour). <em>C++ behaviour is different</em></p>
 </dd>
 <dt id="term-register">register<a class="headerlink" href="#term-register" title="Permalink to this term">#</a></dt><dd><p><em>Suggests</em> to the compiler that the variable should be stored in a register rather than RAM. This allows fast access, but limits behaviour (e.g. it cannot be used with <cite>&amp;</cite>).</p>
 </dd>
@@ -422,7 +422,9 @@ document.write(`
 </dd>
 <dt id="term-long">long<a class="headerlink" href="#term-long" title="Permalink to this term">#</a></dt><dd><p>By itself declares a long integer (usually 8 bytes on modern systems). Equivalent to <cite>numpy</cite> <cite>int64</cite>. Can also be used as a qualifier with <cite>double</cite> for 10 byte floating point number.</p>
 </dd>
-<dt id="term-restrict">restrict<a class="headerlink" href="#term-restrict" title="Permalink to this term">#</a></dt><dt id="term-short">short<a class="headerlink" href="#term-short" title="Permalink to this term">#</a></dt><dd><p>A 2 byte integer. Equivalent to <cite>numpy</cite> <cite>int16</cite>.</p>
+<dt id="term-restrict">restrict<a class="headerlink" href="#term-restrict" title="Permalink to this term">#</a></dt><dd><p>Qualifier which indicates that a pointer is the only pointer which can access the memory it points to. This allows the compiler to make optimisations which would otherwise be unsafe.</p>
+</dd>
+<dt id="term-short">short<a class="headerlink" href="#term-short" title="Permalink to this term">#</a></dt><dd><p>A 2 byte integer. Equivalent to <cite>numpy</cite> <cite>int16</cite>.</p>
 </dd>
 <dt id="term-signed">signed<a class="headerlink" href="#term-signed" title="Permalink to this term">#</a></dt><dd><p>Qualifiers which declares integers to be signed (i.e take both positive and negative numbers). Default behaviour.</p>
 </dd>
@@ -463,7 +465,7 @@ document.write(`
 </dd>
 <dt id="term-inline">inline<a class="headerlink" href="#term-inline" title="Permalink to this term">#</a></dt><dd><p>Function specfier which <em>suggests</em> to a compiler that it places the relevant code directly in place, avoiding the overhead of a function call.</p>
 </dd>
-<dt id="term-return">return<a class="headerlink" href="#term-return" title="Permalink to this term">#</a></dt><dd><p>Exit a function and pass any <cite>return</cite> value to the calling routine.</p>
+<dt id="term-return">return<a class="headerlink" href="#term-return" title="Permalink to this term">#</a></dt><dd><p>Exit a function and pass any <cite>return</cite> value (which must be convertable to the specified data type) to the calling routine.</p>
 </dd>
 <dt id="term-switch">switch<a class="headerlink" href="#term-switch" title="Permalink to this term">#</a></dt><dd><p>Declare a <cite>switch</cite> block with multiple cases.</p>
 </dd>
@@ -489,7 +491,7 @@ document.write(`
 <section id="important-keywords">
 <h3>Important keywords<a class="headerlink" href="#important-keywords" title="Permalink to this heading">#</a></h3>
 <dl class="simple glossary">
-<dt id="term-0">auto<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>Declare a variable which automatically identifies its data type based on the context in which it is used. <em>Different from C behaviour</em>.</p>
+<dt id="term-0">auto (C++ version)<a class="headerlink" href="#term-0" title="Permalink to this term">#</a></dt><dd><p>Declare a variable which automatically identifies its data type based on the context in which it is used. <em>Different from C behaviour</em>.</p>
 </dd>
 <dt id="term-bool">bool<a class="headerlink" href="#term-bool" title="Permalink to this term">#</a></dt><dd><p>Boolean datatype.</p>
 </dd>
@@ -497,13 +499,32 @@ document.write(`
 </dd>
 <dt id="term-class">class<a class="headerlink" href="#term-class" title="Permalink to this term">#</a></dt><dd><p>Object oriented combined structure holding both data and functions, which usually act upon that data.</p>
 </dd>
-<dt id="term-delete">delete<a class="headerlink" href="#term-delete" title="Permalink to this term">#</a></dt><dt id="term-false">false<a class="headerlink" href="#term-false" title="Permalink to this term">#</a></dt><dd><p>Boolean data indicating a false value.</p>
+<dt id="term-delete">delete<a class="headerlink" href="#term-delete" title="Permalink to this term">#</a></dt><dd><p>Delete a variable or object, and return the memory it was using to the operating system.</p>
+</dd>
+<dt id="term-false">false<a class="headerlink" href="#term-false" title="Permalink to this term">#</a></dt><dd><p>Boolean data indicating a false value. Opposite of <cite>true</cite>, and equivalent to <cite>0</cite>.</p>
 </dd>
 <dt id="term-friend">friend<a class="headerlink" href="#term-friend" title="Permalink to this term">#</a></dt><dd><p>Specifier indicating a function/class can access private or protected data stored in the declaring class.</p>
 </dd>
 <dt id="term-operator">operator<a class="headerlink" href="#term-operator" title="Permalink to this term">#</a></dt><dd><p>Declares an overloading of an operator for a user declared data type (i.e. lets the programmer use it with standard C++ operators such as <cite>+</cite> or <cite>&lt;&lt;</cite>).</p>
 </dd>
-<dt id="term-namespace">namespace<a class="headerlink" href="#term-namespace" title="Permalink to this term">#</a></dt><dt id="term-new">new<a class="headerlink" href="#term-new" title="Permalink to this term">#</a></dt><dt id="term-private">private<a class="headerlink" href="#term-private" title="Permalink to this term">#</a></dt><dt id="term-public">public<a class="headerlink" href="#term-public" title="Permalink to this term">#</a></dt><dt id="term-this">this<a class="headerlink" href="#term-this" title="Permalink to this term">#</a></dt><dt id="term-throw">throw<a class="headerlink" href="#term-throw" title="Permalink to this term">#</a></dt><dt id="term-true">true<a class="headerlink" href="#term-true" title="Permalink to this term">#</a></dt><dt id="term-virtual">virtual<a class="headerlink" href="#term-virtual" title="Permalink to this term">#</a></dt><dd></dd>
+<dt id="term-namespace">namespace<a class="headerlink" href="#term-namespace" title="Permalink to this term">#</a></dt><dd><p>Declare a namespace, which is a way of grouping together related functions and classes (which acts a bit like a Python package/module).</p>
+</dd>
+<dt id="term-new">new<a class="headerlink" href="#term-new" title="Permalink to this term">#</a></dt><dd><p>Allocate new memory for a variable, array or object, and return a pointer to it.</p>
+</dd>
+<dt id="term-nullptr">nullptr<a class="headerlink" href="#term-nullptr" title="Permalink to this term">#</a></dt><dd><p>A canonical pointer value (i.e. a pointer which points to nothing). Useful for initialising pointers or checking if a pointer is valid.</p>
+</dd>
+<dt id="term-private">private<a class="headerlink" href="#term-private" title="Permalink to this term">#</a></dt><dd><p>Declare a class member which can only be accessed by functions within the class itself (i.e. not by functions outside the class which use an object of that class). Opposite of <cite>public</cite>.</p>
+</dd>
+<dt id="term-public">public<a class="headerlink" href="#term-public" title="Permalink to this term">#</a></dt><dd><p>Declare a class member which can be freely accessed by functions outside the class which use an object of that class. Opposite of <cite>private</cite>.</p>
+</dd>
+<dt id="term-this">this<a class="headerlink" href="#term-this" title="Permalink to this term">#</a></dt><dd><p>Pointer to the current object, which is passed implicitly to member functions. Useful for accessing other members of the same object if they have the same name as a local variable (e.g. a method argument).</p>
+</dd>
+<dt id="term-throw">throw<a class="headerlink" href="#term-throw" title="Permalink to this term">#</a></dt><dd><p>Throw an exception, which can be caught by a <cite>catch</cite> statement. (Similar to Python <cite>raise</cite>).</p>
+</dd>
+<dt id="term-true">true<a class="headerlink" href="#term-true" title="Permalink to this term">#</a></dt><dd><p>Boolean data indicating a true value. Opposite of <cite>false</cite>, and equivalent to <cite>1</cite>.</p>
+</dd>
+<dt id="term-virtual">virtual<a class="headerlink" href="#term-virtual" title="Permalink to this term">#</a></dt><dd><p>Declare a virtual function, which can be overridden by a function of the same name in a derived class. Indicates that the function should be called based on the type of the object, rather than the type of the pointer to the object.</p>
+</dd>
 </dl>
 </section>
 </section>

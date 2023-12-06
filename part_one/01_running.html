@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -374,7 +374,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xcode">Xcode</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-wsl-gcc-or-clang">Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
@@ -432,13 +432,13 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
-<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">12</span> <span class="o">--</span><span class="n">version</span>
+<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 13 as of early December 2023) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">13</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">12</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">12.2.0_1</span><span class="p">)</span> <span class="mf">12.2.0</span>
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2022</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">12</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">13.2.0</span><span class="p">)</span> <span class="mf">13.2.0</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2023</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span> <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
 </div>
@@ -447,7 +447,8 @@ document.write(`
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">g++-12</span></code> is the name of your new GNU C++ compiler, the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">g++-13</span></code> is the name of your new GNU C++ compiler (version number 13), the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable file which we have just compiled.</p>
+<p>Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.</p>
 </section>
 <section id="xcode">
 <h4>Xcode<a class="headerlink" href="#xcode" title="Permalink to this heading">#</a></h4>
@@ -472,9 +473,9 @@ document.write(`
 <p>Here <code class="docutils literal notranslate"><span class="pre">c++</span></code> is the name of your C++ compiler, the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable.</p>
 </section>
 </section>
-<section id="linux">
-<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h3>
-<p>Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can’t hope to cover all of them, but for some of the more popular ones:</p>
+<section id="linux-wsl-gcc-or-clang">
+<h3>Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code><a class="headerlink" href="#linux-wsl-gcc-or-clang" title="Permalink to this heading">#</a></h3>
+<p id="index-5">Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can’t hope to cover all of them, but for some of the more popular ones:</p>
 <ul class="simple">
 <li><p>On Ubuntu/Debian (including WSL), use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></p></li>
 <li><p>On Arch Linux, use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">gcc</span></code></p></li>
@@ -572,7 +573,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xcode">Xcode</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-wsl-gcc-or-clang">Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>

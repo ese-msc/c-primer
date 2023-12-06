@@ -173,7 +173,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -189,6 +188,7 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_structs.html">Structures &amp; Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_three.html">Further Exercises</a></li>
 </ul>
 </li>
@@ -408,7 +408,7 @@ document.write(`
 <section id="syntax-and-operators">
 <h2>Syntax and operators<a class="headerlink" href="#syntax-and-operators" title="Permalink to this heading">#</a></h2>
 <p>As a C/C++ variable, a pointer must be declared the first time it is used. The syntax for this is</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>int *a; \\ This is a pointer to an int
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// This is a pointer to an int</span>
 </pre></div>
 </div>
 <p>When declared this way, <code class="docutils literal notranslate"><span class="pre">a</span></code> holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it “point” to a “target” we need the memory address of a suitable integer. The language has an operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, which will get this for us. To dereference (i.e. look up the value) <code class="docutils literal notranslate"><span class="pre">a</span></code> points to, we use the derferencing operator <code class="docutils literal notranslate"><span class="pre">*</span></code>. To assign a new value to the target, we assign it to the dereferenced object, that is <code class="docutils literal notranslate"><span class="pre">*a</span></code>. Let’s look at a short C++ program which exercises all this new behaviour</p>
@@ -424,7 +424,7 @@ document.write(`
 
 <span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                     </span><span class="c1">// updates a&#39;s target</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// returns 10</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
