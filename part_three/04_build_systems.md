@@ -13,7 +13,13 @@ In general there are two steps involved:
 1. Making sure the  the path for the header files which contain the declarations for the library are available to the compiler
 2. Making sure the path for the library files which contain the compiled code for the library are available to the linker.
 
-How to do this depends on the build system you are using.
+How to do this depends on the build system you are using. We will give a short explanation here, or you can look at the following tutorials for more
+
+
+- [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp?view=msvc-160)
+
+- [Make](https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
+- [CMake](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
 
 ## Visual Studio (Windows only)
 
