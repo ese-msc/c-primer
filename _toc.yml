@@ -20,11 +20,13 @@ sections:
   - file: part_three/01_pointers
   - file: part_three/02_structs
   - file: part_three/03_header_files
+  - file: part_three/04_build_systems
   - file: part_three/exercises_three
 - file: appendices/intro
   sections:
   - file: appendices/keywords
   - file: appendices/c-preprocessor
+  - file: appendices/combining_with_python
 - file: changelog
 - file: genindex
   title: Index

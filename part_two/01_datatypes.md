@@ -7,35 +7,35 @@
 
 Just as in `numpy`, C-like languages have data types for variables containing different sorts of data. The standard data types available "out-of-the-box" are: 
 
-- `char` for ASCII characters/single bytes.
-- `int` (and friends `short` and `long`) for integers.
+- `char` for ASCII characters/single bytes (think `'a'`, `'@'` or even `'7'`).
+- `int` (and friends `short` and `long`) for actual integers (1, 24 -99 etc.).
 - `float` for lower precision floating point numbers
-- `double` for higher precision floating point numbers
-- `void` for "nothing in particular" data.
+- `double` for higher precision floating point numbers (the equivalent of Python's `float`).
+- `void` for "nothing in particular" data (which might be used to indicate a function which doesn't return anything, or a pointer to a memory location which doesn't currently have a specific type).
 
 ## Modifiers, qualifiers specifiers
 
 By prepending additional keywords, the behaviour of data types can be changed in various ways to represent additional data.
 
 The core modifiers are:
-    - `signed` indicates integral (i.e `int`, `char` and friends) data types are signed, i.e. take both positive and negative values. This is the default behaviour.
-    - `unsigned`indicates integral (i.e `int`, `char` and friends) data types are unsigned, i.e. zero or positive only. Can be useful for counters in big problems.
-    - `short` used to indicate a "small" integer value (normally 16 bit). Can be used as `short int a=4;` or just `short a=4;`
-    - `long` used to indicate a "large" value, (normally 64 bit for ints or 80 bit floating point). Can be used as `long int a=12345678901234;`, just `long a=12345678901234;`, or as `long double a=1.0e400` (the last isn't used so often).
-    - `long long` used to indicate a "very large" integer value.
+- `signed` indicates integral (i.e `int`, `char` and friends) data types are signed, i.e. take both positive and negative values. This is the default behaviour.
+- `unsigned`indicates integral (i.e `int`, `char` and friends) data types are unsigned, i.e. zero or positive only. Can be useful for counters in big problems.
+- `short` used to indicate a "small" integer value (normally 16 bit). Can be used as `short int a=4;` or just `short a=4;`
+- `long` used to indicate a "large" value, (normally 64 bit for ints or 80 bit floating point). Can be used as `long int a=12345678901234;`, just `long a=12345678901234;`, or as `long double a=1.0e400` (the last isn't used so often).
+- `long long` used to indicate a "very large" integer value.
 
 The core qualifiers are:
 
-- `const` to declare that the underlying data will not change during its lifetime. Used together with a datatype (which might have a modifier attached).
-- `volatile` to declare that the underlying data might change at very short notice.
+- `const` to declare that the underlying data will not change during its lifetime. Used together with a datatype such as `int` or `char`(which might have a modifier attached).
+- `volatile` to declare that the underlying data might change at very short notice (this isn't likely to be useful on regular computers, but can be very important on embeded systems).
 
 The core specifiers are:
-- `register`
-- `extern`
+- `register` to declare that the variable should be stored in a register (i.e. a very fast memory location) rather than in RAM. This is only a suggestion to the compiler, and is likely to be ignored in modern systems.
+- `extern` to declare that the variable is defined elsewhere in the code (e.g. in another file). This can be used to allow global-like variables to be shared between different parts of a program.
 
 ## Scope, declarations, definitions & initialization 
 
-Where Python lets its objects switch between types, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its "scope", and is frequently defined as the narrowest `{  }` block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like
+Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its "scope", and is frequently defined as the narrowest `{  }` block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like
 
 ```c++
 int main() {
