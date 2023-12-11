@@ -19,7 +19,7 @@ for (int i=0; i<10; i++) {
 ```
 You'll note that the actual `for` clause is split into three statements (separated by `;` tokens).
 
- The first statement_initializes_ our counting mechanism, e.g. (as in this case, `int i=0`) declaring a counter variable and pointing it to its first value. In theory we could do multiple things in here (e.g. reset multiple existing variables, just call a function etc.) but in practice we're likely just to set up one counting variable.
+ The first statement _initializes_ our counting mechanism, e.g. (as in this case, `int i=0`) declaring a counter variable and pointing it to its first value. In theory we could do multiple things in here (e.g. reset multiple existing variables, just call a function etc.) but in practice we're likely just to set up one counting variable.
 
  The second statement sets the termination or halting criterion. The `for` loop statement will executive each time as long as the statement here (in our case `i<10`) evaluates true. As soon as that is no longer the case, the loop stops and execution carries on down the function.
 
@@ -29,7 +29,7 @@ You'll note that the actual `for` clause is split into three statements (separat
 ```{index} While loops
 ```
 
-As with Python, C++ has `while` loops which just test a termination statement, and continues to execute the loop block so long as it is true. As an example, lets write [Newton Rapheson]() square root finder in Python and C++:
+As with Python, C++ has `while` loops which just test a termination statement, and continues to execute the loop block so long as it is true. As an example, lets write the [Newton Raphson](https://en.wikipedia.org/wiki/Newton's_method#Square_root) square root finder in Python and C++:
 
 _for Python_
 ```python
@@ -113,17 +113,20 @@ The key differences are:
   - There is no `elif` keyword, instead we use `else if`.
 
 Note that the `{}` brackets are only strictly necessary if there is more than one statement in the conditional statement block. We could always choose to write:
-    ```c++
+
+```c++
     if (my_age < your_age) std::cout <<"Ha! I'm younger than you!\n";
     else if (my_age > your_age) std::cout << "Ha! I'm older than you!";
     else print("Ha! We're the same age!")
-    ```
+```
+
 However, the version with brackets is more explicit and makes it harder to get confused about which statements are actually conditional.
 
 
 ### The switch statement
 
-A form of condition which was only recently introduced in Python  is the `switch` statement, which corresponds to the Python `match`statement. In C++ these start with `switch (`_expression_`)` and then have a block in following the form
+A form of condition which was only recently introduced in Python is the `match` statement, which corresponds to the C++ `switch` statement. In C++ these start with `switch (`_expression_`)` and then have a block in following the form:
+
 ```c++
 switch (my_label) {
   case 1:
@@ -141,8 +144,8 @@ switch (my_label) {
 } 
 ```
 
-In the apove example the code will choose which functions to call depending on if `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this example would mean `my_cool_function_one` and `my_cool_function_two` being called twice. This is slightly different to the Python `match` statement, which will only execute the first matching case.
+In the above example, the code will choose which functions to call depending on if `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this example would mean `my_cool_function_one` and `my_cool_function_two` being called twice. This is slightly different to the Python `match` statement, which will only execute the first matching case.
 
 ## Summary
 
-We've now had a brief look at many of the ways you can control the logical flow of a C++ program, and seen that many of them are similar to the patterns you know from Python. In the next section we will take a deeper look at functions specifically, including their syntax, how to call them and ways they are used.
+We've now had a brief look at many of the ways you can control the logical flow of a C++ program, and seen that many of them are similar to the patterns you know from Python. In the next section we will take a deeper look at functions specifically, including their syntax, how to call them, and ways they are used.
