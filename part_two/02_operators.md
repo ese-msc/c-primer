@@ -36,13 +36,14 @@ Again, as with Python, all the binary logical operators below work in C/C++
 |  `a && b`  | and |
 |  `a \|\| b`  | or |
 
-In C++ these functions return a `bool` data type which can be equal to `true` or `false` (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, _all_ positive integeres evaluate to true and the value zero evaluates to false. 
+In C++ these functions return a `bool` data type which can be equal to `true` or `false` (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, _all_ positive integers evaluate to true and the value zero evaluates to false. 
 
 ## Other Useful Operators
 ```{index} operators: other
 ```
 
 |Operator| Operation |
+|:------:|:---------:|
 | `a++`  | increment |
 | `a--`  | decrement |
 | `a % b`  | remainder |
