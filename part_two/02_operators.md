@@ -54,6 +54,14 @@ In C++ these functions return a `bool` data type which can be equal to `true` or
 ```{index} operators: advanced
 ```
 
+|Operator| Operation |
+|:------:|:---------:|
+| `&`  | bitwise and |
+| `\|`  | bitwise or |
+| `^`  | bitwise xor |
+| `~`  | bitwise not |
+| `?`  | conditional ternary operator |
+
 ## The Order of Evaluation
 ```{index} evaluation order
 ```
