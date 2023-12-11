@@ -27,7 +27,7 @@ A more local option is to take advantage of the combined power of Docker and Vis
 
 To begin, fork the accompanying [examples repository](https://github.com/ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
 
-For simple non-interactive C++ files, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp`in the current directory) a command like
+For simple non-interactive C++ files, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp` in the current directory) a command like:
 
 ```
 g++ -o hello hello.cpp
@@ -56,7 +56,7 @@ Mac users have a number of routes to set up their system for C++. We recommend t
 
 The open source third-party mac package manager [Homebrew](https://brew.sh/) provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.
 
-Most Mac users on th course will already have Homebrew installed, but for those that don't application itself can be downloaded using the script & instructions from the Homebrew homepage. Additional (and alternative) instructions can be found [here](https://docs.brew.sh/Installation). Once this installation is complete, running the command 
+Most Mac users on the course will already have Homebrew installed, but for those that don't, the application itself can be downloaded using the script & instructions from the Homebrew homepage. Additional (and alternative) instructions can be found [here](https://docs.brew.sh/Installation). Once this installation is complete, running the command:
 
 ```
 brew install gcc
@@ -71,15 +71,16 @@ gcc-13 --version
 You should see a response something like
 
 ```
-gcc-12 (Homebrew GCC 13.2.0) 13.2.0
+gcc-13 (Homebrew GCC 13.2.0) 13.2.0
 Copyright (C) 2023 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
 ```
-g++-12 -o hello hello.cpp
+g++-13 -o hello hello.cpp
 ./hello
 ```
 
@@ -100,12 +101,12 @@ cc --version
 You should see a response something like
 
 ```
-Apple clang version 12.0.5 (clang-1205.0.22.11)
-Target: arm64-apple-darwin20.3.0
+Apple clang version 14.0.0 (clang-1400.0.29.202)
+Target: arm64-apple-darwin21.6.0
 Thread model: posix
-InstalledDir: /Applications/Xcode.app/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
-althought the precise values may be a little different.
+although the precise values may be a little different.
 
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
@@ -134,6 +135,13 @@ gcc --version
 ```
 
 You should see a response something like
+
+```
+gcc (Ubuntu 11.4.0-1unintu1~22.04) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
 
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
