@@ -46,6 +46,8 @@ In C++ these functions return a `bool` data type which can be equal to `true` or
 |:------:|:---------:|
 | `a++`  | increment |
 | `a--`  | decrement |
+| `a += b`  | increment by `b`|
+| `a -= b`  | decrement by `b`|
 | `a % b`  | remainder |
 | `a << 2`  | bitwise left shift |
 | `a >> 2`  | bitwise right shift |
