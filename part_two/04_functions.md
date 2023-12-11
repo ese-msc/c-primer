@@ -15,7 +15,7 @@ int main(int argc, char[]* argv){
 }
 ```
 
-This has all the key features of an ordinary C/C++ function. They must have a fixed return type, a name (by which they can be called) and a list of arguments (i.e. a list of variables, along with their own data types). This argument list also counts as the top-level declaration of these variables in the function. The function should ensure that it eventually returns a value of the specified data type (if nothing is to be returned, the function should be declard as `void`).
+This has all the key features of an ordinary C/C++ function. They must have a fixed return type, a name (by which they can be called) and a list of arguments (i.e. a list of variables, along with their own data types). This argument list also counts as the top-level declaration of these variables in the function. The function should ensure that it eventually returns a value of the specified data type (if nothing is to be returned, the function should be declared as `void`).
 
 ### Function declarations and definitions
 ```{index} functions: declaration, functions: definition
@@ -24,17 +24,17 @@ This has all the key features of an ordinary C/C++ function. They must have a fi
 As we stated above, functions must be declared at first use with data types for the return type and argument list. However, this declaration doesn't actually need to define the function code, which can happen (somewhat) independently.
 
 ```c++
-\\ a function declaration
+// a function declaration
 
 int add(int, int)
 
-\\ a declaration and defintion together
+// a declaration and defintion together
 
 int minus(int a, int b){
     return a-b;
 }
 
-\\ the function definition for `add`
+// the function definition for `add`
 
 int add(int a, int b){
     return a-b;
@@ -42,6 +42,8 @@ int add(int a, int b){
 ```
 
 As you can see, a pure function declaration doesn't do much. The most common use is to define the signature for a function which is actually declared elsewhere. Implicitly this is happening with many `#include` statements, which add necessary function definitions into the current file to allow it to compile.
+
+We will see in the Advanced Programming course that it is often good practice for the function declaration to be placed in a _header_ file (`.h`), with the definition in a separate _source_ file (`.cpp`). This allows the function to be used in multiple places without having to copy the definition everywhere.
 
 ### Pass by value
 
@@ -105,7 +107,7 @@ If you do this, you can still only return one type, which is worked out from the
 ```{index} Namespaces
 ```
 
-You've already seen the concept of namespaces in Python, where the stuff inside an imported module are access as (e.g.) `mymodule.myfunction`. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the `namespace` keyword. This allows defining namespaces in which functions (especially #`include`d functions) live. You've actually already seen this with `std::cout`, which is in the `std` namespace.
+You've already seen the concept of namespaces in Python, where the stuff inside an imported module are accessed as (e.g.) `mymodule.myfunction`. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the `namespace` keyword. This allows defining namespaces in which functions (especially #`include`d functions) live. You've actually already seen this with `std::cout`, which is in the `std` namespace.
 
 To define your own namespaces you can write:
 
