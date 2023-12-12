@@ -93,4 +93,4 @@ You don't need to worry too much about the advanced details of classes for now, 
 
 ## Summary
 
-We've now seen the basics of creating our own data structures with `struct` to wrap together related data, making it simpler to pass around. We've also seen that C++ classes allow data and functions acting on that data to be encapsulated together. In the next page of the main Primer we'll talk a little bit about header files, which are the things that the `#include` statements work with, and allow people to share their precompiled code with others.
+We've now seen the basics of creating our own data structures with `struct` to wrap together related data, making it simpler to pass around. We've also seen that C++ classes allow data and functions acting on that data to be encapsulated together. In the next (and last) page of the main Primer we'll talk a little bit about header files, which are the things that the `#include` statements work with, and allow people to share their precompiled code with others.

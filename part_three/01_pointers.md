@@ -172,7 +172,7 @@ We didn't need any extra libraries this time, since `new` and `delete` are baked
 
 ### Additional pointer types
 
- In C++, traditional pointers are now considered less useful and alternative constructs such as "smart pointers" (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the course.
+ In C++, traditional pointers are now considered less useful and alternative constructs such as "smart pointers" (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the Advanced Programming course.
 
 ## Summary
 
