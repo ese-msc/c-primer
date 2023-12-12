@@ -15,7 +15,7 @@ print(a)
 ```
 Running the above code in the Python interpretter gives the output `[1]`. This is because the names `a` and `b` have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour usuing a concept called "pointer"s. 
 
-A C style pointer holds a location (usually called an address) in you computer's memory, along with an attached data type. This address can be looked up ("dereferenced") to get hold of the underlying value to:
+A C style pointer holds a location (usually called an address) in your computer's memory, along with an attached data type. This address can be looked up ("dereferenced") to get hold of the underlying value to:
 1. use in an expression
 2. update via an assignment.
 
@@ -28,26 +28,26 @@ As a C/C++ variable, a pointer must be declared the first time it is used. The s
 int *a; // This is a pointer to an int
 ```
 
-When declared this way, `a` holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it "point" to a "target" we need the memory address of a suitable integer. The language has an operator, `&`, which will get this for us. To dereference (i.e. look up the value) `a` points to, we use the derferencing operator `*`. To assign a new value to the target, we assign it to the dereferenced object, that is `*a`. Let's look at a short C++ program which exercises all this new behaviour
+When declared this way, `a` holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it "point" to a "target" we need the memory address of a suitable integer. The language has an operator, `&`, which will get this for us. To dereference (i.e. look up) the value `a` points to, we use the derferencing operator `*`. To assign a new value to the target, we assign it to the dereferenced object, that is `*a`. Let's look at a short C++ program which exercises all this new behaviour
 
 ```c++
 #include <iostream>
 
 int main(){
-int *a;
-int b = 7; // B is a normal int variable holding the value 7
-a = &b; // point
+    int *a;
+    int b = 7; // B is a normal int variable holding the value 7
+    a = &b; // point
 
-std::cout << a << std::endl;; // returns b's memory address.
-std::cout << *a << std::endl; // returns b's value  (i.e. 7).
+    std::cout << a << std::endl;; // returns b's memory address.
+    std::cout << *a << std::endl; // returns b's value  (i.e. 7).
 
-*a = 10;                     // updates a's target
-std::cout << b << std::endl; // returns 10
-return 1;
+    *a = 10;                     // updates a's target
+    std::cout << b << std::endl; // returns 10
+    return 1;
 }
 ```
 
-This embeds a lot of new concepts in one go, so feel free to run this one a few tips and check you've got to grips with the new behaviour.
+This embeds a lot of new concepts in one go, so feel free to run this one a few times and check you've got to grips with the new behaviour.
 
 If you think back, we've already seen the `*` operator a few times, and the `&` operator at least once. In particular, `&` is used in C++ to indicate "pass by reference" since it's already the C reference operator. To pass by reference in C we must declare the input arguments as pointers and pass in the *value* of a reference to the object we care about by using the `&` operator.
 
@@ -57,21 +57,19 @@ Another place the * operator has turned up is when passing 2D arrays into functi
 
 ```c++
 /* swap two elements (array version) */
-int[2] swap2(int a[]){
-    out[2];
-    out[0] = a[1];
-    out[1] = a[0] ;
-    return out;
+void swap2(int a[]){
+    int tmp = a[0];
+    a[0] = a[1];
+    a[1] = tmp;
 }
 ```
 and 
 ```c++
 /* swap two elements (pointer version)*/
-int[2] swap2(int *a){
-    out[2];
-    out[0] = a[1];
-    out[1] = a[0] ;
-    return out;
+void swap2(int *a){
+    int tmp = a[0];
+    a[0] = a[1];
+    a[1] = tmp;
 }
 ```
 
