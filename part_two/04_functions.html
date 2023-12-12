@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -403,28 +401,29 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This has all the key features of an ordinary C/C++ function. They must have a fixed return type, a name (by which they can be called) and a list of arguments (i.e. a list of variables, along with their own data types). This argument list also counts as the top-level declaration of these variables in the function. The function should ensure that it eventually returns a value of the specified data type (if nothing is to be returned, the function should be declard as <code class="docutils literal notranslate"><span class="pre">void</span></code>).</p>
+<p>This has all the key features of an ordinary C/C++ function. They must have a fixed return type, a name (by which they can be called) and a list of arguments (i.e. a list of variables, along with their own data types). This argument list also counts as the top-level declaration of these variables in the function. The function should ensure that it eventually returns a value of the specified data type (if nothing is to be returned, the function should be declared as <code class="docutils literal notranslate"><span class="pre">void</span></code>).</p>
 <section id="function-declarations-and-definitions">
 <h3>Function declarations and definitions<a class="headerlink" href="#function-declarations-and-definitions" title="Permalink to this heading">#</a></h3>
 <p id="index-1">As we stated above, functions must be declared at first use with data types for the return type and argument list. However, this declaration doesn’t actually need to define the function code, which can happen (somewhat) independently.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>\\ a function declaration
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// a function declaration</span>
 
-int add(int, int)
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
 
-\\ a declaration and defintion together
+<span class="c1">// a declaration and defintion together</span>
 
-int minus(int a, int b){
-    return a-b;
-}
+<span class="kt">int</span><span class="w"> </span><span class="n">minus</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 
-\\ the function definition for `add`
+<span class="c1">// the function definition for `add`</span>
 
-int add(int a, int b){
-    return a-b;
-}
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>As you can see, a pure function declaration doesn’t do much. The most common use is to define the signature for a function which is actually declared elsewhere. Implicitly this is happening with many <code class="docutils literal notranslate"><span class="pre">#include</span></code> statements, which add necessary function definitions into the current file to allow it to compile.</p>
+<p>We will see in the Advanced Programming course that it is often good practice for the function declaration to be placed in a <em>header</em> file (<code class="docutils literal notranslate"><span class="pre">.h</span></code>), with the definition in a separate <em>source</em> file (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>). This allows the function to be used in multiple places without having to copy the definition everywhere.</p>
 </section>
 <section id="pass-by-value">
 <h3>Pass by value<a class="headerlink" href="#pass-by-value" title="Permalink to this heading">#</a></h3>
@@ -477,7 +476,7 @@ int add(int a, int b){
 </section>
 <section id="namespaces">
 <h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h2>
-<p id="index-3">You’ve already seen the concept of namespaces in Python, where the stuff inside an imported module are access as (e.g.) <code class="docutils literal notranslate"><span class="pre">mymodule.myfunction</span></code>. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword. This allows defining namespaces in which functions (especially #<code class="docutils literal notranslate"><span class="pre">include</span></code>d functions) live. You’ve actually already seen this with <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, which is in the <code class="docutils literal notranslate"><span class="pre">std</span></code> namespace.</p>
+<p id="index-3">You’ve already seen the concept of namespaces in Python, where the stuff inside an imported module are accessed as (e.g.) <code class="docutils literal notranslate"><span class="pre">mymodule.myfunction</span></code>. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword. This allows defining namespaces in which functions (especially #<code class="docutils literal notranslate"><span class="pre">include</span></code>d functions) live. You’ve actually already seen this with <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, which is in the <code class="docutils literal notranslate"><span class="pre">std</span></code> namespace.</p>
 <p>To define your own namespaces you can write:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">myfuncs</span>
 <span class="p">{</span>

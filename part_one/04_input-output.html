@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -370,16 +368,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Programs with input</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -390,7 +384,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="programs-with-input">
+  <section class="tex2jax_ignore mathjax_ignore" id="programs-with-input">
 <h1>Programs with input<a class="headerlink" href="#programs-with-input" title="Permalink to this heading">#</a></h1>
 <p>Since C++ programmes are compiled, we don’t have the same flexibility to change the behaviour of the program at runtime as we do with Python. However, we can still take input data from the user in a number of ways.</p>
 <section id="taking-input-from-the-keyboard">
@@ -443,7 +437,7 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
 </pre></div>
 </div>
-<p>Here we have two variables which are automatically assigned by the operating system, the integer <code class="docutils literal notranslate"><span class="pre">argc</span></code>, and an array of strings, <code class="docutils literal notranslate"><span class="pre">argv</span></code>. Just like with the Python <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (<code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>) equal to the name used to set the program running.</p>
+<p>Here we have two variables which are automatically assigned by the operating system, the integer <code class="docutils literal notranslate"><span class="pre">argc</span></code> (the number of arguments), and an array of strings, <code class="docutils literal notranslate"><span class="pre">argv</span></code>. Just like with the Python <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (<code class="docutils literal notranslate"><span class="pre">argv[0]</span></code>) equal to the name used to set the program running.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[]){</span>
@@ -459,11 +453,12 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Note that here we use the <code class="docutils literal notranslate"><span class="pre">atof</span></code> function to convert the string to a floating point number. We also have to be careful to start our loop at <code class="docutils literal notranslate"><span class="pre">i=1</span></code> since the first entry in the array is the name of the program itself.</p>
 </section>
 <section id="taking-input-from-files">
 <h2>Taking input from files<a class="headerlink" href="#taking-input-from-files" title="Permalink to this heading">#</a></h2>
 <p>The last useful way we’ll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don’t be too worried if you don’t follow all the details.</p>
-<p>As with input/output the standard methods differ somewhat between C &amp; C++. In C we use a collection of functions from <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>. For example to write a file:</p>
+<p>As with input/output, the standard methods differ somewhat between C &amp; C++. In C we use a collection of functions from <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>. For example to write a file:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -511,7 +506,7 @@ document.write(`
 <p>or</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
 <span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
-<span class="w">  </span><span class="cm">/* read an int from example.txt (which is assumed)</span>
+<span class="w">  </span><span class="cm">/* read an int from example.txt, which is assumed</span>
 <span class="cm">  to exist already. Unlike Python, we need to write </span>
 <span class="cm">  additional code if that might not be true.*/</span>
 <span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span>
@@ -520,9 +515,8 @@ document.write(`
 </div>
 <p>to read from the file instead.</p>
 </section>
-</section>
 <section id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Try to modify the primes code from the last section to take input from the keyboard on how many numbers to calculate.</p></li>
 <li><p>Next, write a version which takes the number of primes to calculate as input from the command line (you may need the <code class="docutils literal notranslate"><span class="pre">std::atoi</span></code> function).</p></li>
@@ -530,8 +524,9 @@ document.write(`
 </ol>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>In the next section we’ll look in detail at some of the things that can go wrong while trying to compile C/C++ code, how to understand the error messages which are presented, and what we can do to attempt to fix the problems.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -597,16 +592,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Programs with input</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-the-keyboard">Taking input from the keyboard</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-straight-from-the-command-line">Taking input straight from the command line</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-input-from-files">Taking input from files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

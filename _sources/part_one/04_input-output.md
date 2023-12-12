@@ -1,8 +1,8 @@
-## Programs with input
+# Programs with input
 
 Since C++ programmes are compiled, we don't have the same flexibility to change the behaviour of the program at runtime as we do with Python. However, we can still take input data from the user in a number of ways.
 
-### Taking input from the keyboard
+## Taking input from the keyboard
 
 The counterpart to `std::cout` is `std::cin`. It's usage is similar but "in the other direction". For example:
 
@@ -51,7 +51,7 @@ int main(){
 }
 ```
 
-### Taking input straight from the command line
+## Taking input straight from the command line
 
 As we saw with Python, another useful way to pass information into a program is on the command line. So far we have always used `main` functions with no input, but a longer form of the input signature is
 
@@ -59,7 +59,7 @@ As we saw with Python, another useful way to pass information into a program is 
 int main(int argc, char* argv[])
 ```
 
-Here we have two variables which are automatically assigned by the operating system, the integer `argc`, and an array of strings, `argv`. Just like with the Python `sys.argv`, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (`argv[0]`) equal to the name used to set the program running.
+Here we have two variables which are automatically assigned by the operating system, the integer `argc` (the number of arguments), and an array of strings, `argv`. Just like with the Python `sys.argv`, the array is populated with a space separated list of the command line arguments used to call the program, with the first entry (`argv[0]`) equal to the name used to set the program running.
 
 ```c++
 #include <iostream>
@@ -77,11 +77,13 @@ int main(int argc, char* argv[]){
 }
 ```
 
-### Taking input from files
+Note that here we use the `atof` function to convert the string to a floating point number. We also have to be careful to start our loop at `i=1` since the first entry in the array is the name of the program itself.
+
+## Taking input from files
 
 The last useful way we'll talk about to pass information in to a program is via a file. This is more involved than the previous versions, so don't be too worried if you don't follow all the details.
 
-As with input/output the standard methods differ somewhat between C & C++. In C we use a collection of functions from `stdio.h`. For example to write a file:
+As with input/output, the standard methods differ somewhat between C & C++. In C we use a collection of functions from `stdio.h`. For example to write a file:
 
 ```c
 #include <stdio.h>
@@ -134,7 +136,7 @@ or
 ```c++
   int num;
   fs.open ("example.txt", std::fstream::in);
-  /* read an int from example.txt (which is assumed)
+  /* read an int from example.txt, which is assumed
   to exist already. Unlike Python, we need to write 
   additional code if that might not be true.*/
   fs >> num; 

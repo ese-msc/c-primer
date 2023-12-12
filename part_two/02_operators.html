@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -440,7 +438,7 @@ document.write(`
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code></p></td>
 <td class="text-center"><p>less than or equal to</p></td>
 </tr>
-<tr class="row-odd"><td class="text-center"><p>!  <code class="docutils literal notranslate"><span class="pre">!a</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">!a</span></code></p></td>
 <td class="text-center"><p>not</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span>&#160; <span class="pre">b</span></code></p></td>
@@ -449,27 +447,75 @@ document.write(`
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span></code></p></td>
 <td class="text-center"><p>and</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>`a</p></td>
-<td class="text-center"><p></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">||</span> <span class="pre">b</span></code></p></td>
+<td class="text-center"><p>or</p></td>
 </tr>
 </tbody>
 </table>
-<p>In C++ these functions return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> data type which can be equal to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, <em>all</em> positive integeres evaluate to true and the value zero evaluates to false.</p>
+<p>In C++ these functions return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> data type which can be equal to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, <em>all</em> positive integers evaluate to true and the value zero evaluates to false.</p>
 </section>
 <section id="other-useful-operators">
 <h2>Other Useful Operators<a class="headerlink" href="#other-useful-operators" title="Permalink to this heading">#</a></h2>
-<p id="index-3">|Operator| Operation |
-| <code class="docutils literal notranslate"><span class="pre">a++</span></code>  | increment |
-| <code class="docutils literal notranslate"><span class="pre">a--</span></code>  | decrement |
-| <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code>  | remainder |
-| <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;&lt;</span> <span class="pre">2</span></code>  | bitwise left shift |
-| <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;&gt;</span> <span class="pre">2</span></code>  | bitwise right shift |</p>
+<table class="table" id="index-3">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
+<th class="head text-center"><p>Operation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a++</span></code></p></td>
+<td class="text-center"><p>increment</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a--</span></code></p></td>
+<td class="text-center"><p>decrement</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code></p></td>
+<td class="text-center"><p>increment by <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-=</span> <span class="pre">b</span></code></p></td>
+<td class="text-center"><p>decrement by <code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code></p></td>
+<td class="text-center"><p>remainder</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;&lt;</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p>bitwise left shift</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;&gt;</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p>bitwise right shift</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="operators-for-completionists">
 <h2>Operators For Completionists<a class="headerlink" href="#operators-for-completionists" title="Permalink to this heading">#</a></h2>
+<table class="table" id="index-4">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
+<th class="head text-center"><p>Operation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td class="text-center"><p>bitwise and</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td class="text-center"><p>bitwise or</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-center"><p>bitwise xor</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td class="text-center"><p>bitwise not</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td class="text-center"><p>conditional ternary operator</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="the-order-of-evaluation">
-<span id="index-4"></span><h2>The Order of Evaluation<a class="headerlink" href="#the-order-of-evaluation" title="Permalink to this heading">#</a></h2>
+<h2>The Order of Evaluation<a class="headerlink" href="#the-order-of-evaluation" title="Permalink to this heading">#</a></h2>
 <p id="index-5">There is a well defined default order of evaluation for operators in C/C++ which is worth knowing. The order of evaluation for commonly used operations is:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> parentheses</p></li>

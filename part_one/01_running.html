@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -413,7 +411,7 @@ document.write(`
 <p id="index-2">A more local option is to take advantage of the combined power of Docker and Visual studio code to provide files which you can often compile with one click.</p>
 <p><img alt="" src="../_images/vscode.png" /></p>
 <p>To begin, fork the accompanying <a class="reference external" href="https://github.com/ese-msc/c-examples">examples repository</a> and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner “Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).”. Select “Reopen in Container”. This will restart the VS Code editor window, while connecting to a Docker container build from the repository <a class="reference external" href="https://ese-msc/c-examples/.devcontainer/Dockerfile">C examples Dockerfile</a>. This container has <code class="docutils literal notranslate"><span class="pre">git</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span></code> installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.</p>
-<p>For simple non-interactive C++ files, you can now build &amp; run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code>in the current directory) a command like</p>
+<p>For simple non-interactive C++ files, you can now build &amp; run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> in the current directory) a command like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
@@ -433,7 +431,7 @@ document.write(`
 <section id="gcc-homebrew-and-vs-code">
 <h4>gcc, homebrew and VS code<a class="headerlink" href="#gcc-homebrew-and-vs-code" title="Permalink to this heading">#</a></h4>
 <p>The open source third-party mac package manager <a class="reference external" href="https://brew.sh/">Homebrew</a> provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.</p>
-<p>Most Mac users on th course will already have Homebrew installed, but for those that don’t application itself can be downloaded using the script &amp; instructions from the Homebrew homepage. Additional (and alternative) instructions can be found <a class="reference external" href="https://docs.brew.sh/Installation">here</a>. Once this installation is complete, running the command</p>
+<p>Most Mac users on the course will already have Homebrew installed, but for those that don’t, the application itself can be downloaded using the script &amp; instructions from the Homebrew homepage. Additional (and alternative) instructions can be found <a class="reference external" href="https://docs.brew.sh/Installation">here</a>. Once this installation is complete, running the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
@@ -442,13 +440,14 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">12</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">13.2.0</span><span class="p">)</span> <span class="mf">13.2.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">13</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">13.2.0</span><span class="p">)</span> <span class="mf">13.2.0</span>
 <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2023</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
-<span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span> <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
+<span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>To compile a C++ file called <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> into an exectuable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, then run it, use a command like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">12</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">13</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
 </div>
@@ -463,13 +462,13 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">12.0.5</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1205.0.22.11</span><span class="p">)</span>
-<span class="n">Target</span><span class="p">:</span> <span class="n">arm64</span><span class="o">-</span><span class="n">apple</span><span class="o">-</span><span class="n">darwin20</span><span class="mf">.3.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">14.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1400.0.29.202</span><span class="p">)</span>
+<span class="n">Target</span><span class="p">:</span> <span class="n">arm64</span><span class="o">-</span><span class="n">apple</span><span class="o">-</span><span class="n">darwin21</span><span class="mf">.6.0</span>
 <span class="n">Thread</span> <span class="n">model</span><span class="p">:</span> <span class="n">posix</span>
-<span class="n">InstalledDir</span><span class="p">:</span> <span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">Xcode</span><span class="o">.</span><span class="n">app</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">Toolchains</span><span class="o">/</span><span class="n">XcodeDefault</span><span class="o">.</span><span class="n">xctoolchain</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">InstalledDir</span><span class="p">:</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
 </pre></div>
 </div>
-<p>althought the precise values may be a little different.</p>
+<p>although the precise values may be a little different.</p>
 <p>To compile a C++ file called <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> into an exectuable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, then run it, use a command like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
@@ -491,6 +490,12 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span> <span class="p">(</span><span class="n">Ubuntu</span> <span class="mf">11.4.0</span><span class="o">-</span><span class="mi">1</span><span class="n">unintu1</span><span class="o">~</span><span class="mf">22.04</span><span class="p">)</span> <span class="mf">11.4.0</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2021</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
+<span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
+</pre></div>
+</div>
 <p>To compile a C++ file called <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> into an exectuable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, then run it, use a command like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>

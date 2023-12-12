@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -374,7 +372,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers-qualifiers-specifiers">Modifiers, qualifiers specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-declarations-definitions-initialization">Scope, declarations, definitions &amp; initialization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type conversion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-definitions-enumerations-structures-and-classes">type definitions, enumerations, structures and classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-definitions-enumerations-structures-and-classes">Type definitions, enumerations, structures and classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-enum-keyword">The <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-struct-and-class">The <code class="docutils literal notranslate"><span class="pre">struct</span></code> and <code class="docutils literal notranslate"><span class="pre">class</span></code></a></li>
 </ul>
@@ -430,7 +428,7 @@ document.write(`
 </section>
 <section id="scope-declarations-definitions-initialization">
 <h2>Scope, declarations, definitions &amp; initialization<a class="headerlink" href="#scope-declarations-definitions-initialization" title="Permalink to this heading">#</a></h2>
-<p>Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its “scope”, and is frequently defined as the narrowest <code class="docutils literal notranslate"><span class="pre">{</span>&#160; <span class="pre">}</span></code> block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like</p>
+<p>Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its “scope”, and is frequently defined as the narrowest <code class="docutils literal notranslate"><span class="pre">{</span>&#160; <span class="pre">}</span></code> block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">short</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0</span><span class="p">;</span>
@@ -446,7 +444,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>both fail to compile. The first because <code class="docutils literal notranslate"><span class="pre">a</span></code> has been redeclared and the second because the <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">a=6;</span></code> hasn’t been declared to have any type in its own score. Meanwhile</p>
+<p>both fail to compile. The first because <code class="docutils literal notranslate"><span class="pre">a</span></code> has been redeclared and the second because the <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">a=6;</span></code> hasn’t been declared to have any type in its own scope. Meanwhile</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">short</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 <span class="w">    </span><span class="p">{</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;}</span>
@@ -490,10 +488,10 @@ document.write(`
 <p>will print <code class="docutils literal notranslate"><span class="pre">2.66667</span></code> (or some other variant depending on precision options). Here the cast converts the <code class="docutils literal notranslate"><span class="pre">8</span></code> to <code class="docutils literal notranslate"><span class="pre">8.0</span></code> (in this case exactly, since the value can be represented in floating point), the <code class="docutils literal notranslate"><span class="pre">3</span></code> is implictly converted to a double precision number for the floating division, then the expression calculated.</p>
 </section>
 <section id="type-definitions-enumerations-structures-and-classes">
-<h2>type definitions, enumerations, structures and classes<a class="headerlink" href="#type-definitions-enumerations-structures-and-classes" title="Permalink to this heading">#</a></h2>
+<h2>Type definitions, enumerations, structures and classes<a class="headerlink" href="#type-definitions-enumerations-structures-and-classes" title="Permalink to this heading">#</a></h2>
 <section id="the-enum-keyword">
 <h3>The <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword<a class="headerlink" href="#the-enum-keyword" title="Permalink to this heading">#</a></h3>
-<p>A special data type greatly used in C, although somewhat less in C++, is the enumeration. This allows the programmer to create, semi-automatically sequences of named integer constants, which can then be used in the code in comparisions, loops and similar places</p>
+<p>A special data type greatly used in C, although somewhat less in C++, is the enumeration. This allows the programmer to create, semi-automatically, sequences of named integer constants, which can then be used in the code in comparisions, loops and similar places</p>
 <p>The syntax is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Foo</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">c</span> <span class="p">};</span>
 <span class="o">//</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">10</span>
@@ -605,7 +603,7 @@ document.write(`
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>We’ve now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the advanced programming course. In the next section we will cover the key operations which can be performed on these variables.</p>
+<p>We’ve now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the Advanced Programming course. In the next section we will cover the key operations which can be performed on these variables.</p>
 </section>
 </section>
 
@@ -676,7 +674,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifiers-qualifiers-specifiers">Modifiers, qualifiers specifiers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope-declarations-definitions-initialization">Scope, declarations, definitions &amp; initialization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-conversion">Type conversion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-definitions-enumerations-structures-and-classes">type definitions, enumerations, structures and classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-definitions-enumerations-structures-and-classes">Type definitions, enumerations, structures and classes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-enum-keyword">The <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-struct-and-class">The <code class="docutils literal notranslate"><span class="pre">struct</span></code> and <code class="docutils literal notranslate"><span class="pre">class</span></code></a></li>
 </ul>

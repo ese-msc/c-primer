@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -398,7 +396,7 @@ document.write(`
 <p>Instead, the standard which has developed is to use the <code class="docutils literal notranslate"><span class="pre">#include</span></code> preprocessor directive to grab one canonical file containing the proper declarations. This file is called a <em>header file</em>, using the file extension <code class="docutils literal notranslate"><span class="pre">.h</span></code>, and you have already been using them implicitly in your coding whenever you’ve used an <code class="docutils literal notranslate"><span class="pre">#include</span></code> line.</p>
 <section id="standard-layout">
 <h3>Standard layout<a class="headerlink" href="#standard-layout" title="Permalink to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have <code class="docutils literal notranslate"><span class="pre">#include</span></code> lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice modern header files start with</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have <code class="docutils literal notranslate"><span class="pre">#include</span></code> lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice, modern header files start with</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="cm">/*declarations start here*/</span>
@@ -423,7 +421,7 @@ document.write(`
 <li><p>share the source files and let the user compile it together themselves</p></li>
 <li><p>Compile it for the users’ computer and then share the compiled data for the user to link to.</p></li>
 </ol>
-<p>One version of the first option is called a “headers only” library, in which all the necessary code is contained in <code class="docutils literal notranslate"><span class="pre">.h</span></code> files, which only need to be <code class="docutils literal notranslate"><span class="pre">#included</span></code> to use them. The second option is more complicated, especially for C++ code.</p>
+<p>One version of the first option is called a “headers only” library, in which all the necessary code is contained in <code class="docutils literal notranslate"><span class="pre">.h</span></code> files, which only need to be <code class="docutils literal notranslate"><span class="pre">#included</span></code> to use them. We will see an example of a “headers only” library in the group project in the final week of the Advanced Programming course. The second option is more complicated, especially for C++ code.</p>
 <p>This is because different C compiler versions (running on the same operating system and basic hardware) normally produce code which will work with all other C compilers, whereas C++ code is linked much more strongly to the compiler which produced it. This means that you need to find &amp; install a version of the library for your specific compiler version in order to be able to use it.</p>
 <p>To link in a compiled library (assuming you’ve already installed it), additional options must be set for your compiler. On the command line, this often means adding additional search paths (using the <code class="docutils literal notranslate"><span class="pre">-L</span></code> option) and library files to include. We won’t try to go into these details now, you will find out more during the course.</p>
 </section>

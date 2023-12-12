@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -392,7 +390,7 @@ document.write(`
 <h1>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Now that you hopefully have access to a working compiler, and a place to writewe’ll move on to giving you some practical code to compile. A common first program for people to code in a new programming language is to write just enough code to print the phrase “Hello World!” to the screen (or other output device) and then exit.</p>
+<p>Now that you hopefully have access to a working compiler, and a place to write, we’ll move on to giving you some practical code to compile. A common first program for people to code in a new programming language is to write just enough code to print the phrase “Hello World!” to the screen (or other output device) and then exit.</p>
 <p>The popularity of this tradition actually dates back to the beginnings of the C programming language in 1978 and the book “The C Programming Language” by Brian Kernighan and Dennis Ritchie.</p>
 <p>Let’s compare some simple implementations in Python, C and C++.</p>
 </section>
@@ -418,7 +416,7 @@ document.write(`
 </pre></div>
 </div>
 <p>Unlike Python, we need to use a function from outside the core language, in this case the function <code class="docutils literal notranslate"><span class="pre">printf</span></code> from the standard library <code class="docutils literal notranslate"><span class="pre">stdio</span></code>, in order to print our message to screen. At the compilation stage we do this with command <code class="docutils literal notranslate"><span class="pre">#include</span></code>, a C preprocessor directive, which in practice works very similarly to the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Python by pulling other code into our work.</p>
-<p>Where Python runs through commands beginning at the top of a script file, in <code class="docutils literal notranslate"><span class="pre">C</span></code> programs (at least, those printing to screen in the terminal) start at the beginning of the special <code class="docutils literal notranslate"><span class="pre">main</span></code> function. This function usually returns an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is taken to mean that things worked successfully, while other values are generally taken as a sign that something went wrong.</p>
+<p>Where Python runs through commands beginning at the top of a script file, C programs (at least, those printing to screen in the terminal) start at the beginning of the special <code class="docutils literal notranslate"><span class="pre">main</span></code> function. This function usually returns an integer, where <code class="docutils literal notranslate"><span class="pre">0</span></code> is taken to mean that things worked successfully, while other values are generally taken as a sign that something went wrong.</p>
 <p>Finally, in C/C++ we <strong>must</strong> use the double quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> to indicate a string (the <code class="docutils literal notranslate"><span class="pre">'</span></code> character won’t work, and is only used with single characters), and since the <code class="docutils literal notranslate"><span class="pre">printf</span></code> function doesn’t end lines automatically, we must do it ourselves using the special end-of-line <code class="docutils literal notranslate"><span class="pre">\n</span></code> “escape” character.</p>
 </section>
 <section id="id1">

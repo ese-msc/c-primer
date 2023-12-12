@@ -14,7 +14,7 @@ Instead, the standard which has developed is to use the `#include` preprocessor 
 
 ### Standard layout
 
-The `#include` directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have `#include` lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice modern header files start with
+The `#include` directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have `#include` lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice, modern header files start with
 
 ```c++
 #pragma once
@@ -42,7 +42,7 @@ To share code for others to use, there are two options in C/C++:
 1) share the source files and let the user compile it together themselves
 2) Compile it for the users' computer and then share the compiled data for the user to link to.
 
-One version of the first option is called a "headers only" library, in which all the necessary code is contained in `.h` files, which only need to be `#included` to use them. The second option is more complicated, especially for C++ code.
+One version of the first option is called a "headers only" library, in which all the necessary code is contained in `.h` files, which only need to be `#included` to use them. We will see an example of a "headers only" library in the group project in the final week of the Advanced Programming course. The second option is more complicated, especially for C++ code.
 
 This is because different C compiler versions (running on the same operating system and basic hardware) normally produce code which will work with all other C compilers, whereas C++ code is linked much more strongly to the compiler which produced it. This means that you need to find & install a version of the library for your specific compiler version in order to be able to use it.
 

@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -404,7 +402,7 @@ document.write(`
 </pre></div>
 </div>
 <p>Running the above code in the Python interpretter gives the output <code class="docutils literal notranslate"><span class="pre">[1]</span></code>. This is because the names <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour usuing a concept called “pointer”s.</p>
-<p>A C style pointer holds a location (usually called an address) in you computer’s memory, along with an attached data type. This address can be looked up (“dereferenced”) to get hold of the underlying value to:</p>
+<p>A C style pointer holds a location (usually called an address) in your computer’s memory, along with an attached data type. This address can be looked up (“dereferenced”) to get hold of the underlying value to:</p>
 <ol class="arabic simple">
 <li><p>use in an expression</p></li>
 <li><p>update via an assignment.</p></li>
@@ -416,45 +414,43 @@ document.write(`
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// This is a pointer to an int</span>
 </pre></div>
 </div>
-<p>When declared this way, <code class="docutils literal notranslate"><span class="pre">a</span></code> holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it “point” to a “target” we need the memory address of a suitable integer. The language has an operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, which will get this for us. To dereference (i.e. look up the value) <code class="docutils literal notranslate"><span class="pre">a</span></code> points to, we use the derferencing operator <code class="docutils literal notranslate"><span class="pre">*</span></code>. To assign a new value to the target, we assign it to the dereferenced object, that is <code class="docutils literal notranslate"><span class="pre">*a</span></code>. Let’s look at a short C++ program which exercises all this new behaviour</p>
+<p>When declared this way, <code class="docutils literal notranslate"><span class="pre">a</span></code> holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it “point” to a “target” we need the memory address of a suitable integer. The language has an operator, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, which will get this for us. To dereference (i.e. look up) the value <code class="docutils literal notranslate"><span class="pre">a</span></code> points to, we use the derferencing operator <code class="docutils literal notranslate"><span class="pre">*</span></code>. To assign a new value to the target, we assign it to the dereferenced object, that is <code class="docutils literal notranslate"><span class="pre">*a</span></code>. Let’s look at a short C++ program which exercises all this new behaviour</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="c1">// B is a normal int variable holding the value 7</span>
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// point</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="c1">// B is a normal int variable holding the value 7</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// point</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;;</span><span class="w"> </span><span class="c1">// returns b&#39;s memory address.</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// returns b&#39;s value  (i.e. 7).</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;;</span><span class="w"> </span><span class="c1">// returns b&#39;s memory address.</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// returns b&#39;s value  (i.e. 7).</span>
 
-<span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                     </span><span class="c1">// updates a&#39;s target</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// returns 10</span>
-<span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">                     </span><span class="c1">// updates a&#39;s target</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// returns 10</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This embeds a lot of new concepts in one go, so feel free to run this one a few tips and check you’ve got to grips with the new behaviour.</p>
+<p>This embeds a lot of new concepts in one go, so feel free to run this one a few times and check you’ve got to grips with the new behaviour.</p>
 <p>If you think back, we’ve already seen the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator a few times, and the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator at least once. In particular, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> is used in C++ to indicate “pass by reference” since it’s already the C reference operator. To pass by reference in C we must declare the input arguments as pointers and pass in the <em>value</em> of a reference to the object we care about by using the <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> operator.</p>
 </section>
 <section id="pointers-and-arrays">
 <h2>Pointers and arrays<a class="headerlink" href="#pointers-and-arrays" title="Permalink to this heading">#</a></h2>
 <p>Another place the * operator has turned up is when passing 2D arrays into functions. This is because (implicitly) C arrays “decay” into pointers when passed to a function. So this means that both</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/* swap two elements (array version) */</span>
-<span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="n">swap2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]){</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">swap2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>and</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/* swap two elements (pointer version)*/</span>
-<span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="n">swap2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">){</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="w">    </span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">swap2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -548,7 +544,7 @@ document.write(`
 </section>
 <section id="additional-pointer-types">
 <h3>Additional pointer types<a class="headerlink" href="#additional-pointer-types" title="Permalink to this heading">#</a></h3>
-<p>In C++, traditional pointers are now considered less useful and alternative constructs such as “smart pointers” (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the course.</p>
+<p>In C++, traditional pointers are now considered less useful and alternative constructs such as “smart pointers” (which clean themselves up when they pass out of scope) and unique pointers (which prevent multiple pointers all being directed at the same target) are in greater use. You will learn more about these techniques during the rest of the Advanced Programming course.</p>
 </section>
 </section>
 <section id="summary">

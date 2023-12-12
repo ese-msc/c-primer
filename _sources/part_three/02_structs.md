@@ -87,9 +87,9 @@ Person::Person(char* n, int a, float h){
 }
 ```
 
-When the `class` keyword is used, the default behaviour is to keep members private (i.e. only allow the class itself to acess them), unless explicitl declared as protected (only the class, derived classes and specially listed classes can acces them) or public (i.e. availble as `x.name` like in Python). We've also declared two class methods, the "constructor", which acts a lot like the a Python `__init__` function, and a "getter" function for the `Person`'s name.
+When the `class` keyword is used, the default behaviour is to keep members private (i.e. only allow the class itself to acess them), unless explicitly declared as protected (only the class, derived classes and specially listed classes can access them) or public (i.e. available as `x.name` like in Python). We've also declared two class methods, the "constructor", which acts a lot like the a Python `__init__` function, and a "getter" function for the `Person`'s name.
 
-You don't need to worry too much about the advanced details of classes for now, since you will learn a lot more over the durations the Advanced Programming course.
+You don't need to worry too much about the advanced details of classes for now, since you will learn a lot more over the duration of the Advanced Programming course.
 
 ## Summary
 

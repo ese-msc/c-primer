@@ -174,8 +174,6 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Some Numerical Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -371,10 +369,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prime-calculator">A prime calculator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -508,8 +504,9 @@ document.write(`
 </pre></div>
 </div>
 <p>Note that unlike in Python, plotting in C++ is hard work, so we’re just printing the values to screen instead.</p>
+</section>
 <section id="quadrature">
-<h3>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h3>
+<h2>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll implement two quadrature methods, the midpoint and the trapezium rules. We’ll start with the Python code (see the Computational Mathematics course for the annotated versions):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -526,7 +523,6 @@ document.write(`
     <span class="k">return</span> <span class="n">I_M</span>
 
 <span class="k">def</span> <span class="nf">trapezium_rule</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-
     <span class="n">interval_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span>
 
     <span class="n">I_T</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -588,7 +584,6 @@ document.write(`
 </div>
 <p>Note that we’ve had to include the <code class="docutils literal notranslate"><span class="pre">cmath</span></code> header to get access to the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function. We’ve also had to declare the function <code class="docutils literal notranslate"><span class="pre">f</span></code> as taking a double and returning a double, and then pass it as an argument to the quadrature functions. This is because C++ doesn’t have a built-in <code class="docutils literal notranslate"><span class="pre">sin</span></code> function, but instead has a <code class="docutils literal notranslate"><span class="pre">sin</span></code> function for each of the floating point types (e.g. <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>), and the compiler needs to know which one we want to use.</p>
 <p>The declaration and use of function pointers in the C++ versions of the <code class="docutils literal notranslate"><span class="pre">midpoint_rule</span></code> and <code class="docutils literal notranslate"><span class="pre">trapezium_rule</span></code> is more complicated than the Python version, but it’s not too bad once you get used to it. We’ll talk more about this in a later section.</p>
-</section>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
@@ -668,10 +663,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-prime-calculator">A prime calculator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-forward-euler-method">The forward Euler method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadrature">Quadrature</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>

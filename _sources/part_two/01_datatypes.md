@@ -35,7 +35,7 @@ The core specifiers are:
 
 ## Scope, declarations, definitions & initialization 
 
-Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type which cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its "scope", and is frequently defined as the narrowest `{  }` block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like
+Where Python lets its objects switch between types as needed by the program at run time, C-like languages make programmers state the type of a variable name when first used. This type cannot be changed as long as that variable is accessible by that name. The limits of accessibility of a variable is sometimes called its "scope", and is frequently defined as the narrowest `{  }` block the variable is exposed in (which operates something like the whitespace blocks in Python). This means that code like
 
 ```c++
 int main() {
@@ -52,7 +52,7 @@ int main() {
     return 0;
 }
 ```
-both fail to compile. The first because `a` has been redeclared and the second because the `a` in `a=6;` hasn't been declared to have any type in its own score. Meanwhile
+both fail to compile. The first because `a` has been redeclared and the second because the `a` in `a=6;` hasn't been declared to have any type in its own scope. Meanwhile
 
 ```c++
 int main() {
@@ -97,11 +97,11 @@ std::cout << (double)8/3;
 ```
 will print `2.66667` (or some other variant depending on precision options). Here the cast converts the `8` to `8.0` (in this case exactly, since the value can be represented in floating point), the `3` is implictly converted to a double precision number for the floating division, then the expression calculated.
 
-## type definitions, enumerations, structures and classes
+## Type definitions, enumerations, structures and classes
 
 ### The `enum` keyword
 
-A special data type greatly used in C, although somewhat less in C++, is the enumeration. This allows the programmer to create, semi-automatically sequences of named integer constants, which can then be used in the code in comparisions, loops and similar places
+A special data type greatly used in C, although somewhat less in C++, is the enumeration. This allows the programmer to create, semi-automatically, sequences of named integer constants, which can then be used in the code in comparisions, loops and similar places
 
 The syntax is
 
@@ -212,4 +212,4 @@ A basic comparison table:
 
 ## Summary
 
-We've now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the advanced programming course. In the next section we will cover the key operations which can be performed on these variables.
+We've now seen the basic C++ data types in some detail, along with a swift introduction to other key data structures which will be covered in full during the Advanced Programming course. In the next section we will cover the key operations which can be performed on these variables.
