@@ -30,21 +30,24 @@ Again, as with Python, all the binary logical operators below work in C/C++
 |  `a > b`   | greater than|
 |  `a < b`   | less than|
 |  `a >= b`  | greater than or equal to  |
-|  `a <= b` | less than or equal to  |
-!  `!a`     | not |
-| `a !=  b` | not equal |
-|  `a && b` | and |
-| `a || b`  | or |
+|  `a <= b`  | less than or equal to  |
+|  `!a`      | not |
+|  `a !=  b` | not equal |
+|  `a && b`  | and |
+|  `a \|\| b`  | or |
 
-In C++ these functions return a `bool` data type which can be equal to `true` or `false` (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, _all_ positive integeres evaluate to true and the value zero evaluates to false. 
+In C++ these functions return a `bool` data type which can be equal to `true` or `false` (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, _all_ positive integers evaluate to true and the value zero evaluates to false. 
 
 ## Other Useful Operators
 ```{index} operators: other
 ```
 
 |Operator| Operation |
+|:------:|:---------:|
 | `a++`  | increment |
 | `a--`  | decrement |
+| `a += b`  | increment by `b`|
+| `a -= b`  | decrement by `b`|
 | `a % b`  | remainder |
 | `a << 2`  | bitwise left shift |
 | `a >> 2`  | bitwise right shift |
@@ -52,6 +55,14 @@ In C++ these functions return a `bool` data type which can be equal to `true` or
 ## Operators For Completionists
 ```{index} operators: advanced
 ```
+
+|Operator| Operation |
+|:------:|:---------:|
+| `&`  | bitwise and |
+| `\|`  | bitwise or |
+| `^`  | bitwise xor |
+| `~`  | bitwise not |
+| `?`  | conditional ternary operator |
 
 ## The Order of Evaluation
 ```{index} evaluation order

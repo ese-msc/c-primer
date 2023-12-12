@@ -133,7 +133,7 @@ int main(void){
 
 Note that unlike in Python, plotting in C++ is hard work, so we're just printing the values to screen instead.
 
-### Quadrature
+## Quadrature
 
 Now we'll implement two quadrature methods, the midpoint and the trapezium rules. We'll start with the Python code (see the Computational Mathematics course for the annotated versions):
 
@@ -153,7 +153,6 @@ def midpoint_rule(a, b, func, number_intervals=10):
     return I_M
 
 def trapezium_rule(a, b, func, number_intervals=10):
-
     interval_size = (b - a)/number_intervals
 
     I_T = 0.0
