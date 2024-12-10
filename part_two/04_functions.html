@@ -62,6 +62,8 @@ const thebe_selector_input = ".cell_input div.highlight"
 const thebe_selector_output = ".cell_input div.highlight"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'part_two/04_functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -170,10 +172,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_one/intro.html">Part I: Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -371,6 +373,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions">Basic functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-declarations-and-definitions">Function declarations and definitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-value">Pass by value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference">Pass by reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arrays">Passing arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-types">Return types</a></li>
 </ul>
 </li>
@@ -394,7 +398,7 @@ document.write(`
 <p id="index-0">In this section we will describe in more detail the syntax of C/C++ functions.</p>
 <section id="basic-functions">
 <h2>Basic functions<a class="headerlink" href="#basic-functions" title="Permalink to this heading">#</a></h2>
-<p>We already have experience of a key C++ function in the <code class="docutils literal notranslate"><span class="pre">main</span></code> routine required as an entry point in every command line program. Remember that the basic syntax was</p>
+<p>We already have experience of a key C++ function through the <code class="docutils literal notranslate"><span class="pre">main</span></code> routine, required as an entry point in every command line program. Remember that the full basic syntax was</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="p">[]</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">){</span>
 <span class="w">    </span><span class="c1">// your code goes here</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -407,29 +411,29 @@ document.write(`
 <p id="index-1">As we stated above, functions must be declared at first use with data types for the return type and argument list. However, this declaration doesn’t actually need to define the function code, which can happen (somewhat) independently.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// a function declaration</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span>
 
 <span class="c1">// a declaration and defintion together</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="n">minus</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">minus</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// the function definition for `add`</span>
+<span class="c1">// A function definition for `add` can be placed anywhere in the file, or even in a different file.</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see, a pure function declaration doesn’t do much. The most common use is to define the signature for a function which is actually declared elsewhere. Implicitly this is happening with many <code class="docutils literal notranslate"><span class="pre">#include</span></code> statements, which add necessary function definitions into the current file to allow it to compile.</p>
-<p>We will see in the Advanced Programming course that it is often good practice for the function declaration to be placed in a <em>header</em> file (<code class="docutils literal notranslate"><span class="pre">.h</span></code>), with the definition in a separate <em>source</em> file (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>). This allows the function to be used in multiple places without having to copy the definition everywhere.</p>
+<p>As you can see, a pure function declaration doesn’t do much. The most common use is to define the signature for a function which is actually declared elsewhere. Implicitly this is happening with many <code class="docutils literal notranslate"><span class="pre">#include</span></code> statements, which simply add necessary function definitions into the current file to allow it to compile, before the actual library code is linked in at the end of the compilation process.</p>
+<p>We will see in the Advanced Programming course that it is often good practice for the function declaration to be placed in a <em>header</em> file (<code class="docutils literal notranslate"><span class="pre">.h</span></code> or <code class="docutils literal notranslate"><span class="pre">.hpp</span></code>), with the definition in a separate <em>source</em> file (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>, <code class="docutils literal notranslate"><span class="pre">.cc</span></code> or <code class="docutils literal notranslate"><span class="pre">.cxx</span></code>). This allows the function to be used in multiple files within a project without having to copy the definition everywhere.</p>
 </section>
 <section id="pass-by-value">
 <h3>Pass by value<a class="headerlink" href="#pass-by-value" title="Permalink to this heading">#</a></h3>
-<p>C (and C++ by default) uses a calling pattern called “pass by value”, in which a new copy of the input variables are created, and set to the evaluated value the calling function passes in. Amoung other things, this means that changes to a scalar variable inside a function don’t pass back out</p>
+<p id="index-2">C (and C++ by default) uses a calling pattern called “pass by value”, in which a new copy of the input variables are created, and set to the evaluated value which the calling function passes in. Amoung other things, this means that changes to a scalar variable inside a function don’t pass back out</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="nf">add_three</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">){</span>
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Only changes the local a</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Only changes the value of the local a</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
 <span class="p">}</span>
 
@@ -439,7 +443,10 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In C++ you can also use “pass by reference”, where the calling function uses the same memory location as the object passed in to it:</p>
+</section>
+<section id="pass-by-reference">
+<h3>Pass by reference<a class="headerlink" href="#pass-by-reference" title="Permalink to this heading">#</a></h3>
+<p id="index-3">In C++ you can also use “pass by reference”, where the calling function uses the same memory location as the object passed in to it:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="nf">add_three</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">){</span><span class="w"> </span><span class="c1">// Note the &amp; sign</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Now changes the input a</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
@@ -451,11 +458,42 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>C can get the same behaviour using pointers (see the next section), although it’s a certain amount of work. Pass by reference is more efficient when using large objects, since it saves initializing and copying to the new variable, however it can make your functions more surprising by changing their inputs without it being obvious.</p>
+<p>C can get the same behaviour using pointers (see the next section), but it does require a certain amount of work. Pass by reference is more efficient when using large objects, since it saves initializing and copying memory/values to the new temporary variable, however it can make your functions more surprising to use allowing them to change their inputs without it being obvious. This is called a “side effect” and is generally considered bad practice, especially if not well documented.</p>
+</section>
+<section id="passing-arrays">
+<h3>Passing arrays<a class="headerlink" href="#passing-arrays" title="Permalink to this heading">#</a></h3>
+<p id="index-4">To pass a one dimensional array into a function we must declare it specially</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">){</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="o">/</span><span class="n">length</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that in our example we’ve passed in the length of the C-style array explicitly. It’s often hard to calculate this in a program based on just the data, so this is a common (but annoying) technique.</p>
+<p>When functions accept arrays, they appear to be passed by reference, since the function can change the values of the array and it will be reflected in the calling function.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/* swap two elements (array version) */</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">swap2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+<span class="w">    </span><span class="n">swap2</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// prints 2 1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We’ll explain the logic behind this in the next part when we talk about pointers.</p>
 </section>
 <section id="return-types">
 <h3>Return types<a class="headerlink" href="#return-types" title="Permalink to this heading">#</a></h3>
-<p id="index-2">A function can (and <em>must</em>) only return one data type, which must be declared along with the function signature. Remember that implicit type conversion rules exist, so if you try to return the wrong type it will sometimes be converted to the type you declared.</p>
+<p id="index-5">A function can (and <em>must</em>) only return one data type, which must be declared along with the function signature. Remember that implicit type conversion rules exist, so if you try to return the wrong type it will sometimes be converted to the type you declared.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">example</span><span class="p">(){</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">3.1</span><span class="p">;</span><span class="w"> </span><span class="c1">// implicitly converted to integer 3</span>
 <span class="p">}</span>
@@ -476,8 +514,8 @@ document.write(`
 </section>
 <section id="namespaces">
 <h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this heading">#</a></h2>
-<p id="index-3">You’ve already seen the concept of namespaces in Python, where the stuff inside an imported module are accessed as (e.g.) <code class="docutils literal notranslate"><span class="pre">mymodule.myfunction</span></code>. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword. This allows defining namespaces in which functions (especially #<code class="docutils literal notranslate"><span class="pre">include</span></code>d functions) live. You’ve actually already seen this with <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, which is in the <code class="docutils literal notranslate"><span class="pre">std</span></code> namespace.</p>
-<p>To define your own namespaces you can write:</p>
+<p id="index-6">You’ve already seen the concept of namespaces in Python, where the stuff inside an imported module are accessed as (e.g.) <code class="docutils literal notranslate"><span class="pre">mymodule.myfunction</span></code>. The big advantage in this is that this allows multiple functions to have the same name without interfering with each other. C++ allows something very similar with the <code class="docutils literal notranslate"><span class="pre">namespace</span></code> keyword. This allows defining namespaces in which functions (especially #<code class="docutils literal notranslate"><span class="pre">include</span></code>d functions) live. You’ve actually already seen this with <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, which is in the <code class="docutils literal notranslate"><span class="pre">std</span></code> namespace.</p>
+<p>To define your own namespaces in C++ you can write:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">myfuncs</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">a_cool_function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
@@ -501,7 +539,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The equivalent to <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mymodule</span> <span class="pre">import</span> <span class="pre">*</span></code> is <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">myfuncs;</span></code>. Indeed, many tutorials will have <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std</span></code> in them, which shortens I/O calls, etc. As with the Python version, this is probably a bad idea unless you are very clear on what you are doing, since it exposes you to a variety of hard to diagnose bugs.</p>
+<p>The equivalent to <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">mymodule</span> <span class="pre">import</span> <span class="pre">*</span></code> is <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">myfuncs;</span></code>. Indeed, many tutorials will have <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">std</span></code> in them, which shortens I/O calls, etc. As with the Python version, this is often considered a bad idea unless you are very clear on what you are doing, since it exposes you to a variety of hard to diagnose bugs when you accidentally use the same name for two different things.</p>
 </section>
 <section id="optional-arguments-and-a-lack-of-keywords">
 <h2>Optional arguments and a lack of keywords<a class="headerlink" href="#optional-arguments-and-a-lack-of-keywords" title="Permalink to this heading">#</a></h2>
@@ -518,10 +556,37 @@ document.write(`
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>We’ve now seen the basics of C++ functions, including how to define (and declare) them, how to call them and some more advanced features. That concludes the work for this section, except for some additional exercises. In the next section, we’ll look in some more detail at more advanced features, like pointers, classes and header files.</p>
+<p>We’ve now seen the basics of C++ functions, including how to <em>declare</em> and <em>define</em> them, how to call them and some more advanced features. That concludes the work for this section, except for some additional exercises. In the next section, we’ll look in some more detail at more advanced features, like pointers, classes and header files.</p>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Write these C++ functions (think about the types involved):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">my_pow</span></code> taking a floating point number, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and an integer, <code class="docutils literal notranslate"><span class="pre">n</span></code>, and returning the result of <span class="math notranslate nohighlight">\(x^n\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area_of_circle</span></code> taking a radius and returning the area of the resulting circle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_of_three</span></code>, a function taking three numbers as input and returning the largest value among them.</p></li>
+</ul>
+<p>You can code in C++ directly, or write a Python code first and convert it.</p>
+</li>
+<li><p>Remember the factorial function in Python, which can be code up either via recursion</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">recursive_factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or a loop</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">looped_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+<p>Write C++ conversions of both approaches</p>
+</li>
+</ol>
 </section>
 </section>
 
@@ -591,6 +656,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-functions">Basic functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-declarations-and-definitions">Function declarations and definitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-value">Pass by value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-by-reference">Pass by reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arrays">Passing arrays</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-types">Return types</a></li>
 </ul>
 </li>

@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_one/intro.html">Part I: Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -369,6 +369,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fizzbuzz-in-c">Fizzbuzz in C++</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversing-a-number">Reversing a number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisor">Greatest Common Divisor</a></li>
 </ul>
             </nav>
         </div>
@@ -399,6 +401,38 @@ document.write(`
 </pre></div>
 </div>
 <p>you will need a loop (probably a <code class="docutils literal notranslate"><span class="pre">for()</span></code> loop) as well an <code class="docutils literal notranslate"><span class="pre">if</span></code> block.</p>
+</section>
+<section id="reversing-a-number">
+<h2>Reversing a number<a class="headerlink" href="#reversing-a-number" title="Permalink to this heading">#</a></h2>
+<p>The following Python program reverses a number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter a number&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">nreverse</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">rev</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">rev</span> <span class="o">=</span> <span class="n">rev</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="n">n</span><span class="o">%</span><span class="mi">10</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="mi">10</span>
+    <span class="k">return</span> <span class="n">rev</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The reversed number is&quot;</span><span class="p">,</span> <span class="n">nreverse</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Try to convert this program into C++.</p>
+</section>
+<section id="greatest-common-divisor">
+<h2>Greatest Common Divisor<a class="headerlink" href="#greatest-common-divisor" title="Permalink to this heading">#</a></h2>
+<p>Write a C++ program to find the greatest common divisor of two numbers. The greatest common divisor of two numbers is the largest number that divides both of them.</p>
+<p>You can use the following algorithm:</p>
+<ol class="arabic simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">b</span></code>, swap <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p>Divide <code class="docutils literal notranslate"><span class="pre">b</span></code> by <code class="docutils literal notranslate"><span class="pre">a</span></code> and assign the remainder to <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">r</span></code> is 0, then the GCD is <code class="docutils literal notranslate"><span class="pre">a</span></code>, STOP.</p></li>
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">a</span></code> the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> the value of <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p></li>
+<li><p>Go to step 2.</p></li>
+</ol>
+<p>This algorithm is known as the Euclidean algorithm. It works because the GCD of two numbers also divides their difference. So, if <code class="docutils literal notranslate"><span class="pre">a</span></code> is the GCD of <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code>, then <code class="docutils literal notranslate"><span class="pre">a</span></code> is also the GCD of <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">b-c</span></code>. Since <code class="docutils literal notranslate"><span class="pre">r</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">a</span></code>, the algorithm will eventually reach a point where <code class="docutils literal notranslate"><span class="pre">r</span></code> is 0, so it is guaranteed to terminate.</p>
 </section>
 </section>
 
@@ -466,6 +500,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fizzbuzz-in-c">Fizzbuzz in C++</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reversing-a-number">Reversing a number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#greatest-common-divisor">Greatest Common Divisor</a></li>
 </ul>
   </nav></div>
 

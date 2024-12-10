@@ -135,7 +135,7 @@ Note that unlike in Python, plotting in C++ is hard work, so we're just printing
 
 ## Quadrature
 
-Now we'll implement two quadrature methods, the midpoint and the trapezium rules. We'll start with the Python code (see the Computational Mathematics course for the annotated versions):
+Now we'll implement two quadrature methods, the midpoint and the trapezium rules. We'll start with the Python code again (see the Computational Mathematics course notes for the annotated versions):
 
 ```python
 
@@ -170,11 +170,11 @@ print(midpoint_rule(0, np.pi, f))
 print(trapezium_rule(0, np.pi, f))
 ```
 
-Now let's convert it into a C++ version
+Now let's convert it into a C++ version:
 
 ```c++
-#include <iostream>
-#include <cmath>
+#include <iostream> // for std::cout
+#include <cmath> // for std::sin
 
 double midpoint_rule(double a, double b, double (*func)(double), int number_intervals=10) {
     double interval_size = (b - a)/number_intervals;
@@ -214,9 +214,9 @@ int main(void) {
 }
 ```
 
-Note that we've had to include the `cmath` header to get access to the `sin` function. We've also had to declare the function `f` as taking a double and returning a double, and then pass it as an argument to the quadrature functions. This is because C++ doesn't have a built-in `sin` function, but instead has a `sin` function for each of the floating point types (e.g. `float`, `double`, `long double`), and the compiler needs to know which one we want to use.
+Note that we've had to include the `cmath` header to get access to the `sin` function. We've also had to declare the function `f` as taking a double as input and returning a double, and then pass it in as an argument to the quadrature functions. This is because C++ doesn't have a single unique built-in `sin` function, but instead has a `sin` function for each of the floating point types (e.g. `float`, `double`, `long double`) in its `cmath` library, and the compiler needs to know which one we want to use.
 
-The declaration and use of function pointers in the C++ versions of the `midpoint_rule` and `trapezium_rule` is more complicated than the Python version, but it's not too bad once you get used to it. We'll talk more about this in a later section.
+The declaration and use of function pointers in the C++ versions of the `midpoint_rule` and `trapezium_rule` is more complicated than the Python version, but it's not too impossible to remember once you get used to it. We'll talk more about this in a later section.
 
 ## Exercises
 

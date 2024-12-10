@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Compiling &amp; Running &#8212; C/C++ Primer</title>
+    <title>Compiling &amp; Running C++ Code &#8212; C/C++ Primer</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".cell_input div.highlight"
     <script>DOCUMENTATION_OPTIONS.pagename = 'part_one/01_running';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Hello World!" href="02_hello_world.html" />
+    <link rel="next" title="A “Hello World!” Program in C++" href="02_hello_world.html" />
     <link rel="prev" title="Part I: Getting Started" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -358,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Compiling & Running</h1>
+    <h1>Compiling & Running C++ Code</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,9 +392,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="compiling-running">
-<h1>Compiling &amp; Running<a class="headerlink" href="#compiling-running" title="Permalink to this heading">#</a></h1>
-<p id="index-0">Whereas Python is mostly fairly simple to get working with straight away, especially in interactive mode, C &amp; C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file, before that file can be run to solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="compiling-running-c-code">
+<h1>Compiling &amp; Running C++ Code<a class="headerlink" href="#compiling-running-c-code" title="Permalink to this heading">#</a></h1>
+<p id="index-0">Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpretter session or a Jupyter notebook, C &amp; C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.</p>
 <section id="web-based-solutions">
 <h2>Web based solutions<a class="headerlink" href="#web-based-solutions" title="Permalink to this heading">#</a></h2>
 <p id="index-1">There are a variety of platforms which will allow you to run small one file C &amp; C++ programs or code snippets directly from your browser. A (non-exhaustive) list of examples includes:</p>
@@ -408,10 +408,10 @@ document.write(`
 </section>
 <section id="visual-studio-code-devcontainers">
 <h2>Visual Studio Code &amp; Devcontainers<a class="headerlink" href="#visual-studio-code-devcontainers" title="Permalink to this heading">#</a></h2>
-<p id="index-2">A more local option is to take advantage of the combined power of Docker and Visual studio code to provide files which you can often compile with one click.</p>
+<p id="index-2">A more local option is to take advantage of the combined power of Docker and Visual Studio Code to provide files which again you can often compile with one click.</p>
 <p><img alt="" src="../_images/vscode.png" /></p>
 <p>To begin, fork the accompanying <a class="reference external" href="https://github.com/ese-msc/c-examples">examples repository</a> and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner “Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).”. Select “Reopen in Container”. This will restart the VS Code editor window, while connecting to a Docker container build from the repository <a class="reference external" href="https://ese-msc/c-examples/.devcontainer/Dockerfile">C examples Dockerfile</a>. This container has <code class="docutils literal notranslate"><span class="pre">git</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span></code> installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.</p>
-<p>For simple non-interactive C++ files, you can now build &amp; run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> in the current directory) a command like:</p>
+<p>For simple, non-interactive C++ programmes contained in a single file, you can now build &amp; run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> in the current directory) a command like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
@@ -435,23 +435,23 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
-<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 13 as of early December 2023) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">13</span> <span class="o">--</span><span class="n">version</span>
+<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">14</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">13</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">13.2.0</span><span class="p">)</span> <span class="mf">13.2.0</span>
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2023</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">14</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">14.2.0</span><span class="p">)</span> <span class="mf">13.4.0</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2024</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
 <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>To compile a C++ file called <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> into an exectuable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, then run it, use a command like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">13</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">14</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">g++-13</span></code> is the name of your new GNU C++ compiler (version number 13), the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable file which we have just compiled.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">g++-14</span></code> is the name of your new GNU C++ compiler (specifically, version number 14), the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable file which we have just compiled.</p>
 <p>Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.</p>
 </section>
 <section id="xcode">
@@ -462,7 +462,7 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">14.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1400.0.29.202</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">19.1.4</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1900.1.4.202</span><span class="p">)</span>
 <span class="n">Target</span><span class="p">:</span> <span class="n">arm64</span><span class="o">-</span><span class="n">apple</span><span class="o">-</span><span class="n">darwin21</span><span class="mf">.6.0</span>
 <span class="n">Thread</span> <span class="n">model</span><span class="p">:</span> <span class="n">posix</span>
 <span class="n">InstalledDir</span><span class="p">:</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
@@ -555,7 +555,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hello World!</p>
+        <p class="prev-next-title">A “Hello World!” Program in C++</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

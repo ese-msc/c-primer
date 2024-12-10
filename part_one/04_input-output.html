@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Programs with input &#8212; C/C++ Primer</title>
+    <title>C++ Programs accepting inputs &#8212; C/C++ Primer</title>
   
   
   
@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_running.html">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Programs with input</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -358,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Programs with input</h1>
+    <h1>C++ Programs accepting inputs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,12 +384,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="programs-with-input">
-<h1>Programs with input<a class="headerlink" href="#programs-with-input" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="c-programs-accepting-inputs">
+<h1>C++ Programs accepting inputs<a class="headerlink" href="#c-programs-accepting-inputs" title="Permalink to this heading">#</a></h1>
 <p>Since C++ programmes are compiled, we don’t have the same flexibility to change the behaviour of the program at runtime as we do with Python. However, we can still take input data from the user in a number of ways.</p>
 <section id="taking-input-from-the-keyboard">
 <h2>Taking input from the keyboard<a class="headerlink" href="#taking-input-from-the-keyboard" title="Permalink to this heading">#</a></h2>
-<p>The counterpart to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> is <code class="docutils literal notranslate"><span class="pre">std::cin</span></code>. It’s usage is similar but “in the other direction”. For example:</p>
+<p>The counterpart to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> is <code class="docutils literal notranslate"><span class="pre">std::cin</span></code>, just as the counterpart to <code class="docutils literal notranslate"><span class="pre">print()</span></code> in Python is <code class="docutils literal notranslate"><span class="pre">input()</span></code>. The usage of <code class="docutils literal notranslate"><span class="pre">std::cin</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> but “in the other direction”, using the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator. For example, the following C++ program asks for the user’s name and then greets them:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -409,7 +409,7 @@ document.write(`
 <p>To run this using Docker plus VS code, you will need to run the compile command in full in the terminal:
 <code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">g++</span> <span class="pre">hello2.cpp</span> <span class="pre">-o</span> <span class="pre">hello2</span>&#160;&#160;&#160; </code></p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator will automatically convert the input into an appropriate form for the datatype (as long as it’s one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let’s have an example, for example a program to calculate the mean of a sequence of floating point numbers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operator will automatically convert the input into an appropriate form for the datatype (as long as it’s one of the standard C++ types like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> etc. ). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let’s have an example, for example a program to calculate the mean of a sequence of floating point numbers.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
@@ -465,15 +465,15 @@ document.write(`
 <span class="p">{</span>
 <span class="w">   </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fptr</span><span class="p">;</span>
 
-<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// A lot like the Python open function</span>
+<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// A lot like the Python open function</span>
 
 <span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">fptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="c1">// We have to do our own error checks</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">);</span><span class="w">   </span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;File read error!&quot;</span><span class="p">);</span><span class="w">   </span>
 <span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">             </span>
 <span class="w">   </span><span class="p">}</span>
 
-<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w">  </span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Write a number</span>
+<span class="w">   </span><span class="n">fprintf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Write a number</span>
 <span class="w">   </span><span class="n">fclose</span><span class="p">(</span><span class="n">fptr</span><span class="p">);</span>
 
 <span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -483,20 +483,21 @@ document.write(`
 </div>
 <p>to read a file we’d use</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="w">   </span><span class="n">fptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span>
 <span class="w">   </span><span class="n">fscanf</span><span class="p">(</span><span class="n">fptr</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>instead. We’ll explain the use of <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> in the code above in Part III.</p>
 <p>For C++ we can treat files like we do the screen by treating them as <em>streams</em> and reading or writing with the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> operators. So to write ouput</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">fs</span><span class="p">;</span>
 <span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;example.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
 <span class="w">  </span>
-<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c1">// write 1000 to example.txt</span>
+<span class="w">  </span><span class="n">fs</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// write 1000 to example.txt</span>
 <span class="w">  </span><span class="n">fs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>

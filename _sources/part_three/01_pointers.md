@@ -13,7 +13,7 @@ b = a
 b[0] = 1
 print(a)
 ```
-Running the above code in the Python interpretter gives the output `[1]`. This is because the names `a` and `b` have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour usuing a concept called "pointer"s. 
+Running the above code in the Python interpretter gives the output `[1]`. This is because the names `a` and `b` have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour using a concept called "pointers". 
 
 A C style pointer holds a location (usually called an address) in your computer's memory, along with an attached data type. This address can be looked up ("dereferenced") to get hold of the underlying value to:
 1. use in an expression

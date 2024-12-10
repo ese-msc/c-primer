@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_one/intro.html">Part I: Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/01_running.html">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_one/04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_one/exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -368,7 +368,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-operations">The Basic Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-operations">The Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-mixed-types">Operations on mixed types</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-operators">Other Useful Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-for-completionists">Operators For Completionists</a></li>
@@ -411,11 +414,34 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>Unlike Python there is no exponentiation operator (i.e. no <code class="docutils literal notranslate"><span class="pre">**</span></code>), which requires a function call instead.</p>
+<p>Unlike Python there is no exponentiation operator (i.e. no <code class="docutils literal notranslate"><span class="pre">**</span></code>), which requires making a function call instead.</p>
+<section id="operations-on-mixed-types">
+<h3>Operations on mixed types<a class="headerlink" href="#operations-on-mixed-types" title="Permalink to this heading">#</a></h3>
+<p id="index-2">Remember that in C++, the type of the result of an operation is determined by the types of the operands. If the operands are of different types, the compiler may automatically convert one of them to the type of the other. This is called <em>type conversion</em> or <em>type casting</em>. For example, if you divide an integer by a floating point number, the integer will be converted to a float before the division is performed. Generally speaking, the compiler will try to convert the “smaller” type (the one with a smaller range or less precision) to the “larger” type, but you can also force the conversion by using a <em>type cast</em>.</p>
+<p>One key difference from modern Python is that C++ does not automatically convert between integer and floating point types when performing division on integers with the <code class="docutils literal notranslate"><span class="pre">\</span></code> operator. This means that if you divide two integers, the result will be an integer, with any fractional part truncated. To get a floating point result, you must convert one of the operands to a floating point type first.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// This will print 2</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// This will print 2.5</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The code above demonstrates this behaviour, as well as the syntax for casting a variable to a different type . The <code class="docutils literal notranslate"><span class="pre">(float)</span></code> in the second <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> statement is a <em>type cast</em> which converts the integer <code class="docutils literal notranslate"><span class="pre">a</span></code> to a floating point number before the division is performed, refer back to the previous section for more information on type casting.</p>
+</section>
 </section>
 <section id="logical-operators">
 <h2>Logical Operators<a class="headerlink" href="#logical-operators" title="Permalink to this heading">#</a></h2>
-<p id="index-2">Again, as with Python, all the binary logical operators below work in C/C++</p>
+<p id="index-3">Again, as with Python, all the binary logical operators below work in C/C++</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
@@ -452,11 +478,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>In C++ these functions return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> data type which can be equal to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, <em>all</em> positive integers evaluate to true and the value zero evaluates to false.</p>
+<p>In C++ these functions return a <code class="docutils literal notranslate"><span class="pre">bool</span></code> data type which can be equal to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> (note the capitalization differs from Python). However, thanks to an implicit type conversion rule, <em>all</em> positive integers evaluate to true and the value zero evaluates to false. As in Python, using comparisons with floating point numbers can be tricky due to the way they are stored in memory, and you should be careful when using them to test for equality.</p>
 </section>
 <section id="other-useful-operators">
 <h2>Other Useful Operators<a class="headerlink" href="#other-useful-operators" title="Permalink to this heading">#</a></h2>
-<table class="table" id="index-3">
+<table class="table" id="index-4">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
 <th class="head text-center"><p>Operation</p></th>
@@ -489,7 +515,7 @@ document.write(`
 </section>
 <section id="operators-for-completionists">
 <h2>Operators For Completionists<a class="headerlink" href="#operators-for-completionists" title="Permalink to this heading">#</a></h2>
-<table class="table" id="index-4">
+<table class="table" id="index-5">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
 <th class="head text-center"><p>Operation</p></th>
@@ -516,7 +542,7 @@ document.write(`
 </section>
 <section id="the-order-of-evaluation">
 <h2>The Order of Evaluation<a class="headerlink" href="#the-order-of-evaluation" title="Permalink to this heading">#</a></h2>
-<p id="index-5">There is a well defined default order of evaluation for operators in C/C++ which is worth knowing. The order of evaluation for commonly used operations is:</p>
+<p id="index-6">There is a well defined default order of evaluation for operators in C/C++ which is worth knowing. The order of evaluation for commonly used operations is:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> parentheses</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">++</span></code> and <code class="docutils literal notranslate"><span class="pre">--</span></code> increment and decrement</p></li>
@@ -598,7 +624,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-operations">The Basic Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basic-operations">The Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-mixed-types">Operations on mixed types</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators">Logical Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-useful-operators">Other Useful Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operators-for-completionists">Operators For Completionists</a></li>

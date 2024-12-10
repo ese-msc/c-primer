@@ -80,6 +80,8 @@ int main() {
 since it is permissible (though definitely not advisable) to declare variables anew in a new block.
 
 ## Type conversion
+```{index} type conversion
+```
 
 C-like languages have a number of inbuilt rules which they use to convert values from one type to another. Typically they are converted into whatever type has the larger range, and the expression is then evaluated in that type. This means that code such as
 

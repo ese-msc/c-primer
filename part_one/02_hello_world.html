@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Hello World! &#8212; C/C++ Primer</title>
+    <title>A “Hello World!” Program in C++ &#8212; C/C++ Primer</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".cell_input div.highlight"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Some Numerical Examples" href="03_simple_math.html" />
-    <link rel="prev" title="Compiling &amp; Running" href="01_running.html" />
+    <link rel="prev" title="Compiling &amp; Running C++ Code" href="01_running.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_running.html">Running C++ code</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_simple_math.html">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -358,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hello World!</h1>
+    <h1>A “Hello World!” Program in C++</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -386,8 +386,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hello-world">
-<h1>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-hello-world-program-in-c">
+<h1>A “Hello World!” Program in C++<a class="headerlink" href="#a-hello-world-program-in-c" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Now that you hopefully have access to a working compiler, and a place to write, we’ll move on to giving you some practical code to compile. A common first program for people to code in a new programming language is to write just enough code to print the phrase “Hello World!” to the screen (or other output device) and then exit.</p>
@@ -421,7 +421,7 @@ document.write(`
 </section>
 <section id="id1">
 <h2>Hello World in C++<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>A C++ based hello world function might look something like the following:</p>
+<p>A canonical C++ based hello world function might look something like the following:</p>
 <p><em>hello.cpp</em>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
@@ -431,15 +431,15 @@ document.write(`
 <span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
-<p>You’ll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only thing that looks different is that rather than using a function like <code class="docutils literal notranslate"><span class="pre">printf</span></code> we are using the special <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator (i.e. a token which works a bit like <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>) to send our message to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, an “output stream” which in this case represents printing to the screen.</p>
+<p>You’ll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only major thing that looks different is that rather than using a function like <code class="docutils literal notranslate"><span class="pre">printf</span></code> we are using the special <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> operator (i.e. a token which works a bit like <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>) to stream our message to <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, an “output stream” which in this case represents printing to the screen. We could have used <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> again to end the line, but in C++ we can also use <code class="docutils literal notranslate"><span class="pre">std::endl</span></code> to do the same thing, as well as flushing the output buffer (which can be useful in some cases).</p>
 </section>
 <section id="some-key-differences-from-python">
 <h2>Some key differences from Python<a class="headerlink" href="#some-key-differences-from-python" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Whitespace doesn’t matter (although it still makes things easier to read when code is nicely formatted).</p></li>
-<li><p>Individual statements <em>must</em> end with a <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p></li>
-<li><p>The code starts running at the top of the <code class="docutils literal notranslate"><span class="pre">main</span></code> function. There can only be one <code class="docutils literal notranslate"><span class="pre">main</span></code> in a given programme.</p></li>
-<li><p>Functions (and variables) have a fixed data type associated with them.</p></li>
+<li><p>Whitespace in your doesn’t matter (although it still makes things easier to read when code is nicely formatted). Instead <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to define blocks of code.</p></li>
+<li><p>Individual statements <em>must</em> end with a <code class="docutils literal notranslate"><span class="pre">;</span></code>. It’s easy to forget this at first, but the compiler will remind you (often in a way that’s hard to understand until you are used to it).</p></li>
+<li><p>Rather than starting at the top of the file, the code starts running at the top of the <code class="docutils literal notranslate"><span class="pre">main</span></code> function. There can only be one <code class="docutils literal notranslate"><span class="pre">main</span></code> function in a given programme.</p></li>
+<li><p>Functions (and variables) <em>must</em> have a fixed data type associated with them the first time they are declared.</p></li>
 </ol>
 </section>
 <section id="exercise-run-the-hello-world-programs">
@@ -448,7 +448,7 @@ document.write(`
 <p>Once you can run the programs, try using the variable based version to try changing the message:</p>
 <ul class="simple">
 <li><p>What happens if you leave out the <code class="docutils literal notranslate"><span class="pre">\n</span></code> instruction in the C example?</p></li>
-<li><p>Can you add a second line of text, first in the same variable, then in a second one?</p></li>
+<li><p>Can you add a second line of text, fist in the same call to <code class="docutils literal notranslate"><span class="pre">printf</span></code>/<code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, then by adding a second one?</p></li>
 </ul>
 </section>
 <section id="summary">
@@ -493,7 +493,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Compiling &amp; Running</p>
+        <p class="prev-next-title">Compiling &amp; Running C++ Code</p>
       </div>
     </a>
     <a class="right-next"

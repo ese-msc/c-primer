@@ -1,10 +1,10 @@
-# Programs with input
+# C++ Programs accepting inputs
 
 Since C++ programmes are compiled, we don't have the same flexibility to change the behaviour of the program at runtime as we do with Python. However, we can still take input data from the user in a number of ways.
 
 ## Taking input from the keyboard
 
-The counterpart to `std::cout` is `std::cin`. It's usage is similar but "in the other direction". For example:
+The counterpart to `std::cout` is `std::cin`, just as the counterpart to `print()` in Python is `input()`. The usage of `std::cin` is similar to `std::cout` but "in the other direction", using the `>>` operator. For example, the following C++ program asks for the user's name and then greets them:
 
 ```c++
 #include <iostream>
@@ -28,7 +28,7 @@ To run this using Docker plus VS code, you will need to run the compile command 
     ```
 ```
 
-The `>>` operator will automatically convert the input into an appropriate form for the datatype (as long as it's one of the defaults). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let's have an example, for example a program to calculate the mean of a sequence of floating point numbers.
+The `>>` operator will automatically convert the input into an appropriate form for the datatype (as long as it's one of the standard C++ types like `int`, `float`, `double` etc. ). In the example above, this is just to a string, but we can also convert to integers or floating point numbers. Let's have an example, for example a program to calculate the mean of a sequence of floating point numbers.
 
 ```c++
 #include <iostream>
@@ -92,15 +92,15 @@ int main()
 {
    FILE *fptr;
 
-   fptr = fopen("example.txt","w"); // A lot like the Python open function
+   fptr = fopen("example.txt", "w"); // A lot like the Python open function
 
    if(fptr == NULL) // We have to do our own error checks
    {
-      printf("Error!");   
+      printf("File read error!");   
       exit(1);             
    }
 
-   fprintf(fptr,"%d",  1000); // Write a number
+   fprintf(fptr,"%d", 1000); // Write a number
    fclose(fptr);
 
    return 0;
@@ -110,7 +110,7 @@ int main()
 to read a file we'd use
 ```c
    int num;
-   fptr = fopen("example.txt","r"); 
+   fptr = fopen("example.txt", "r"); 
    fscanf(fptr,"%d", &num);
 ```
 instead. We'll explain the use of `*` and `&` in the code above in Part III.
@@ -118,6 +118,7 @@ instead. We'll explain the use of `*` and `&` in the code above in Part III.
 For C++ we can treat files like we do the screen by treating them as _streams_ and reading or writing with the `<<` and `>>` operators. So to write ouput
 
 ```c++
+#include <iostream>
 #include <fstream>
 
 int main () {
@@ -125,7 +126,7 @@ int main () {
   std::fstream fs;
   fs.open ("example.txt", std::fstream::out);
   
-  fs << 1000; // write 1000 to example.txt
+  fs << 1000 << std::endl; // write 1000 to example.txt
   fs.close();
 
   return 0;

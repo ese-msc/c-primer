@@ -1,8 +1,8 @@
-# Compiling & Running
+# Compiling & Running C++ Code
 ```{index} compiling
 ```
 
-Whereas Python is mostly fairly simple to get working with straight away, especially in interactive mode, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file, before that file can be run to solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.
+Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpretter session or a Jupyter notebook, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.
 
 ## Web based solutions
 ```{index} compiling:web-based 
@@ -21,13 +21,13 @@ On each of these platforms you can cut & paste code from the examples in this pr
 ```{index} compiling: via docker
 ```
 
-A more local option is to take advantage of the combined power of Docker and Visual studio code to provide files which you can often compile with one click.
+A more local option is to take advantage of the combined power of Docker and Visual Studio Code to provide files which again you can often compile with one click.
 
 ![](images/vscode.png)
 
 To begin, fork the accompanying [examples repository](https://github.com/ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
 
-For simple non-interactive C++ files, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp` in the current directory) a command like:
+For simple, non-interactive C++ programmes contained in a single file, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp` in the current directory) a command like:
 
 ```
 g++ -o hello hello.cpp
@@ -62,17 +62,17 @@ Most Mac users on the course will already have Homebrew installed, but for those
 brew install gcc
 ```
 
-will install a recent version of `gcc` (version 13 as of early December 2023) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
+will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
-gcc-13 --version
+gcc-14 --version
 ```
 
 You should see a response something like
 
 ```
-gcc-13 (Homebrew GCC 13.2.0) 13.2.0
-Copyright (C) 2023 Free Software Foundation, Inc.
+gcc-14 (Homebrew GCC 14.2.0) 13.4.0
+Copyright (C) 2024 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions. There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -80,11 +80,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
 ```
-g++-13 -o hello hello.cpp
+g++-14 -o hello hello.cpp
 ./hello
 ```
 
-Here `g++-13` is the name of your new GNU C++ compiler (version number 13), the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable file which we have just compiled.
+Here `g++-14` is the name of your new GNU C++ compiler (specifically, version number 14), the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable file which we have just compiled.
 
 Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.
 
@@ -101,7 +101,7 @@ cc --version
 You should see a response something like
 
 ```
-Apple clang version 14.0.0 (clang-1400.0.29.202)
+Apple clang version 19.1.4 (clang-1900.1.4.202)
 Target: arm64-apple-darwin21.6.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin

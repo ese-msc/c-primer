@@ -65,8 +65,8 @@ const thebe_selector_output = ".cell_input div.highlight"
     <script>DOCUMENTATION_OPTIONS.pagename = 'part_one/03_simple_math';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Programs with input" href="04_input-output.html" />
-    <link rel="prev" title="Hello World!" href="02_hello_world.html" />
+    <link rel="next" title="C++ Programs accepting inputs" href="04_input-output.html" />
+    <link rel="prev" title="A “Hello World!” Program in C++" href="02_hello_world.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,10 +170,10 @@ const thebe_selector_output = ".cell_input div.highlight"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part I: Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_running.html">Compiling &amp; Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">Hello World!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_running.html">Running C++ code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_hello_world.html">A “Hello World!” Program in C++</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Some Numerical Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">Programs with input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_input-output.html">C++ Programs accepting inputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_troubleshooting.html">Debugging &amp; Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_one.html">Further Exercises</a></li>
 </ul>
@@ -507,7 +507,7 @@ document.write(`
 </section>
 <section id="quadrature">
 <h2>Quadrature<a class="headerlink" href="#quadrature" title="Permalink to this heading">#</a></h2>
-<p>Now we’ll implement two quadrature methods, the midpoint and the trapezium rules. We’ll start with the Python code (see the Computational Mathematics course for the annotated versions):</p>
+<p>Now we’ll implement two quadrature methods, the midpoint and the trapezium rules. We’ll start with the Python code again (see the Computational Mathematics course notes for the annotated versions):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -540,9 +540,9 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">trapezium_rule</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Now let’s convert it into a C++ version</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<p>Now let’s convert it into a C++ version:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1"> // for std::cout</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="c1"> // for std::sin</span>
 
 <span class="kt">double</span><span class="w"> </span><span class="nf">midpoint_rule</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">double</span><span class="p">),</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number_intervals</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">interval_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">number_intervals</span><span class="p">;</span>
@@ -582,8 +582,8 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that we’ve had to include the <code class="docutils literal notranslate"><span class="pre">cmath</span></code> header to get access to the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function. We’ve also had to declare the function <code class="docutils literal notranslate"><span class="pre">f</span></code> as taking a double and returning a double, and then pass it as an argument to the quadrature functions. This is because C++ doesn’t have a built-in <code class="docutils literal notranslate"><span class="pre">sin</span></code> function, but instead has a <code class="docutils literal notranslate"><span class="pre">sin</span></code> function for each of the floating point types (e.g. <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>), and the compiler needs to know which one we want to use.</p>
-<p>The declaration and use of function pointers in the C++ versions of the <code class="docutils literal notranslate"><span class="pre">midpoint_rule</span></code> and <code class="docutils literal notranslate"><span class="pre">trapezium_rule</span></code> is more complicated than the Python version, but it’s not too bad once you get used to it. We’ll talk more about this in a later section.</p>
+<p>Note that we’ve had to include the <code class="docutils literal notranslate"><span class="pre">cmath</span></code> header to get access to the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function. We’ve also had to declare the function <code class="docutils literal notranslate"><span class="pre">f</span></code> as taking a double as input and returning a double, and then pass it in as an argument to the quadrature functions. This is because C++ doesn’t have a single unique built-in <code class="docutils literal notranslate"><span class="pre">sin</span></code> function, but instead has a <code class="docutils literal notranslate"><span class="pre">sin</span></code> function for each of the floating point types (e.g. <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">double</span></code>) in its <code class="docutils literal notranslate"><span class="pre">cmath</span></code> library, and the compiler needs to know which one we want to use.</p>
+<p>The declaration and use of function pointers in the C++ versions of the <code class="docutils literal notranslate"><span class="pre">midpoint_rule</span></code> and <code class="docutils literal notranslate"><span class="pre">trapezium_rule</span></code> is more complicated than the Python version, but it’s not too impossible to remember once you get used to it. We’ll talk more about this in a later section.</p>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
@@ -635,7 +635,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Hello World!</p>
+        <p class="prev-next-title">A “Hello World!” Program in C++</p>
       </div>
     </a>
     <a class="right-next"
@@ -643,7 +643,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Programs with input</p>
+        <p class="prev-next-title">C++ Programs accepting inputs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
