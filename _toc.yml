@@ -4,7 +4,9 @@ sections:
 - file: part_one/intro
   sections:
   - file: part_one/01_running
+    title: Running C++ code
   - file: part_one/02_hello_world
+  
   - file: part_one/03_simple_math
   - file: part_one/04_input-output
   - file: part_one/05_troubleshooting

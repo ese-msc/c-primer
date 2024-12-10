@@ -1,4 +1,4 @@
-# Hello World!
+# A "Hello World!" Program in C++
 
 ## Introduction
 
@@ -40,7 +40,7 @@ Finally, in C/C++ we **must** use the double quotes `"` to indicate a string (th
 
 ## Hello World in C++
 
-A C++ based hello world function might look something like the following:
+A canonical C++ based hello world function might look something like the following:
 
 _hello.cpp_:
 ```c++
@@ -52,14 +52,14 @@ _hello.cpp_:
     }
 ```
 
-You'll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only thing that looks different is that rather than using a function like `printf` we are using the special `<<` operator (i.e. a token which works a bit like `+` or `-`) to send our message to `std::cout`, an "output stream" which in this case represents printing to the screen.
+You'll see that in this case, the code looks very similar to the C example. In fact, most C code is valid C++ code (possibly with a few small changes). The only major thing that looks different is that rather than using a function like `printf` we are using the special `<<` operator (i.e. a token which works a bit like `+` or `-`) to stream our message to `std::cout`, an "output stream" which in this case represents printing to the screen. We could have used `"\n"` again to end the line, but in C++ we can also use `std::endl` to do the same thing, as well as flushing the output buffer (which can be useful in some cases).
 
 ## Some key differences from Python
 
-1. Whitespace doesn't matter (although it still makes things easier to read when code is nicely formatted).
-2. Individual statements *must* end with a `;`.
-3. The code starts running at the top of the `main` function. There can only be one `main` in a given programme.
-4. Functions (and variables) have a fixed data type associated with them.
+1. Whitespace in your doesn't matter (although it still makes things easier to read when code is nicely formatted). Instead `{}` are used to define blocks of code.
+2. Individual statements *must* end with a `;`. It's easy to forget this at first, but the compiler will remind you (often in a way that's hard to understand until you are used to it).
+3. Rather than starting at the top of the file, the code starts running at the top of the `main` function. There can only be one `main` function in a given programme.
+4. Functions (and variables) _must_ have a fixed data type associated with them the first time they are declared.
 
 
 ## Exercise: Run the Hello World programs
@@ -70,7 +70,7 @@ Run the three different programs in Python, C and C++. You already know how to r
 
 Once you can run the programs, try using the variable based version to try changing the message:
 - What happens if you leave out the `\n` instruction in the C example?
-- Can you add a second line of text, first in the same variable, then in a second one?
+- Can you add a second line of text, fist in the same call to `printf`/`std::cout`, then by adding a second one?
 
 
 ## Summary

@@ -120,12 +120,12 @@ Note that the `{}` brackets are only strictly necessary if there is more than on
     else print("Ha! We're the same age!")
 ```
 
-However, the version with brackets is more explicit and makes it harder to get confused about which statements are actually conditional.
+However, the version with brackets to define the scope of the `if` conditional is more explicit and makes it harder to get confused about which statements are actually going to run.
 
 
 ### The switch statement
 
-A form of condition which was only recently introduced in Python is the `match` statement, which corresponds to the C++ `switch` statement. In C++ these start with `switch (`_expression_`)` and then have a block in following the form:
+A form of condition which was only recently introduced in Python is the `match` statement, which roughly corresponds to the C++ `switch` statement. In C++ these statements start with `switch (`_expression_`)` and then have a block in following the form:
 
 ```c++
 switch (my_label) {
@@ -144,7 +144,7 @@ switch (my_label) {
 } 
 ```
 
-In the above example, the code will choose which functions to call depending on if `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this example would mean `my_cool_function_one` and `my_cool_function_two` being called twice. This is slightly different to the Python `match` statement, which will only execute the first matching case.
+In the above example, the code will choose which functions to call depending on if the integer `my_label` is 1,2,3 or something else. Note that without the `break` statements execution will "fall through" from `case` statement blocks at the top down to the ones at the bottom, which in this example would mean `my_cool_function_one` and `my_cool_function_two` being called twice. This is slightly different to the Python `match` statement, which will only execute the first matching case.
 
 ## Summary
 
