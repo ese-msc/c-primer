@@ -1,6 +1,10 @@
 # Changes
 
-_This book last updated on 5th January 2022_
+_This book last updated on 10th December 2024_
+
+# 10th December 2024
+
+Added some extra exercises to the end of the book.
 
 # 22nd January 2022
 
