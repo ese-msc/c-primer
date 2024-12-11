@@ -8,7 +8,7 @@
 title                       : C/C++ Primer  # The title of the book. Will be placed in the left navbar.
 author                      : Imperial College London  # The author of the book
 copyright                   : "2021-24"  # Copyright year to be placed in the footer
-logo                        : "images/Ada_Lovelace.jpd" # A path to the book logo
+logo                        : "images/Ada_Lovelace.jpg" # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
