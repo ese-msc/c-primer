@@ -13,7 +13,7 @@ b = a
 b[0] = 1
 print(a)
 ```
-Running the above code in the Python interpretter gives the output `[1]`. This is because the names `a` and `b` have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour using a concept called "pointers". 
+Running the above code in the Python interpreter gives the output `[1]`. This is because the names `a` and `b` have both been bound to the same list object, and updating the list via one name updates it via the other. C and C++ allow similar behaviour using a concept called "pointers". 
 
 A C style pointer holds a location (usually called an address) in your computer's memory, along with an attached data type. This address can be looked up ("dereferenced") to get hold of the underlying value to:
 1. use in an expression
@@ -28,7 +28,7 @@ As a C/C++ variable, a pointer must be declared the first time it is used. The s
 int *a; // This is a pointer to an int
 ```
 
-When declared this way, `a` holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it "point" to a "target" we need the memory address of a suitable integer. The language has an operator, `&`, which will get this for us. To dereference (i.e. look up) the value `a` points to, we use the derferencing operator `*`. To assign a new value to the target, we assign it to the dereferenced object, that is `*a`. Let's look at a short C++ program which exercises all this new behaviour
+When declared this way, `a` holds a memory location (written as a number of a fixed size, usually 64 bits on modern comuputer systems). To actually make it "point" to a "target" we need the memory address of a suitable integer. The language has an operator, `&`, which will get this for us. To dereference (i.e. look up) the value `a` points to, we use the dereferencing operator `*`. To assign a new value to the target, we assign it to the dereferenced object, that is `*a`. Let's look at a short C++ program which exercises all this new behaviour
 
 ```c++
 #include <iostream>
@@ -83,7 +83,7 @@ In C++, pointers are still needed for dynamic memory and form the basis of codes
 
 ### Pointers and dynamic memory allocation in C
 
-In the `stdlib` library C introduced functions `malloc` (which allocates a block of memory and returns a pointer to it, without updating any values in the memory) and `calloc` (which allocates and _zeros_ a block of memory and returns a pointer to it) These are roughly equivalent to the `numpy` `empty` and `zeros` functions in Python. Finally the `free` function deallocates the memory to clean up. It's bad practice not to free allocated memory somewhere, but it's up to the programmer to decide where.
+In the `stdlib` library C introduced functions `malloc` (which allocates a block of memory and returns a pointer to it, without updating any values in the memory) and `calloc` (which allocates and _zeros_ a block of memory and returns a pointer to it). These are roughly equivalent to the `numpy` `empty` and `zeros` functions in Python. Finally the `free` function deallocates the memory to clean up. It's bad practice not to free allocated memory somewhere, but it's up to the programmer to decide where.
 
 Let's write some C code
 

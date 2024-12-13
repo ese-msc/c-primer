@@ -2,7 +2,7 @@
 ```{index} compiling
 ```
 
-Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpretter session or a Jupyter notebook, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.
+Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpreter session or a Jupyter notebook, C & C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.
 
 ## Web based solutions
 ```{index} compiling:web-based 
@@ -62,7 +62,7 @@ Most Mac users on the course will already have Homebrew installed, but for those
 brew install gcc
 ```
 
-will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
+will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
 gcc-14 --version

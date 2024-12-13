@@ -1,4 +1,4 @@
-# Header files and libraries
+t# Header files and libraries
 ```{index} header files
 ```
 
@@ -8,7 +8,7 @@ So far, we've always been writing code assuming that everything is is the same "
 
 If there is a clear separation between the various components, then this is easy enough to do (the Advanced Programming course will cover some more of the details). However, more usually there will be at least one file which needs to call a function from another file. To do this, the calling file needs to have declarations (i.e. information on the return type and permissible arguments), but not defintions (i.e it doesn't need the actual function code).
 
-We could just type up the declaration afresh every time it is used, but that violates the Don't Repeat Yourself (DRY) programming principle. In particular, if you change the original function in a way which affects the definition, you then need to search out every since file which uses it, rather than changing in one place.
+We could just type up the declaration afresh every time it is used, but that violates the Don't Repeat Yourself (DRY) programming principle. In particular, if you change the original function in a way which affects the definition, you then need to search out every single file which uses it, rather than changing in one place.
 
 Instead, the standard which has developed is to use the `#include` preprocessor directive to grab one canonical file containing the proper declarations. This file is called a _header file_, using the file extension `.h`, and you have already been using them implicitly in your coding whenever you've used an `#include` line.
 
