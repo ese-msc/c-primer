@@ -34,15 +34,16 @@ As with Python, C++ has `while` loops which just test a termination statement, a
 _for Python_
 ```python
 def my_sqrt(y):
-    x=0
+    x = y / 2
     while (x*x-y)*(x*x-y)>1.0e-6:
         x = (x + y / x) / 2
+    return x
 ```
 
 _for C++_
 ```c++
 double my_sqrt(double y){
-    double x=0.0;
+    double x=y/2;
     while ((x*x-y)*(x*x-y)>1.0e-8){
         x = (x+y/x)/2;
     }
