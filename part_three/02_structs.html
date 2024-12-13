@@ -65,7 +65,7 @@ const thebe_selector_output = ".cell_input div.highlight"
     <script>DOCUMENTATION_OPTIONS.pagename = 'part_three/02_structs';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Header files and libraries" href="03_header_files.html" />
+    <link rel="next" title="Working with multiple files" href="03_header_files.html" />
     <link rel="prev" title="Pointers - a window to variables" href="01_pointers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part III: Beyond the Basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_three.html">Further Exercises</a></li>
@@ -388,7 +391,7 @@ document.write(`
 <section id="the-struct-keyword-differs-between-c-c">
 <h2>The <code class="docutils literal notranslate"><span class="pre">struct</span></code> keyword (differs between C &amp; C++)<a class="headerlink" href="#the-struct-keyword-differs-between-c-c" title="Permalink to this heading">#</a></h2>
 <p id="index-0">Given the basic data types, an obvious thing to do is to combine them into useful named quantities. For example in the context of a medical record, a person might have a name, an age
-and a height. In C++ we can encode all of this into a user defined date type as:</p>
+and a height. In C++ we can encode all of this into a user defined data type as:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">person_t</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
@@ -399,7 +402,7 @@ and a height. In C++ we can encode all of this into a user defined date type as:
 <p>and then use it in most of the ways we would a basic datatype, e.g. in a function definiton</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="c1"> // for strcpy to copy strings into memory</span>
 
-<span class="n">person_t</span><span class="w"> </span><span class="nf">initialize_person</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">heigh</span><span class="p">){</span>
+<span class="n">person_t</span><span class="w"> </span><span class="nf">initialize_person</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">height</span><span class="p">){</span>
 <span class="w">    </span><span class="n">person_t</span><span class="w"> </span><span class="n">person</span><span class="p">;</span>
 <span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
 <span class="w">    </span><span class="n">person</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
@@ -512,7 +515,7 @@ and a height. In C++ we can encode all of this into a user defined date type as:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Header files and libraries</p>
+        <p class="prev-next-title">Working with multiple files</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

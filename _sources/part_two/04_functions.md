@@ -50,7 +50,7 @@ We will see in the Advanced Programming course that it is often good practice fo
 ```{index} functions: pass by value
 ```
 
-C (and C++ by default) uses a calling pattern called "pass by value", in which a new copy of the input variables are created, and set to the evaluated value which the calling function passes in. Amoung other things, this means that changes to a scalar variable inside a function don't pass back out
+C (and C++ by default) uses a calling pattern called "pass by value", in which a new copy of the input variables are created, and set to the evaluated value which the calling function passes in. Among other things, this means that changes to a scalar variable inside a function don't pass back out
 
 ```c++
 int function add_three(int a){
@@ -201,7 +201,7 @@ void hello(std::string name="Mary"){
 }
 ```
 
-Unlike Python however, C++ does _not_ currently support keyword (a.k.a parameter names) in argment lists. The only way to identify which argument is which is by the order they appear in the calling list.
+Unlike Python however, C++ does _not_ currently support keyword (a.k.a parameter names) in argument lists. The only way to identify which argument is which is by the order they appear in the calling list.
 
 ## Summary
 
@@ -216,7 +216,7 @@ We've now seen the basics of C++ functions, including how to _declare_ and _defi
 
    You can code in C++ directly, or write a Python code first and convert it.
 
-2. Remember the factorial function in Python, which can be code up either via recursion
+2. Remember the factorial function in Python, which can be coded up either via recursion
 
     ```python
     def recursive_factorial(n):

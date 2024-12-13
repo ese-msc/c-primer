@@ -56,7 +56,7 @@ You'll see that in this case, the code looks very similar to the C example. In f
 
 ## Some key differences from Python
 
-1. Whitespace in your doesn't matter (although it still makes things easier to read when code is nicely formatted). Instead `{}` are used to define blocks of code.
+1. Whitespace in your code doesn't matter (although it still makes things easier to read when code is nicely formatted). Instead `{}` are used to define blocks of code.
 2. Individual statements *must* end with a `;`. It's easy to forget this at first, but the compiler will remind you (often in a way that's hard to understand until you are used to it).
 3. Rather than starting at the top of the file, the code starts running at the top of the `main` function. There can only be one `main` function in a given programme.
 4. Functions (and variables) _must_ have a fixed data type associated with them the first time they are declared.
@@ -70,7 +70,7 @@ Run the three different programs in Python, C and C++. You already know how to r
 
 Once you can run the programs, try using the variable based version to try changing the message:
 - What happens if you leave out the `\n` instruction in the C example?
-- Can you add a second line of text, fist in the same call to `printf`/`std::cout`, then by adding a second one?
+- Can you add a second line of text, first in the same call to `printf`/`std::cout`, then by adding a second one?
 
 
 ## Summary

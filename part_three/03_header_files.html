@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Header files and libraries &#8212; C/C++ Primer</title>
+    <title>Working with multiple files &#8212; C/C++ Primer</title>
   
   
   
@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part III: Beyond the Basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Header files and libraries</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_three.html">Further Exercises</a></li>
@@ -359,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Header files and libraries</h1>
+    <h1>Working with multiple files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -369,14 +372,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-multiple-files">Working with multiple files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-layout">Standard layout</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Working with multiple files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-layout">Standard layout</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -387,16 +391,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="header-files-and-libraries">
-<h1>Header files and libraries<a class="headerlink" href="#header-files-and-libraries" title="Permalink to this heading">#</a></h1>
+  <p>t# Header files and libraries</p>
 <section id="working-with-multiple-files">
-<span id="index-0"></span><h2>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this heading">#</a></h2>
+<span id="index-0"></span><h1>Working with multiple files<a class="headerlink" href="#working-with-multiple-files" title="Permalink to this heading">#</a></h1>
 <p>So far, we’ve always been writing code assuming that everything is is the same “compilation unit” (i.e. in the same file, compiled at the same time). This is fine for small programs, but as the amount of code increases, and as you begin working with other people, it can become very useful to divide your source code into multiple files.</p>
 <p>If there is a clear separation between the various components, then this is easy enough to do (the Advanced Programming course will cover some more of the details). However, more usually there will be at least one file which needs to call a function from another file. To do this, the calling file needs to have declarations (i.e. information on the return type and permissible arguments), but not defintions (i.e it doesn’t need the actual function code).</p>
-<p>We could just type up the declaration afresh every time it is used, but that violates the Don’t Repeat Yourself (DRY) programming principle. In particular, if you change the original function in a way which affects the definition, you then need to search out every since file which uses it, rather than changing in one place.</p>
+<p>We could just type up the declaration afresh every time it is used, but that violates the Don’t Repeat Yourself (DRY) programming principle. In particular, if you change the original function in a way which affects the definition, you then need to search out every single file which uses it, rather than changing in one place.</p>
 <p>Instead, the standard which has developed is to use the <code class="docutils literal notranslate"><span class="pre">#include</span></code> preprocessor directive to grab one canonical file containing the proper declarations. This file is called a <em>header file</em>, using the file extension <code class="docutils literal notranslate"><span class="pre">.h</span></code>, and you have already been using them implicitly in your coding whenever you’ve used an <code class="docutils literal notranslate"><span class="pre">#include</span></code> line.</p>
 <section id="standard-layout">
-<h3>Standard layout<a class="headerlink" href="#standard-layout" title="Permalink to this heading">#</a></h3>
+<h2>Standard layout<a class="headerlink" href="#standard-layout" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">#include</span></code> directive works by copying the text of the requested file directly into the file being worked on. Since the header file itself might have <code class="docutils literal notranslate"><span class="pre">#include</span></code> lines, this is an iterative process. To avoid infinite loops, or accidentally giving the same declaration twice, modern header files start with</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 
@@ -416,7 +419,7 @@ document.write(`
 </section>
 </section>
 <section id="libraries">
-<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h2>
+<h1>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h1>
 <p>To share code for others to use, there are two options in C/C++:</p>
 <ol class="arabic simple">
 <li><p>share the source files and let the user compile it together themselves</p></li>
@@ -427,12 +430,11 @@ document.write(`
 <p>To link in a compiled library (assuming you’ve already installed it), additional options must be set for your compiler. On the command line, this often means adding additional search paths (using the <code class="docutils literal notranslate"><span class="pre">-L</span></code> option) and library files to include. We won’t try to go into these details now, you will find out more during the course.</p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>We’ve had a brief look at the hows and whys of header files and writing code you can share with others. This concludes the formal part of the C++ primer, beyond some more exercises. If you have further questions (or have spotted any bugs) feel free to ask on Teams. The Advanced Programming team look forward to meeting you in the new year.</p>
 </section>
 <section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
-</section>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -498,14 +500,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-multiple-files">Working with multiple files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-layout">Standard layout</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Working with multiple files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-layout">Standard layout</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>

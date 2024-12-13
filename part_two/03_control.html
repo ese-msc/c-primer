@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_three/intro.html">Part III: Beyond the Basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
@@ -416,14 +419,15 @@ document.write(`
 <p id="index-2">As with Python, C++ has <code class="docutils literal notranslate"><span class="pre">while</span></code> loops which just test a termination statement, and continues to execute the loop block so long as it is true. As an example, lets write the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton's_method#Square_root">Newton Raphson</a> square root finder in Python and C++:</p>
 <p><em>for Python</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1.0e-6</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
 <p><em>for C++</em></p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">my_sqrt</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">){</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1.0e-8</span><span class="p">){</span>
 <span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -445,7 +449,7 @@ document.write(`
 </section>
 <section id="break-continue-and-exit">
 <h3>Break continue and exit<a class="headerlink" href="#break-continue-and-exit" title="Permalink to this heading">#</a></h3>
-<p id="index-4">The <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements are used inside loops to skip either all remaining iterations (for <code class="docutils literal notranslate"><span class="pre">break</span></code>) or the next iteration (for <code class="docutils literal notranslate"><span class="pre">continue</span></code>). These statements behave just like their Python equivalents, in that they only apply to the innermost loop of the function currently being executed, and can’t be used outside of a loop structure. To quit the entire program at once, you should use the <code class="docutils literal notranslate"><span class="pre">exit(1)</span></code> function, supplying an integer return value (remember, a zero return value is usually taken to mean things went ok, and an other value that something went )</p>
+<p id="index-4">The <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements are used inside loops to skip either all remaining iterations (for <code class="docutils literal notranslate"><span class="pre">break</span></code>) or the next iteration (for <code class="docutils literal notranslate"><span class="pre">continue</span></code>). These statements behave just like their Python equivalents, in that they only apply to the innermost loop of the function currently being executed, and can’t be used outside of a loop structure. To quit the entire program at once, you should use the <code class="docutils literal notranslate"><span class="pre">exit(1)</span></code> function, supplying an integer return value (remember, a zero return value is usually taken to mean things went ok, and any other value that something went wrong).</p>
 </section>
 </section>
 <section id="conditionals">

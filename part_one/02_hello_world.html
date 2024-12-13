@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_three/intro.html">Part III: Beyond the Basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
@@ -437,7 +440,7 @@ document.write(`
 <section id="some-key-differences-from-python">
 <h2>Some key differences from Python<a class="headerlink" href="#some-key-differences-from-python" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Whitespace in your doesn’t matter (although it still makes things easier to read when code is nicely formatted). Instead <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to define blocks of code.</p></li>
+<li><p>Whitespace in your code doesn’t matter (although it still makes things easier to read when code is nicely formatted). Instead <code class="docutils literal notranslate"><span class="pre">{}</span></code> are used to define blocks of code.</p></li>
 <li><p>Individual statements <em>must</em> end with a <code class="docutils literal notranslate"><span class="pre">;</span></code>. It’s easy to forget this at first, but the compiler will remind you (often in a way that’s hard to understand until you are used to it).</p></li>
 <li><p>Rather than starting at the top of the file, the code starts running at the top of the <code class="docutils literal notranslate"><span class="pre">main</span></code> function. There can only be one <code class="docutils literal notranslate"><span class="pre">main</span></code> function in a given programme.</p></li>
 <li><p>Functions (and variables) <em>must</em> have a fixed data type associated with them the first time they are declared.</p></li>
@@ -449,7 +452,7 @@ document.write(`
 <p>Once you can run the programs, try using the variable based version to try changing the message:</p>
 <ul class="simple">
 <li><p>What happens if you leave out the <code class="docutils literal notranslate"><span class="pre">\n</span></code> instruction in the C example?</p></li>
-<li><p>Can you add a second line of text, fist in the same call to <code class="docutils literal notranslate"><span class="pre">printf</span></code>/<code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, then by adding a second one?</p></li>
+<li><p>Can you add a second line of text, first in the same call to <code class="docutils literal notranslate"><span class="pre">printf</span></code>/<code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, then by adding a second one?</p></li>
 </ul>
 </section>
 <section id="summary">

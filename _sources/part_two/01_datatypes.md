@@ -27,7 +27,7 @@ The core modifiers are:
 The core qualifiers are:
 
 - `const` to declare that the underlying data will not change during its lifetime. Used together with a datatype such as `int` or `char`(which might have a modifier attached).
-- `volatile` to declare that the underlying data might change at very short notice (this isn't likely to be useful on regular computers, but can be very important on embeded systems).
+- `volatile` to declare that the underlying data might change at very short notice (this isn't likely to be useful on regular computers, but can be very important on embedded systems).
 
 The core specifiers are:
 - `register` to declare that the variable should be stored in a register (i.e. a very fast memory location) rather than in RAM. This is only a suggestion to the compiler, and is likely to be ignored in modern systems.
@@ -93,7 +93,7 @@ is permissible, and will probably do what you want. If it doesn't, or if in doub
 ```c++
 std::cout << 8/3;
 ```
-will print `2` (integer division, equivalent to the Python `//` operator shows the value without remainder), whereas
+will print `2` (integer division, equivalent to the Python `//` operator, which shows the value without remainder), whereas
 ```c++
 std::cout << (double)8/3;
 ```
@@ -109,7 +109,7 @@ The syntax is
 
 ```
 enum Foo { a, b, c = 8, d, e = 1, f, g = c + c };
-//a = 0, b = 1, c = 8, d = 9, e = 1, f = 2, g = 10
+//a = 0, b = 1, c = 8, d = 9, e = 1, f = 2, g = 16
 ```
 where the comment describes the value assigned. These constants are most useful when the name is descriptive. Let's define a function as an example:
 

@@ -191,7 +191,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_three/intro.html">Part III: Beyond the Basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
@@ -432,7 +435,7 @@ document.write(`
 </section>
 <section id="pass-by-value">
 <h3>Pass by value<a class="headerlink" href="#pass-by-value" title="Permalink to this heading">#</a></h3>
-<p id="index-2">C (and C++ by default) uses a calling pattern called “pass by value”, in which a new copy of the input variables are created, and set to the evaluated value which the calling function passes in. Amoung other things, this means that changes to a scalar variable inside a function don’t pass back out</p>
+<p id="index-2">C (and C++ by default) uses a calling pattern called “pass by value”, in which a new copy of the input variables are created, and set to the evaluated value which the calling function passes in. Among other things, this means that changes to a scalar variable inside a function don’t pass back out</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="nf">add_three</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">){</span>
 <span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Only changes the value of the local a</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span>
@@ -553,7 +556,7 @@ document.write(`
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Unlike Python however, C++ does <em>not</em> currently support keyword (a.k.a parameter names) in argment lists. The only way to identify which argument is which is by the order they appear in the calling list.</p>
+<p>Unlike Python however, C++ does <em>not</em> currently support keyword (a.k.a parameter names) in argument lists. The only way to identify which argument is which is by the order they appear in the calling list.</p>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
@@ -570,7 +573,7 @@ document.write(`
 </ul>
 <p>You can code in C++ directly, or write a Python code first and convert it.</p>
 </li>
-<li><p>Remember the factorial function in Python, which can be code up either via recursion</p>
+<li><p>Remember the factorial function in Python, which can be coded up either via recursion</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recursive_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>

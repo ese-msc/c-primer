@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Part III: Beyond the Basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exercises_three.html">Further Exercises</a></li>
@@ -395,7 +398,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="combining-c-and-python">
 <h1>Combining C and Python<a class="headerlink" href="#combining-c-and-python" title="Permalink to this heading">#</a></h1>
-<p>The standard Python interpretter is written in C, and it’s possible to write Python modules in C or C++ to improve performance. This not strictly within the scope of the course, but if you’re interested, you can find more information in the <a class="reference external" href="https://docs.python.org/3/extending/extending.html">Python documentation</a>.</p>
+<p>The standard Python interpreter is written in C, and it’s possible to write Python modules in C or C++ to improve performance. This not strictly within the scope of the course, but if you’re interested, you can find more information in the <a class="reference external" href="https://docs.python.org/3/extending/extending.html">Python documentation</a>.</p>
 <section id="a-concrete-example">
 <h2>A concrete example<a class="headerlink" href="#a-concrete-example" title="Permalink to this heading">#</a></h2>
 <p>As a (relatively) simple example, let’s look at a C++ function which takes a list of numbers and returns the sum of the squares of the numbers. We’ll then write a wrapper to call this function from Python.</p>
@@ -419,7 +422,7 @@ document.write(`
 </section>
 <section id="the-python-wrapper">
 <h4>The Python wrapper<a class="headerlink" href="#the-python-wrapper" title="Permalink to this heading">#</a></h4>
-<p>The Python wrapper is a little more complicated, but not much. We need to include the Python header file, and then define a function which takes a Python object as an argument, and returns a Python object back to the interpretter. The cored function itself is very simple, it just converts the Python object into a C array, calls the C function, and then converts the result back into a Python object.</p>
+<p>The Python wrapper is a little more complicated, but not much. We need to include the Python header file, and then define a function which takes a Python object as an argument, and returns a Python object back to the interpreter. The core function itself is very simple, it just converts the Python object into a C array, calls the C function, and then converts the result back into a Python object.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// These two lines are required to use the Python/C API</span>
 <span class="cp">#define PY_SSIZE_T_CLEAN</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Python.h&gt;</span>

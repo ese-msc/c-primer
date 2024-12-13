@@ -189,7 +189,10 @@ const thebe_selector_output = ".cell_input div.highlight"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../part_three/intro.html">Part III: Beyond the Basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/01_pointers.html">Pointers - a window to variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/02_structs.html">Structures &amp; Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Header files and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../part_three/03_header_files.html">Working with multiple files</a></li>
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="../part_three/04_build_systems.html">Build Systems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/05_combining_with_python.html">Combining C and Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../part_three/exercises_three.html">Further Exercises</a></li>
@@ -395,7 +398,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="compiling-running-c-code">
 <h1>Compiling &amp; Running C++ Code<a class="headerlink" href="#compiling-running-c-code" title="Permalink to this heading">#</a></h1>
-<p id="index-0">Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpretter session or a Jupyter notebook, C &amp; C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.</p>
+<p id="index-0">Whereas Python is mostly fairly simple to get working with straight away, especially when working in interactive mode in a terminal interpreter session or a Jupyter notebook, C &amp; C++ have a few extra hurdles before you can get the computer to run your code. Your program must be compiled (and sometimes linked to other external standard or third party libraries) to produce a separate executable file containing native machine instructions for your system, before that file can be run to finaly solve your problem. In this section we present a number of ways of approaching this, listed in order of ease of use.</p>
 <section id="web-based-solutions">
 <h2>Web based solutions<a class="headerlink" href="#web-based-solutions" title="Permalink to this heading">#</a></h2>
 <p id="index-1">There are a variety of platforms which will allow you to run small one file C &amp; C++ programs or code snippets directly from your browser. A (non-exhaustive) list of examples includes:</p>
@@ -436,7 +439,7 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
-<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal</p>
+<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">14</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>

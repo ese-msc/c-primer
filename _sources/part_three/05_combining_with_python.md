@@ -1,6 +1,6 @@
 # Combining C and Python
 
-The standard Python interpretter is written in C, and it's possible to write Python modules in C or C++ to improve performance. This not strictly within the scope of the course, but if you're interested, you can find more information in the [Python documentation](https://docs.python.org/3/extending/extending.html).
+The standard Python interpreter is written in C, and it's possible to write Python modules in C or C++ to improve performance. This not strictly within the scope of the course, but if you're interested, you can find more information in the [Python documentation](https://docs.python.org/3/extending/extending.html).
 
 ## A concrete example
 
@@ -31,7 +31,7 @@ int sum_of_squares(int* numbers, int length){
 
 #### The Python wrapper
 
-The Python wrapper is a little more complicated, but not much. We need to include the Python header file, and then define a function which takes a Python object as an argument, and returns a Python object back to the interpretter. The cored function itself is very simple, it just converts the Python object into a C array, calls the C function, and then converts the result back into a Python object.
+The Python wrapper is a little more complicated, but not much. We need to include the Python header file, and then define a function which takes a Python object as an argument, and returns a Python object back to the interpreter. The core function itself is very simple, it just converts the Python object into a C array, calls the C function, and then converts the result back into a Python object.
 
 ```c++
 // These two lines are required to use the Python/C API
