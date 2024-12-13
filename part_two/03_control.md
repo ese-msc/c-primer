@@ -68,7 +68,7 @@ do {
 ```{index} break, continue
 ```
 
-The `break` and `continue` statements are used inside loops to skip either all remaining iterations (for `break`) or the next iteration (for `continue`). These statements behave just like their Python equivalents, in that they only apply to the innermost loop of the function currently being executed, and can't be used outside of a loop structure. To quit the entire program at once, you should use the `exit(1)` function, supplying an integer return value (remember, a zero return value is usually taken to mean things went ok, and an other value that something went ) 
+The `break` and `continue` statements are used inside loops to skip either all remaining iterations (for `break`) or the next iteration (for `continue`). These statements behave just like their Python equivalents, in that they only apply to the innermost loop of the function currently being executed, and can't be used outside of a loop structure. To quit the entire program at once, you should use the `exit(1)` function, supplying an integer return value (remember, a zero return value is usually taken to mean things went ok, and any other value that something went wrong).
 
 
 ## Conditionals
