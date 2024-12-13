@@ -62,7 +62,7 @@ Most Mac users on the course will already have Homebrew installed, but for those
 brew install gcc
 ```
 
-will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having openned a new terminal) you can confirm that things work by running the following command in a terminal
+will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
 gcc-14 --version
