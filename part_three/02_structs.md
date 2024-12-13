@@ -6,7 +6,7 @@
 ```
 
 Given the basic data types, an obvious thing to do is to combine them into useful named quantities. For example in the context of a medical record, a person might have a name, an age
-and a height. In C++ we can encode all of this into a user defined date type as:
+and a height. In C++ we can encode all of this into a user defined data type as:
 
 ```c++
 struct person_t {
@@ -20,7 +20,7 @@ and then use it in most of the ways we would a basic datatype, e.g. in a functio
 ```c++
 #include <string.h> // for strcpy to copy strings into memory
 
-person_t initialize_person(char* name, int age, float heigh){
+person_t initialize_person(char* name, int age, float height){
     person_t person;
     strcpy(person.name, name);
     person.age = age;
