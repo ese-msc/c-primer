@@ -142,7 +142,7 @@ For Windows users only, you can also obtain the Microsoft C/C++ compiler (MSVC) 
 To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
 
 ```{note}
-While MSVC and Visual Studio are a powerful combi, we will not be using them much in the Advanced Programming module. For those of you who go on to study Patterns for Parallel Programming (ACSE), you will likely see this IDE/compiler combination in more detail.
+While MSVC and Visual Studio are a powerful combo, we will not be using them much in the Advanced Programming module. For those of you who go on to study Patterns for Parallel Programming (ACSE), you will likely see this IDE/compiler combination in more detail.
 ```
 
 ## Summary
