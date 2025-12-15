@@ -10,41 +10,22 @@ Whereas Python is mostly fairly simple to get working with straight away, especi
 
 There are a variety of platforms which will allow you to run small one file C & C++ programs or code snippets directly from your browser. A (non-exhaustive) list of examples includes:
 - [Replit](https://replit.com/languages/cpp)
-- [Codepad](https://codepad.org/)
+- [Codepad](https://codepad.app/)
 - [Ideone](https://ideone.com/)
 
 ![](images/replit.jpeg)
 
 On each of these platforms you can cut & paste code from the examples in this primer, and then run the code to generate output, usually with a single click of the mouse on the button labelled `Run`. Note that not all platforms will let you interact with your code while it runs (Replit will, as well as linking to your GitHub account if you'd like to save your work).
 
-## Visual Studio Code & Devcontainers
-```{index} compiling: via docker
-```
-
-A more local option is to take advantage of the combined power of Docker and Visual Studio Code to provide files which again you can often compile with one click.
-
-![](images/vscode.png)
-
-To begin, fork the accompanying [examples repository](https://github.com/ese-msc/c-examples) and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner "Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).". Select "Reopen in Container". This will restart the VS Code editor window, while connecting to a Docker container build from the repository [C examples Dockerfile](https://ese-msc/c-examples/.devcontainer/Dockerfile). This container has `git` and `Python` installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.
-
-For simple, non-interactive C++ programmes contained in a single file, you can now build & run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file `hello.cpp` in the current directory) a command like:
-
-```
-g++ -o hello hello.cpp
-./hello
-```
-
-Here `g++` is the name of the linux GNU C++ compiler, the `-o` option specifies the name of the output executable file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
-
 ## Compiling natively
+A more long-term solution, and what you will be using during the Advanced Programming module, is to use a local compiler on your computer. There are many options out there, which depend on which operating system you are using. The following are some popular options available to you.
 
-### Windows: Visual Studio
-```{index} compiling:windows native
+```{important} In the **Advanced Programming** module in 2025-26, we will be using the following IDE and compiler combination: 
+- VS Code
+- `gcc` version 15
+
+Please see below for how to install this combination on the relevant operating system for your laptop.
 ```
-
-For Windows users only, you can obtain the Microsoft C/C++ compiler by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
-
-To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
 
 ### Apple Macs: `gcc` or `clang`
 ```{index} compiling:mac
@@ -62,17 +43,17 @@ Most Mac users on the course will already have Homebrew installed, but for those
 brew install gcc
 ```
 
-will install a recent version of `gcc` (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal
+will install a recent version of `gcc` (version 15 as of early December 2025) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal
 
 ```
-gcc-14 --version
+gcc-15 --version
 ```
 
 You should see a response something like
 
 ```
-gcc-14 (Homebrew GCC 14.2.0) 13.4.0
-Copyright (C) 2024 Free Software Foundation, Inc.
+gcc-15 (Homebrew GCC 15.2.0) 15.2.0
+Copyright (C) 2025 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions. There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -80,11 +61,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 To compile a C++ file called `hello.cpp` into an exectuable called `hello`, then run it, use a command like
 
 ```
-g++-14 -o hello hello.cpp
+g++-15 -o hello hello.cpp
 ./hello
 ```
 
-Here `g++-14` is the name of your new GNU C++ compiler (specifically, version number 14), the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable file which we have just compiled.
+Here `g++-15` is the name of your new GNU C++ compiler (specifically, version number 14), the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable file which we have just compiled.
 
 Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.
 
@@ -101,8 +82,8 @@ cc --version
 You should see a response something like
 
 ```
-Apple clang version 19.1.4 (clang-1900.1.4.202)
-Target: arm64-apple-darwin21.6.0
+Apple clang version 17.0.0 (clang-1700.4.4.1)
+Target: arm64-apple-darwin24.6.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
@@ -137,8 +118,8 @@ gcc --version
 You should see a response something like
 
 ```
-gcc (Ubuntu 11.4.0-1unintu1~22.04) 11.4.0
-Copyright (C) 2021 Free Software Foundation, Inc.
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions. There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -151,6 +132,19 @@ g++ -o hello hello.cpp
 ```
 
 Here `g++` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+
+
+### Windows: Visual Studio
+```{index} compiling:windows native
+```
+
+For Windows users only, you can also obtain the Microsoft C/C++ compiler (MSVC) by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
+
+To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
+
+```{note}
+While MSVC and Visual Studio are a powerful combo, we will not be using them much in the Advanced Programming module. For those of you who go on to study Patterns for Parallel Programming (ACSE), you will likely see this IDE/compiler combination in more detail.
+```
 
 ## Summary
 

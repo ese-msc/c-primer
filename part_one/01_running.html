@@ -373,15 +373,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-based-solutions">Web based solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-devcontainers">Visual Studio Code &amp; Devcontainers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-natively">Compiling natively</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-visual-studio">Windows: Visual Studio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-macs-gcc-or-clang">Apple Macs: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcc-homebrew-and-vs-code">gcc, homebrew and VS code</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xcode">Xcode</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-wsl-gcc-or-clang">Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-visual-studio">Windows: Visual Studio</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
@@ -404,34 +403,27 @@ document.write(`
 <p id="index-1">There are a variety of platforms which will allow you to run small one file C &amp; C++ programs or code snippets directly from your browser. A (non-exhaustive) list of examples includes:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://replit.com/languages/cpp">Replit</a></p></li>
-<li><p><a class="reference external" href="https://codepad.org/">Codepad</a></p></li>
+<li><p><a class="reference external" href="https://codepad.app/">Codepad</a></p></li>
 <li><p><a class="reference external" href="https://ideone.com/">Ideone</a></p></li>
 </ul>
 <p><img alt="" src="../_images/replit.jpeg" /></p>
 <p>On each of these platforms you can cut &amp; paste code from the examples in this primer, and then run the code to generate output, usually with a single click of the mouse on the button labelled <code class="docutils literal notranslate"><span class="pre">Run</span></code>. Note that not all platforms will let you interact with your code while it runs (Replit will, as well as linking to your GitHub account if you’d like to save your work).</p>
 </section>
-<section id="visual-studio-code-devcontainers">
-<h2>Visual Studio Code &amp; Devcontainers<a class="headerlink" href="#visual-studio-code-devcontainers" title="Permalink to this heading">#</a></h2>
-<p id="index-2">A more local option is to take advantage of the combined power of Docker and Visual Studio Code to provide files which again you can often compile with one click.</p>
-<p><img alt="" src="../_images/vscode.png" /></p>
-<p>To begin, fork the accompanying <a class="reference external" href="https://github.com/ese-msc/c-examples">examples repository</a> and download it, then with Docker desktop running, open your local repository in VS code. You will be presented with a query banner “Folder contains a Dev Container configuration file. Reopen folder to develop in a container (learn more).”. Select “Reopen in Container”. This will restart the VS Code editor window, while connecting to a Docker container build from the repository <a class="reference external" href="https://ese-msc/c-examples/.devcontainer/Dockerfile">C examples Dockerfile</a>. This container has <code class="docutils literal notranslate"><span class="pre">git</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span></code> installed, together a working linux C++ compiler (the GNU compiler) and some useful VS Code extensions installed.</p>
-<p>For simple, non-interactive C++ programmes contained in a single file, you can now build &amp; run them with the Run Code button (ctrl+alt+N). For interactive files, you will need to run the program yourself using (for a file <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> in the current directory) a command like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
-<span class="o">./</span><span class="n">hello</span>
-</pre></div>
-</div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">g++</span></code> is the name of the linux GNU C++ compiler, the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output executable file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable.</p>
-</section>
 <section id="compiling-natively">
 <h2>Compiling natively<a class="headerlink" href="#compiling-natively" title="Permalink to this heading">#</a></h2>
-<section id="windows-visual-studio">
-<h3>Windows: Visual Studio<a class="headerlink" href="#windows-visual-studio" title="Permalink to this heading">#</a></h3>
-<p id="index-3">For Windows users only, you can obtain the Microsoft C/C++ compiler by downloading the Visual Studio community package <a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">here</a>. Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.</p>
-<p>To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the <code class="docutils literal notranslate"><span class="pre">console</span> <span class="pre">application</span></code> template project, and modify the default file appropriately. We can then compile and run our source using the <code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">Windows</span> <span class="pre">Debugger</span></code> play button, or  the <code class="docutils literal notranslate"><span class="pre">Debug&gt;Start</span> <span class="pre">Debugging</span> <span class="pre">(F5)</span></code> menu option.</p>
-</section>
+<p>A more long-term solution, and what you will be using during the Advanced Programming module, is to use a local compiler on your computer. There are many options out there, which depend on which operating system you are using. The following are some popular options available to you.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In the <strong>Advanced Programming</strong> module in 2025-26, we will be using the following IDE and compiler combination:</p>
+<ul class="simple">
+<li><p>VS Code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc</span></code> version 15</p></li>
+</ul>
+<p>Please see below for how to install this combination on the relevant operating system for your laptop.</p>
+</div>
 <section id="apple-macs-gcc-or-clang">
 <h3>Apple Macs: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code><a class="headerlink" href="#apple-macs-gcc-or-clang" title="Permalink to this heading">#</a></h3>
-<p id="index-4">Mac users have a number of routes to set up their system for C++. We recommend the first method (i.e gcc) given below, since it provides most scope to expand later, but for completeness we also document the route to install the Apple C compilers and work with homebrew.</p>
+<p id="index-2">Mac users have a number of routes to set up their system for C++. We recommend the first method (i.e gcc) given below, since it provides most scope to expand later, but for completeness we also document the route to install the Apple C compilers and work with homebrew.</p>
 <section id="gcc-homebrew-and-vs-code">
 <h4>gcc, homebrew and VS code<a class="headerlink" href="#gcc-homebrew-and-vs-code" title="Permalink to this heading">#</a></h4>
 <p>The open source third-party mac package manager <a class="reference external" href="https://brew.sh/">Homebrew</a> provides preconfigured versions of a number of unix-like packages, including versions of the GNU C/C++ compilers.</p>
@@ -439,23 +431,23 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gcc</span>
 </pre></div>
 </div>
-<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 14 as of early December 2024) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">14</span> <span class="o">--</span><span class="n">version</span>
+<p>will install a recent version of <code class="docutils literal notranslate"><span class="pre">gcc</span></code> (version 15 as of early December 2025) as well as placing it in your standard path. Once installed, (and having opened a new terminal) you can confirm that things work by running the following command in a terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">15</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">14</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">14.2.0</span><span class="p">)</span> <span class="mf">13.4.0</span>
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2024</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="mi">15</span> <span class="p">(</span><span class="n">Homebrew</span> <span class="n">GCC</span> <span class="mf">15.2.0</span><span class="p">)</span> <span class="mf">15.2.0</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2025</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
 <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>To compile a C++ file called <code class="docutils literal notranslate"><span class="pre">hello.cpp</span></code> into an exectuable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, then run it, use a command like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">14</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++-</span><span class="mi">15</span> <span class="o">-</span><span class="n">o</span> <span class="n">hello</span> <span class="n">hello</span><span class="o">.</span><span class="n">cpp</span>
 <span class="o">./</span><span class="n">hello</span>
 </pre></div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">g++-14</span></code> is the name of your new GNU C++ compiler (specifically, version number 14), the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable file which we have just compiled.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">g++-15</span></code> is the name of your new GNU C++ compiler (specifically, version number 14), the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable file which we have just compiled.</p>
 <p>Remember, we only need to compile once, and then we can run the executable as many times as we like. If we make any changes to the source code, we must recompile before we can run the new version and see the results.</p>
 </section>
 <section id="xcode">
@@ -466,8 +458,8 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">19.1.4</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1900.1.4.202</span><span class="p">)</span>
-<span class="n">Target</span><span class="p">:</span> <span class="n">arm64</span><span class="o">-</span><span class="n">apple</span><span class="o">-</span><span class="n">darwin21</span><span class="mf">.6.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="n">clang</span> <span class="n">version</span> <span class="mf">17.0.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1700.4.4.1</span><span class="p">)</span>
+<span class="n">Target</span><span class="p">:</span> <span class="n">arm64</span><span class="o">-</span><span class="n">apple</span><span class="o">-</span><span class="n">darwin24</span><span class="mf">.6.0</span>
 <span class="n">Thread</span> <span class="n">model</span><span class="p">:</span> <span class="n">posix</span>
 <span class="n">InstalledDir</span><span class="p">:</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span>
 </pre></div>
@@ -483,7 +475,7 @@ document.write(`
 </section>
 <section id="linux-wsl-gcc-or-clang">
 <h3>Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code><a class="headerlink" href="#linux-wsl-gcc-or-clang" title="Permalink to this heading">#</a></h3>
-<p id="index-5">Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can’t hope to cover all of them, but for some of the more popular ones:</p>
+<p id="index-3">Linux users are likely to find C compilers are either installed by default on most desktop distributions, or readily installable via the system package manager. Given the wide range of distributions in use, we can’t hope to cover all of them, but for some of the more popular ones:</p>
 <ul class="simple">
 <li><p>On Ubuntu/Debian (including WSL), use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></p></li>
 <li><p>On Arch Linux, use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">gcc</span></code></p></li>
@@ -494,8 +486,8 @@ document.write(`
 </pre></div>
 </div>
 <p>You should see a response something like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span> <span class="p">(</span><span class="n">Ubuntu</span> <span class="mf">11.4.0</span><span class="o">-</span><span class="mi">1</span><span class="n">unintu1</span><span class="o">~</span><span class="mf">22.04</span><span class="p">)</span> <span class="mf">11.4.0</span>
-<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2021</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gcc</span> <span class="p">(</span><span class="n">Ubuntu</span> <span class="mf">13.3.0</span><span class="o">-</span><span class="mi">6</span><span class="n">ubuntu2</span><span class="o">~</span><span class="mf">24.04</span><span class="p">)</span> <span class="mf">13.3.0</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2023</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">free</span> <span class="n">software</span><span class="p">;</span> <span class="n">see</span> <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">copying</span> <span class="n">conditions</span><span class="o">.</span> <span class="n">There</span> <span class="ow">is</span> <span class="n">NO</span>
 <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
@@ -506,6 +498,15 @@ document.write(`
 </pre></div>
 </div>
 <p>Here <code class="docutils literal notranslate"><span class="pre">g++</span></code> is the name of your new GNU C++ compiler, the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option specifies the name of the output file (the default is <code class="docutils literal notranslate"><span class="pre">a.out</span></code>) and we must list the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> source file to compile into it. The second line then runs our new executable.</p>
+</section>
+<section id="windows-visual-studio">
+<h3>Windows: Visual Studio<a class="headerlink" href="#windows-visual-studio" title="Permalink to this heading">#</a></h3>
+<p id="index-4">For Windows users only, you can also obtain the Microsoft C/C++ compiler (MSVC) by downloading the Visual Studio community package <a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">here</a>. Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.</p>
+<p>To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the <code class="docutils literal notranslate"><span class="pre">console</span> <span class="pre">application</span></code> template project, and modify the default file appropriately. We can then compile and run our source using the <code class="docutils literal notranslate"><span class="pre">Local</span> <span class="pre">Windows</span> <span class="pre">Debugger</span></code> play button, or  the <code class="docutils literal notranslate"><span class="pre">Debug&gt;Start</span> <span class="pre">Debugging</span> <span class="pre">(F5)</span></code> menu option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While MSVC and Visual Studio are a powerful combo, we will not be using them much in the Advanced Programming module. For those of you who go on to study Patterns for Parallel Programming (ACSE), you will likely see this IDE/compiler combination in more detail.</p>
+</div>
 </section>
 </section>
 <section id="summary">
@@ -579,15 +580,14 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-based-solutions">Web based solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-devcontainers">Visual Studio Code &amp; Devcontainers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-natively">Compiling natively</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-visual-studio">Windows: Visual Studio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apple-macs-gcc-or-clang">Apple Macs: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcc-homebrew-and-vs-code">gcc, homebrew and VS code</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#xcode">Xcode</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux-wsl-gcc-or-clang">Linux/WSL: <code class="docutils literal notranslate"><span class="pre">gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">clang</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-visual-studio">Windows: Visual Studio</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>

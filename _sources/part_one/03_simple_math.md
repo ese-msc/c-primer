@@ -122,7 +122,7 @@ int main(void){
         y[i] = y[i-1] + h*f(y[i-1]);
     }
 
-    for (int i=0; i<n; i++) {
+    for (int i=0; i<=nsteps; i++) {
         std::cout << t[i] << " " << y[i] << std::endl;
     }
 
