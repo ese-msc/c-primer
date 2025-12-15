@@ -23,6 +23,7 @@ A more long-term solution, and what you will be using during the Advanced Progra
 ```{important} In the **Advanced Programming** module in 2025-26, we will be using the following IDE and compiler combination: 
 - VS Code
 - `gcc` version 15
+
 Please see below for how to install this combination on the relevant operating system for your laptop.
 ```
 
