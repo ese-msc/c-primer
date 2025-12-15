@@ -20,13 +20,11 @@ On each of these platforms you can cut & paste code from the examples in this pr
 ## Compiling natively
 A more long-term solution, and what you will be using during the Advanced Programming module, is to use a local compiler on your computer. There are many options out there, which depend on which operating system you are using. The following are some popular options available to you.
 
-### Windows: Visual Studio
-```{index} compiling:windows native
+```{important} In the **Advanced Programming** module in 2025-26, we will be using the following IDE and compiler combination: 
+- VS Code
+- `gcc` version 15
+Please see below for how to install this combination on the relevant operating system for your laptop.
 ```
-
-For Windows users only, you can obtain the Microsoft C/C++ compiler (MSVC) by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
-
-To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
 
 ### Apple Macs: `gcc` or `clang`
 ```{index} compiling:mac
@@ -133,6 +131,19 @@ g++ -o hello hello.cpp
 ```
 
 Here `g++` is the name of your new GNU C++ compiler, the `-o` option specifies the name of the output file (the default is `a.out`) and we must list the `.cpp` source file to compile into it. The second line then runs our new executable.
+
+
+### Windows: Visual Studio
+```{index} compiling:windows native
+```
+
+For Windows users only, you can also obtain the Microsoft C/C++ compiler (MSVC) by downloading the Visual Studio community package [here](https://visualstudio.microsoft.com/vs/community/). Visual Studio is a sister package to Visual Studio Code, which combines build tools for several programming languages along with an Integrating Development Environment (IDE) to code them in.
+
+To compile a file, we must create a matching Visual Studio solution file. For a one line program, the easiest way to do this is to start from the `console application` template project, and modify the default file appropriately. We can then compile and run our source using the `Local Windows Debugger` play button, or  the `Debug>Start Debugging (F5)` menu option.
+
+```{note}
+While MSVC and Visual Studio are a powerful combi, we will not be using them much in the Advanced Programming module. For those of you who go on to study Patterns for Parallel Programming (ACSE), you will likely see this IDE/compiler combination in more detail.
+```
 
 ## Summary
 
